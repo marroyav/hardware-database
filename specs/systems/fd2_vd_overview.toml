@@ -1,0 +1,184 @@
+[system]
+key = "fd2_vd_overview"
+name = "FD2-VD Detector Overview"
+short_name = "FD2-VD Overview"
+detector = "FD2-VD"
+description = "Top-level system and interface view derived from the FD-VD hierarchy deck."
+source_document = "HWDB_FD-VD_hierarchy.pptx"
+notes = "This seed captures detector-level structure and dependencies. It is intentionally coarser than the consortium-specific system specs."
+
+[[components]]
+key = "fd2_vd_detector"
+name = "FD2-VD Complete Detector"
+category = "hardware"
+description = "Top-level detector node used for overview graphs."
+
+[[components]]
+key = "vd_superstructure"
+name = "Superstructure (SST)"
+category = "hardware"
+description = "Support structure carrying CRPs and related instrumentation."
+
+[[components]]
+key = "vd_crp"
+name = "Top CRP"
+category = "hardware"
+description = "Charge readout planes and their mechanical hierarchy."
+
+[[components]]
+key = "vd_tde"
+name = "TDE"
+category = "electronics"
+description = "Top drift electronics, SGFT chimneys, uTCA crates, timing, and support systems."
+
+[[components]]
+key = "vd_bde"
+name = "BDE"
+category = "electronics"
+description = "Bottom drift electronics and readout chain."
+
+[[components]]
+key = "vd_pds_cathode"
+name = "PDS Cathode Modules"
+category = "electronics"
+description = "Cathode-mounted photon detection system path."
+
+[[components]]
+key = "vd_pds_membrane"
+name = "PDS Membrane Modules"
+category = "electronics"
+description = "Membrane-mounted photon detection system path."
+
+[[components]]
+key = "vd_hv_cathode"
+name = "HV Cathode"
+category = "hardware"
+description = "Cathode plane, suspension, and interconnect system."
+
+[[components]]
+key = "vd_field_cage"
+name = "Field Cage"
+category = "hardware"
+description = "Field cage super modules and terminations."
+
+[[components]]
+key = "vd_ci"
+name = "Cryogenic Instrumentation"
+category = "sensor"
+description = "RTDs, gas arrays, and associated readout chain."
+
+[[components]]
+key = "vd_daq"
+name = "DAQ"
+category = "electronics"
+description = "DAQ and downstream readout interfaces shown in the hierarchy deck."
+
+[[relations]]
+source = "fd2_vd_overview"
+target = "fd2_vd_detector"
+type = "contains"
+tags = ["overview", "hierarchy"]
+
+[[relations]]
+source = "fd2_vd_detector"
+target = "vd_superstructure"
+type = "contains"
+tags = ["overview", "hierarchy"]
+
+[[relations]]
+source = "fd2_vd_detector"
+target = "vd_hv_cathode"
+type = "contains"
+tags = ["overview", "hierarchy"]
+
+[[relations]]
+source = "fd2_vd_detector"
+target = "vd_field_cage"
+type = "contains"
+tags = ["overview", "hierarchy"]
+
+[[relations]]
+source = "fd2_vd_detector"
+target = "vd_ci"
+type = "contains"
+tags = ["overview", "hierarchy"]
+
+[[relations]]
+source = "fd2_vd_detector"
+target = "vd_daq"
+type = "contains"
+tags = ["overview", "hierarchy"]
+
+[[relations]]
+source = "vd_superstructure"
+target = "vd_crp"
+type = "contains"
+tags = ["overview", "hierarchy"]
+description = "The hierarchy deck places CRPs under the instrumented superstructure."
+
+[[relations]]
+source = "vd_superstructure"
+target = "vd_ci"
+type = "contains"
+tags = ["overview", "hierarchy"]
+description = "Level meters and gas arrays are shown as part of the SST-related instrumentation."
+
+[[relations]]
+source = "vd_crp"
+target = "vd_tde"
+type = "interfaces_with"
+tags = ["overview", "dependency"]
+description = "CRP signal and timing paths terminate at the TDE chimneys and flanges."
+
+[[relations]]
+source = "vd_crp"
+target = "vd_bde"
+type = "interfaces_with"
+tags = ["overview", "dependency"]
+description = "The detector overview deck couples CRUs to the BDE chain."
+
+[[relations]]
+source = "vd_bde"
+target = "vd_daq"
+type = "reads_out"
+tags = ["overview", "dependency"]
+
+[[relations]]
+source = "vd_tde"
+target = "vd_daq"
+type = "reads_out"
+tags = ["overview", "dependency"]
+
+[[relations]]
+source = "vd_hv_cathode"
+target = "vd_pds_cathode"
+type = "contains"
+tags = ["overview", "hierarchy"]
+description = "The hierarchy deck shows cathode-mounted PDS modules as children of the cathode structures."
+
+[[relations]]
+source = "vd_field_cage"
+target = "vd_pds_membrane"
+type = "contains"
+tags = ["overview", "hierarchy"]
+description = "The hierarchy deck shows membrane PDS modules attached along field-cage-related structures."
+
+[[relations]]
+source = "vd_pds_cathode"
+target = "vd_bde"
+type = "interfaces_with"
+tags = ["overview", "dependency"]
+description = "Cathode PDS paths feed the BDE/PDS chimney chain."
+
+[[relations]]
+source = "vd_pds_membrane"
+target = "vd_bde"
+type = "interfaces_with"
+tags = ["overview", "dependency"]
+
+[[relations]]
+source = "vd_hv_cathode"
+target = "vd_field_cage"
+type = "interfaces_with"
+tags = ["overview", "dependency"]
+description = "Cathode interconnects bridge the cathode and field-cage systems."

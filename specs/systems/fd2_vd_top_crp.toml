@@ -1,0 +1,428 @@
+[system]
+key = "fd2_vd_top_crp"
+name = "FD2-VD Top Charge Readout Planes"
+short_name = "Top CRP"
+detector = "FD2-VD"
+pid_prefix = "055"
+description = "Top CRP mechanical and cable hierarchy for the vertical drift detector."
+source_document = "3402888_DID_HWDB_TOP_CRP_March08_2026-2.docx"
+notes = "Seeded from the March 8, 2026 CRP interface document. Signal cables and cable trays are included because the document explicitly extends to instrumented CRP objects."
+
+[[subsystems]]
+key = "complete_crp"
+id = "001"
+name = "Complete CRP"
+description = "Top-level CRP assembly composed of two CRUs."
+
+[[subsystems]]
+key = "half_crp"
+id = "002"
+name = "Half CRP / CRU"
+description = "Minimal assembly unit commonly referred to as a CRU."
+
+[[subsystems]]
+key = "anode_panels"
+id = "003"
+name = "CRU Anode Panels"
+description = "Collection and shield anode panels."
+
+[[subsystems]]
+key = "spacers"
+id = "004"
+name = "PEEK Spacers"
+description = "Spacers defining the anode gap."
+
+[[subsystems]]
+key = "pcb_segments"
+id = "005"
+name = "PCB Anode Segments"
+description = "Segment-level PCB batches used to build anodes."
+
+[[subsystems]]
+key = "adapter_boards"
+id = "006"
+name = "Adapter Boards"
+description = "Signal and HV bias adapter boards."
+
+[[subsystems]]
+key = "edge_connectors"
+id = "007"
+name = "Edge Connector Boards"
+description = "Boards linking strips from anodes to adapter boards."
+
+[[subsystems]]
+key = "composite_frames"
+id = "008"
+name = "Composite Frames"
+description = "Mechanical structures supporting the CRU assembly."
+
+[[subsystems]]
+key = "bias_filtering"
+id = "009"
+name = "Cold Bias Filter Boards"
+description = "HV filtering hardware mounted in the composite frame."
+
+[[subsystems]]
+key = "bias_cabling"
+id = "010"
+name = "Cold Bias HV Cables"
+description = "HV bundle jumpers between filter boxes."
+
+[[subsystems]]
+key = "decoupling"
+id = "011"
+name = "Decoupling Devices"
+description = "Suspension and alignment hardware."
+
+[[subsystems]]
+key = "level_meter"
+id = "020"
+name = "Level Meter"
+description = "Level meter devices, cable bundles, and readout boards."
+
+[[subsystems]]
+key = "shipping"
+id = "050"
+name = "Shipping"
+description = "Transport boxes and shipping containers."
+
+[[subsystems]]
+key = "signal_cabling"
+id = "052"
+name = "Instrumented CRP Cables"
+description = "Signal cables and cable trays covered by the CRP interface document."
+
+[[components]]
+key = "top_crp"
+subsystem = "complete_crp"
+name = "Top CRP"
+category = "hardware"
+description = "A complete top CRP composed of two CRUs."
+
+  [[components.fields]]
+  name = "location_in_parent"
+  data_type = "text"
+  description = "Detector location once installed."
+
+[[components]]
+key = "cru"
+subsystem = "half_crp"
+name = "Top Half CRP / CRU"
+category = "hardware"
+description = "Minimal CRP assembly unit."
+
+  [[components.fields]]
+  name = "serial_number"
+  data_type = "text"
+  description = "Unique CRU identifier."
+
+  [[components.artifacts]]
+  name = "qc_executive_summary"
+  artifact_type = "qc_summary"
+  description = "CRP signoff summary once defined."
+
+[[components]]
+key = "cru_anode_panel"
+subsystem = "anode_panels"
+name = "CRU Anode Panel"
+category = "hardware"
+description = "Collection and shield anode panel family."
+notes = "The source document defines two variants: collection and shield."
+
+[[components]]
+key = "peek_spacer"
+subsystem = "spacers"
+name = "PEEK Spacer"
+category = "batch"
+is_batch = true
+description = "Spacer batch used to guarantee the 10 mm gap between anodes."
+
+  [[components.fields]]
+  name = "batch_id"
+  data_type = "text"
+  description = "Production batch identifier."
+
+[[components]]
+key = "pcb_anode_segment"
+subsystem = "pcb_segments"
+name = "PCB Anode Segment"
+category = "batch"
+is_batch = true
+description = "Production batch of PCB segments used in the anode build."
+notes = "The document cites 22 variants but treats them as batch-like records."
+
+[[components]]
+key = "adapter_board"
+subsystem = "adapter_boards"
+name = "Adapter Board"
+category = "electronics"
+description = "Adapter board family connecting signal cables and distributing HV bias."
+notes = "The source document defines seven adapter board variants."
+
+[[components]]
+key = "edge_connector_board"
+subsystem = "edge_connectors"
+name = "Edge Connector Board"
+category = "electronics"
+description = "Board linking anode strips to adapter boards."
+notes = "The source document defines seven edge connector variants."
+
+[[components]]
+key = "composite_frame"
+subsystem = "composite_frames"
+name = "Composite Frame"
+category = "hardware"
+description = "Mechanical frame on which the anode stack is mounted."
+
+[[components]]
+key = "cold_bias_filter_board"
+subsystem = "bias_filtering"
+name = "Cold Bias Filter Board"
+category = "electronics"
+description = "HV filter box assembly mounted in the composite frame."
+
+[[components]]
+key = "cold_bias_hv_cable"
+subsystem = "bias_cabling"
+name = "Cold Bias HV Cable Bundle Jumper"
+category = "cable"
+description = "Bundle of three HV cables connecting filter boxes across the two CRUs."
+
+[[components]]
+key = "decoupling_device"
+subsystem = "decoupling"
+name = "Decoupling Device"
+category = "hardware"
+description = "Mechanical decoupling and positioning hardware."
+notes = "The source document defines spherical-joint, fixed-support, and guiding-support variants."
+
+[[components]]
+key = "level_meter_assembly"
+subsystem = "level_meter"
+name = "Level Meter Assembly"
+category = "sensor"
+description = "Level meter sensor package."
+
+[[components]]
+key = "level_meter_internal_bundle"
+subsystem = "level_meter"
+name = "Level Meter Internal Cable Bundle"
+category = "cable"
+description = "Internal bundle of level meter and RTD cables."
+
+[[components]]
+key = "level_meter_external_bundle"
+subsystem = "level_meter"
+name = "Level Meter External Cable Bundle"
+category = "cable"
+description = "External bundle routed to the cryostat roof."
+
+[[components]]
+key = "level_meter_active_board"
+subsystem = "level_meter"
+name = "Level Meter Active Board"
+category = "electronics"
+description = "Capacitive-to-digital conversion and backend readout board."
+
+[[components]]
+key = "level_meter_passive_board"
+subsystem = "level_meter"
+name = "Level Meter Passive Board"
+category = "electronics"
+description = "Passive mezzanine board."
+
+[[components]]
+key = "level_meter_drawer"
+subsystem = "level_meter"
+name = "Level Meter Drawer"
+category = "hardware"
+description = "Drawer holding active and passive boards and a power supply."
+
+[[components]]
+key = "shipping_box"
+subsystem = "shipping"
+name = "Shipping Box"
+category = "hardware"
+description = "Wooden transport box for CRUs."
+
+[[components]]
+key = "shipping_container"
+subsystem = "shipping"
+name = "Shipping Container"
+category = "hardware"
+description = "Container holding CRU shipping boxes."
+
+[[components]]
+key = "cable_tray"
+subsystem = "signal_cabling"
+name = "CRP Cable Tray"
+category = "hardware"
+description = "Tray pre-assembling signal cables for two chimneys."
+
+  [[components.fields]]
+  name = "chimney_pair_id"
+  data_type = "text"
+  description = "Human-readable tray identifier based on the chimney pair."
+
+[[components]]
+key = "signal_cable"
+subsystem = "signal_cabling"
+name = "CRP Signal Cable"
+category = "cable"
+description = "Flat 68-pin signal cable between CRU adapter boards and chimney cold flanges."
+
+  [[components.fields]]
+  name = "label"
+  data_type = "text"
+  description = "Composite cable label CHID-CFKID-CRUKID."
+
+  [[components.fields]]
+  name = "length_cm"
+  data_type = "integer"
+  description = "Cable length in centimeters."
+
+  [[components.artifacts]]
+  name = "batch_qc"
+  artifact_type = "qc_file"
+  description = "Manufacturer QC data for the cable batch."
+
+[[relations]]
+source = "fd2_vd_top_crp"
+target = "top_crp"
+type = "contains"
+tags = ["hierarchy", "overview"]
+
+[[relations]]
+source = "top_crp"
+target = "cru"
+type = "contains"
+cardinality = "2"
+tags = ["hierarchy", "overview"]
+
+[[relations]]
+source = "cru"
+target = "composite_frame"
+type = "contains"
+cardinality = "1"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "cru"
+target = "cru_anode_panel"
+type = "contains"
+cardinality = "2"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "cru_anode_panel"
+target = "pcb_anode_segment"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "composite_frame"
+target = "peek_spacer"
+type = "contains"
+cardinality = "61"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "cru"
+target = "adapter_board"
+type = "contains"
+cardinality = "12"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "cru"
+target = "edge_connector_board"
+type = "contains"
+cardinality = "24"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "cru"
+target = "cold_bias_filter_board"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "top_crp"
+target = "cold_bias_hv_cable"
+type = "contains"
+cardinality = "1"
+tags = ["hierarchy", "cabling"]
+
+[[relations]]
+source = "top_crp"
+target = "decoupling_device"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "top_crp"
+target = "level_meter_assembly"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "level_meter_assembly"
+target = "level_meter_internal_bundle"
+type = "contains"
+tags = ["hierarchy", "cabling"]
+
+[[relations]]
+source = "level_meter_internal_bundle"
+target = "level_meter_external_bundle"
+type = "connects_to"
+tags = ["cabling", "dependency"]
+
+[[relations]]
+source = "level_meter_active_board"
+target = "level_meter_passive_board"
+type = "connects_to"
+tags = ["cabling", "dependency"]
+
+[[relations]]
+source = "level_meter_drawer"
+target = "level_meter_active_board"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "level_meter_drawer"
+target = "level_meter_passive_board"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "cable_tray"
+target = "signal_cable"
+type = "contains"
+cardinality = "bundle of 12"
+tags = ["hierarchy", "cabling"]
+
+[[relations]]
+source = "signal_cable"
+target = "adapter_board"
+type = "connects_to"
+tags = ["cabling", "dependency"]
+description = "Each signal cable connects one CRU adapter-board position."
+
+[[relations]]
+source = "cold_bias_hv_cable"
+target = "cold_bias_filter_board"
+type = "connects_to"
+tags = ["cabling", "dependency"]
+
+[[relations]]
+source = "shipping_container"
+target = "shipping_box"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "shipping_box"
+target = "cru"
+type = "contains"
+tags = ["hierarchy"]

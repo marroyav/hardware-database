@@ -1,0 +1,247 @@
+[system]
+key = "fd2_vd_ci"
+name = "FD2-VD Cryogenic Instrumentation"
+short_name = "CI"
+detector = "FD2-VD"
+description = "Temperature monitoring and purity-monitoring chain for the vertical drift detector."
+source_document = "3416249_DID_HWDB_JT-CI_V1.docx"
+notes = "Seeded from the February 12, 2026 JT-CI interface document. The temperature-monitoring chain is modeled in more detail than the purity-monitor branch because the document is more explicit there."
+
+[[subsystems]]
+key = "tms"
+id = "001"
+name = "Temperature Monitoring System"
+description = "RTDs, cable bundles, flanges, and TMS readout."
+
+[[subsystems]]
+key = "purity_monitors"
+name = "Purity Monitors"
+description = "Purity-monitor arrays and related readout chain."
+
+[[components]]
+key = "temperature_monitoring_system"
+subsystem = "tms"
+name = "Temperature Monitoring System"
+category = "sensor"
+description = "Top-level TMS node."
+
+[[components]]
+key = "rtd"
+subsystem = "tms"
+name = "RTD"
+category = "sensor"
+description = "Single RTD mounted in its board with an IDC-4 connector."
+
+  [[components.fields]]
+  name = "serial_number"
+  data_type = "text"
+  description = "Manufacturer or IFIC RTD identifier."
+
+  [[components.fields]]
+  name = "sensor_type"
+  data_type = "text"
+  description = "Precision or standard."
+
+  [[components.artifacts]]
+  name = "calibration_file"
+  artifact_type = "qc_file"
+  description = "Calibration constants and errors."
+
+[[components]]
+key = "cold_cable"
+subsystem = "tms"
+name = "Cold Cable"
+category = "cable"
+description = "4-wire cable from RTD to bundle connector."
+
+  [[components.fields]]
+  name = "length"
+  data_type = "text"
+  description = "Measured cable length."
+
+[[components]]
+key = "t6_bundle"
+subsystem = "tms"
+name = "T6 Cable Bundle"
+category = "cable"
+description = "Six cable assemblies ending in one SUBD-25 connector."
+
+[[components]]
+key = "t4_bundle"
+subsystem = "tms"
+name = "T4 Cable Bundle"
+category = "cable"
+description = "Four cable assemblies ending in one SUBD-25 connector."
+
+[[components]]
+key = "t2_bundle"
+subsystem = "tms"
+name = "T2 Cable Bundle"
+category = "cable"
+description = "Two-sensor bundle ending in one SUBD-9 connector."
+
+[[components]]
+key = "warm_cable"
+subsystem = "tms"
+name = "Warm Cable"
+category = "cable"
+description = "Warm cable between flange and TMS readout."
+
+[[components]]
+key = "gas_array"
+subsystem = "tms"
+name = "Gas Array"
+category = "sensor"
+description = "Collection of cold cable bundles serving gas-array RTDs."
+
+[[components]]
+key = "prm_array"
+subsystem = "purity_monitors"
+name = "Purity Monitor Array"
+category = "sensor"
+description = "Purity-monitor grouping placeholder from the interface document."
+
+[[components]]
+key = "tms_flange"
+subsystem = "tms"
+name = "TMS Flange"
+category = "interface"
+description = "Cryostat flange where cold and warm TMS cabling meet."
+
+[[components]]
+key = "tms_rack"
+subsystem = "tms"
+name = "TMS Rack"
+category = "hardware"
+description = "Rack hosting TMS crates."
+
+[[components]]
+key = "tms_crate"
+subsystem = "tms"
+name = "TMS Crate"
+category = "hardware"
+description = "Crate holding TMS cards."
+
+  [[components.fields]]
+  name = "serial_number"
+  data_type = "text"
+  description = "Crate identifier."
+
+  [[components.artifacts]]
+  name = "calibration_data"
+  artifact_type = "qc_file"
+  description = "Crate-level calibration payload."
+
+[[components]]
+key = "tms_card"
+subsystem = "tms"
+name = "TMS Card"
+category = "electronics"
+description = "Readout card in the TMS crate."
+
+  [[components.fields]]
+  name = "serial_number"
+  data_type = "text"
+  description = "Card identifier."
+
+  [[components.fields]]
+  name = "location_in_parent"
+  data_type = "text"
+  description = "Crate slot position."
+
+  [[components.artifacts]]
+  name = "calibration_data"
+  artifact_type = "qc_file"
+  description = "Card-level calibration payload."
+
+[[relations]]
+source = "fd2_vd_ci"
+target = "temperature_monitoring_system"
+type = "contains"
+tags = ["hierarchy", "overview"]
+
+[[relations]]
+source = "fd2_vd_ci"
+target = "prm_array"
+type = "contains"
+tags = ["hierarchy", "overview"]
+
+[[relations]]
+source = "temperature_monitoring_system"
+target = "gas_array"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "gas_array"
+target = "t6_bundle"
+type = "contains"
+cardinality = "3"
+tags = ["hierarchy", "cabling"]
+description = "The document defines a gas array as a collection of three cold cable bundles."
+
+[[relations]]
+source = "t6_bundle"
+target = "cold_cable"
+type = "contains"
+tags = ["hierarchy", "cabling"]
+
+[[relations]]
+source = "t4_bundle"
+target = "cold_cable"
+type = "contains"
+tags = ["hierarchy", "cabling"]
+
+[[relations]]
+source = "t2_bundle"
+target = "cold_cable"
+type = "contains"
+tags = ["hierarchy", "cabling"]
+
+[[relations]]
+source = "cold_cable"
+target = "rtd"
+type = "connects_to"
+tags = ["cabling", "dependency"]
+
+[[relations]]
+source = "t6_bundle"
+target = "tms_flange"
+type = "connects_to"
+tags = ["cabling", "dependency"]
+
+[[relations]]
+source = "t4_bundle"
+target = "tms_flange"
+type = "connects_to"
+tags = ["cabling", "dependency"]
+
+[[relations]]
+source = "t2_bundle"
+target = "tms_flange"
+type = "connects_to"
+tags = ["cabling", "dependency"]
+
+[[relations]]
+source = "warm_cable"
+target = "tms_flange"
+type = "connects_to"
+tags = ["cabling", "dependency"]
+
+[[relations]]
+source = "warm_cable"
+target = "tms_card"
+type = "connects_to"
+tags = ["cabling", "dependency"]
+
+[[relations]]
+source = "tms_rack"
+target = "tms_crate"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "tms_crate"
+target = "tms_card"
+type = "contains"
+tags = ["hierarchy"]

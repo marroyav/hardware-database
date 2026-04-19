@@ -1,0 +1,358 @@
+[system]
+key = "fd2_vd_tde"
+name = "FD2-VD Top Vertical Drift CRP Electronics"
+short_name = "TDE"
+detector = "FD2-VD"
+pid_prefix = "057"
+description = "Top drift electronics, chimneys, uTCA crates, timing, and support systems."
+source_document = "3416255_DID_HWDB_TDE_V1.docx"
+notes = "Seeded from the March 13, 2026 TDE interface document."
+
+[[subsystems]]
+key = "sgft_chimney"
+id = "001"
+name = "SGFT Chimney"
+description = "Signal feedthrough chimneys and interface flanges."
+
+[[subsystems]]
+key = "digital_electronics"
+id = "002"
+name = "Digital Electronics"
+description = "uTCA crate, AMC cards, MCH, WR-MCH, and power units."
+
+[[subsystems]]
+key = "analog_electronics"
+id = "003"
+name = "Analog Electronics"
+description = "FEB analog cards in the chimney."
+
+[[subsystems]]
+key = "timing_distribution"
+id = "004"
+name = "Timing Distribution"
+description = "White Rabbit timing distribution equipment."
+
+[[subsystems]]
+key = "ancillary_systems"
+id = "005"
+name = "TDE Ancillary Systems"
+description = "Low-voltage power, filter/fanout, and calibration support."
+
+[[subsystems]]
+key = "shipping"
+id = "006"
+name = "Shipping Containers"
+description = "Containers used for shipment to SURF."
+
+[[components]]
+key = "sgft_chimney_assembly"
+subsystem = "sgft_chimney"
+name = "SGFT Chimney"
+category = "hardware"
+description = "Signal feedthrough chimney vessel."
+
+  [[components.fields]]
+  name = "serial_number"
+  data_type = "text"
+  description = "Unique chimney identifier."
+
+  [[components.artifacts]]
+  name = "geometry_conformance"
+  artifact_type = "qc_file"
+  description = "Geometry conformance record for installation tolerances."
+
+[[components]]
+key = "cold_flange"
+subsystem = "sgft_chimney"
+name = "Cold Flange"
+category = "interface"
+description = "Cryostat-side interface between CRP signal cables and FEB slots."
+
+[[components]]
+key = "warm_flange"
+subsystem = "sgft_chimney"
+name = "Warm Flange"
+category = "interface"
+description = "Exterior SGFT interface carrying VHDCI, DB9, and SMA connections."
+
+[[components]]
+key = "feb_analog_card"
+subsystem = "analog_electronics"
+name = "FEB Analog Card"
+category = "electronics"
+description = "Cryogenic analog front-end board."
+
+  [[components.fields]]
+  name = "serial_number"
+  data_type = "text"
+  description = "Board serial number."
+
+  [[components.artifacts]]
+  name = "functional_test_results"
+  artifact_type = "qc_file"
+  description = "Functional test data logged after consortium testing."
+
+[[components]]
+key = "amc_digitization_card"
+subsystem = "digital_electronics"
+name = "AMC Digitization Card"
+category = "electronics"
+description = "AMC card digitizing FEB output."
+
+  [[components.fields]]
+  name = "serial_number"
+  data_type = "text"
+  description = "Board serial number."
+
+  [[components.fields]]
+  name = "firmware_version"
+  data_type = "text"
+  description = "Flashed firmware version."
+
+  [[components.artifacts]]
+  name = "functional_test_results"
+  artifact_type = "qc_file"
+  description = "AMC functional test results."
+
+[[components]]
+key = "wr_mch_timing_end_node"
+subsystem = "digital_electronics"
+name = "WR-MCH Timing End-Node"
+category = "electronics"
+description = "White Rabbit timing end-node hosted in the uTCA crate."
+
+[[components]]
+key = "utca_mch"
+subsystem = "digital_electronics"
+name = "uTCA MCH"
+category = "electronics"
+description = "Commercial MicroTCA hub."
+
+  [[components.fields]]
+  name = "serial_number"
+  data_type = "text"
+  description = "Hub serial number."
+
+[[components]]
+key = "utca_pu"
+subsystem = "digital_electronics"
+name = "uTCA Power Unit"
+category = "electronics"
+description = "Commercial crate power unit."
+
+[[components]]
+key = "utca_crate"
+subsystem = "digital_electronics"
+name = "uTCA Crate"
+category = "hardware"
+description = "Crate hosting the AMC digitization and timing chain."
+
+  [[components.fields]]
+  name = "serial_number"
+  data_type = "text"
+  description = "Crate serial number."
+
+  [[components.artifacts]]
+  name = "certificate_of_conformity"
+  artifact_type = "coc"
+  description = "Vendor certificate for the crate."
+
+[[components]]
+key = "wr_switch"
+subsystem = "timing_distribution"
+name = "White Rabbit Switch"
+category = "electronics"
+description = "Timing switch distributing clocking and synchronization."
+
+[[components]]
+key = "lv_ps"
+subsystem = "ancillary_systems"
+name = "Low-Voltage Power Supply"
+category = "electronics"
+description = "Power supply feeding FEB and support loads."
+
+[[components]]
+key = "filter_fanout_box"
+subsystem = "ancillary_systems"
+name = "LV Filter And Fanout"
+category = "electronics"
+description = "Distribution and filtering box for low-voltage services."
+
+[[components]]
+key = "calibration_unit"
+subsystem = "ancillary_systems"
+name = "Calibration Unit"
+category = "electronics"
+description = "Charge-injection support unit tied to warm-flange controls."
+
+[[components]]
+key = "tde_cable"
+subsystem = "ancillary_systems"
+name = "TDE Cable"
+category = "cable"
+description = "Electrical cable between warm-flange interfaces and downstream electronics."
+
+[[components]]
+key = "timing_fiber"
+subsystem = "timing_distribution"
+name = "Timing Fiber"
+category = "fiber"
+description = "Optical fiber between the WR switch and the WR-MCH end-node."
+
+[[components]]
+key = "shipping_container"
+subsystem = "shipping"
+name = "Shipping Container"
+category = "hardware"
+description = "Container used to ship TDE hardware."
+
+[[relations]]
+source = "fd2_vd_tde"
+target = "sgft_chimney_assembly"
+type = "contains"
+tags = ["hierarchy", "overview"]
+
+[[relations]]
+source = "fd2_vd_tde"
+target = "utca_crate"
+type = "contains"
+tags = ["hierarchy", "overview"]
+
+[[relations]]
+source = "fd2_vd_tde"
+target = "wr_switch"
+type = "contains"
+tags = ["hierarchy", "overview"]
+
+[[relations]]
+source = "fd2_vd_tde"
+target = "lv_ps"
+type = "contains"
+tags = ["hierarchy", "overview"]
+
+[[relations]]
+source = "fd2_vd_tde"
+target = "shipping_container"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "sgft_chimney_assembly"
+target = "cold_flange"
+type = "contains"
+tags = ["hierarchy", "cabling"]
+
+[[relations]]
+source = "sgft_chimney_assembly"
+target = "warm_flange"
+type = "contains"
+tags = ["hierarchy", "cabling"]
+
+[[relations]]
+source = "sgft_chimney_assembly"
+target = "feb_analog_card"
+type = "contains"
+cardinality = "24 or 48"
+tags = ["hierarchy", "overview"]
+
+[[relations]]
+source = "utca_crate"
+target = "amc_digitization_card"
+type = "contains"
+cardinality = "24 or 48 channels worth of AMC slots"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "utca_crate"
+target = "utca_mch"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "utca_crate"
+target = "utca_pu"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "utca_crate"
+target = "wr_mch_timing_end_node"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "shipping_container"
+target = "utca_crate"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "shipping_container"
+target = "sgft_chimney_assembly"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "cold_flange"
+target = "feb_analog_card"
+type = "connects_to"
+tags = ["cabling", "dependency"]
+description = "FEBs are plugged into the cold-flange side of the chimney."
+
+[[relations]]
+source = "warm_flange"
+target = "amc_digitization_card"
+type = "connects_to"
+tags = ["cabling", "dependency"]
+description = "The warm flange breaks out FEB channels toward AMC digitization."
+
+[[relations]]
+source = "tde_cable"
+target = "warm_flange"
+type = "connects_to"
+tags = ["cabling"]
+
+[[relations]]
+source = "tde_cable"
+target = "amc_digitization_card"
+type = "connects_to"
+tags = ["cabling"]
+
+[[relations]]
+source = "lv_ps"
+target = "filter_fanout_box"
+type = "powers"
+tags = ["dependency", "cabling"]
+
+[[relations]]
+source = "filter_fanout_box"
+target = "warm_flange"
+type = "powers"
+tags = ["dependency", "cabling"]
+description = "The warm flange DB9 ports carry low-voltage services to groups of FEBs."
+
+[[relations]]
+source = "calibration_unit"
+target = "warm_flange"
+type = "connects_to"
+tags = ["dependency", "cabling"]
+description = "Calibration injection enters through dedicated warm-flange connectors."
+
+[[relations]]
+source = "timing_fiber"
+target = "wr_switch"
+type = "connects_to"
+tags = ["cabling", "dependency"]
+
+[[relations]]
+source = "timing_fiber"
+target = "wr_mch_timing_end_node"
+type = "connects_to"
+tags = ["cabling", "dependency"]
+
+[[relations]]
+source = "wr_switch"
+target = "wr_mch_timing_end_node"
+type = "timed_by"
+tags = ["dependency"]
+description = "Timing reaches the crate end-node through the White Rabbit chain."

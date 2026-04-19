@@ -1,0 +1,283 @@
+[system]
+key = "fd2_vd_hv_cathode"
+name = "FD2-VD HV Cathode"
+short_name = "HV Cathode"
+detector = "FD2-VD"
+pid_prefix = "080"
+description = "Cathode plane, suspension, and interconnect hierarchy for the vertical drift detector."
+source_document = "3416263_DID_HWDB_FD2-VD-Cathode.docx"
+notes = "Seeded from the draft HV-cathode interface document. Several QC sections in the source are still incomplete, so the current spec focuses on structure and major tracked fields."
+
+[[subsystems]]
+key = "cathode_plane"
+id = "001"
+name = "Cathode Plane"
+description = "Top-level cathode plane assembly."
+
+[[subsystems]]
+key = "half_cathode_plane"
+id = "002"
+name = "Half Cathode Plane"
+description = "Half-plane assembly carrying frame, meshes, and suspension interfaces."
+
+[[subsystems]]
+key = "half_frame"
+id = "003"
+name = "Half Frame"
+description = "Base frame for one half cathode plane."
+
+[[subsystems]]
+key = "cross_ribs"
+id = "004"
+name = "Cross Ribs"
+description = "Frame inserts supporting the mesh."
+
+[[subsystems]]
+key = "resistive_mesh"
+id = "005"
+name = "Resistive Mesh"
+description = "Resistive mesh element."
+
+[[subsystems]]
+key = "metallic_mesh"
+id = "006"
+name = "Metallic Mesh"
+description = "Metallic mesh element."
+
+[[subsystems]]
+key = "pd_xar_support"
+id = "007"
+name = "PD XAR Support"
+description = "Support cylinder for photon-detector modules in the cathode frame."
+
+[[subsystems]]
+key = "lad"
+id = "008"
+name = "Length Adjusting Device"
+description = "Suspension hardware embedded in the frame."
+
+[[subsystems]]
+key = "cathode_interconnect"
+id = "009"
+name = "Cathode Interconnect"
+description = "Electrical link between cathode and field-cage elements."
+
+[[subsystems]]
+key = "copper_tape"
+id = "010"
+name = "Copper Tape Strips"
+description = "Copper tape used for continuity between mesh regions."
+
+[[subsystems]]
+key = "tad"
+id = "020"
+name = "Top Adjusting Device"
+description = "Top suspension device linked to the ropes."
+
+[[subsystems]]
+key = "ropes"
+id = "025"
+name = "Ropes"
+description = "Suspension ropes between TAD and LAD."
+
+[[subsystems]]
+key = "shipping"
+id = "050"
+name = "Shipping"
+description = "Shipping boxes for half-frames, TADs, and tools."
+
+[[components]]
+key = "cathode_plane_assembly"
+subsystem = "cathode_plane"
+name = "Cathode Plane"
+category = "hardware"
+description = "One full cathode plane."
+
+[[components]]
+key = "half_cathode_plane_assembly"
+subsystem = "half_cathode_plane"
+name = "Half Cathode Plane"
+category = "hardware"
+description = "Half cathode plane assembly."
+
+  [[components.fields]]
+  name = "position_in_supercathode"
+  data_type = "text"
+  description = "Assembly position once installed."
+
+[[components]]
+key = "half_frame_component"
+subsystem = "half_frame"
+name = "Half Frame"
+category = "hardware"
+description = "FRP half frame."
+
+[[components]]
+key = "cross_rib"
+subsystem = "cross_ribs"
+name = "Cross Rib"
+category = "batch"
+is_batch = true
+description = "Mesh supporting element represented as a type-level batch record."
+
+[[components]]
+key = "resistive_mesh_component"
+subsystem = "resistive_mesh"
+name = "Resistive Mesh"
+category = "batch"
+is_batch = true
+description = "Resistive mesh family captured as a batch-style type."
+
+[[components]]
+key = "metallic_mesh_component"
+subsystem = "metallic_mesh"
+name = "Metallic Mesh"
+category = "batch"
+is_batch = true
+description = "Metallic mesh family captured as a batch-style type."
+
+[[components]]
+key = "pd_xar_support_component"
+subsystem = "pd_xar_support"
+name = "PD XAR Support"
+category = "batch"
+is_batch = true
+description = "Support type for photon-detector modules mounted in the cathode frame."
+
+[[components]]
+key = "lad_component"
+subsystem = "lad"
+name = "Length Adjusting Device"
+category = "hardware"
+description = "Embedded suspension adjustment device."
+
+[[components]]
+key = "cathode_interconnect_cable"
+subsystem = "cathode_interconnect"
+name = "Cathode Interconnect"
+category = "cable"
+description = "Electrical interconnect between cathode and field-cage structures."
+
+[[components]]
+key = "copper_tape_strip"
+subsystem = "copper_tape"
+name = "Copper Tape Strip"
+category = "batch"
+is_batch = true
+description = "Continuity strip placed at defined positions in the frame."
+
+[[components]]
+key = "tad_component"
+subsystem = "tad"
+name = "Top Adjusting Device"
+category = "hardware"
+description = "Top suspension device."
+
+  [[components.fields]]
+  name = "serial_number"
+  data_type = "text"
+  description = "Unique TAD identifier."
+
+[[components]]
+key = "rope_component"
+subsystem = "ropes"
+name = "Rope"
+category = "cable"
+description = "Suspension rope between TAD and LAD."
+
+  [[components.fields]]
+  name = "length"
+  data_type = "text"
+  description = "Measured rope length."
+
+[[components]]
+key = "shipping_box"
+subsystem = "shipping"
+name = "Shipping Box"
+category = "hardware"
+description = "Shipping box used for frames, TADs, or installation tooling."
+
+[[relations]]
+source = "fd2_vd_hv_cathode"
+target = "cathode_plane_assembly"
+type = "contains"
+tags = ["hierarchy", "overview"]
+
+[[relations]]
+source = "cathode_plane_assembly"
+target = "half_cathode_plane_assembly"
+type = "contains"
+cardinality = "2"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "half_cathode_plane_assembly"
+target = "half_frame_component"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "half_cathode_plane_assembly"
+target = "cross_rib"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "half_cathode_plane_assembly"
+target = "resistive_mesh_component"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "half_cathode_plane_assembly"
+target = "metallic_mesh_component"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "half_cathode_plane_assembly"
+target = "pd_xar_support_component"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "half_cathode_plane_assembly"
+target = "lad_component"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "half_cathode_plane_assembly"
+target = "cathode_interconnect_cable"
+type = "contains"
+tags = ["hierarchy", "cabling"]
+
+[[relations]]
+source = "half_cathode_plane_assembly"
+target = "copper_tape_strip"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "tad_component"
+target = "rope_component"
+type = "connects_to"
+tags = ["cabling", "dependency"]
+
+[[relations]]
+source = "rope_component"
+target = "lad_component"
+type = "connects_to"
+tags = ["cabling", "dependency"]
+
+[[relations]]
+source = "shipping_box"
+target = "half_frame_component"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "shipping_box"
+target = "tad_component"
+type = "contains"
+tags = ["hierarchy"]

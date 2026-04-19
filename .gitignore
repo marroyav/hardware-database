@@ -1,0 +1,10 @@
+.DS_Store
+build/
+
+# Local-only source material. Keep the README, ignore the actual documents.
+source-material/*
+!source-material/README.md
+
+# Safety net in case raw documents are dropped in the repo root.
+*.docx
+*.pptx
