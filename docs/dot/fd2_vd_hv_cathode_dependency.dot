@@ -1,0 +1,62 @@
+digraph HardwareModel {
+  graph [
+    rankdir=LR,
+    splines=true,
+    overlap=false,
+    newrank=true,
+    compound=true,
+    bgcolor="#f6f1e8",
+    pad="0.35",
+    nodesep="0.45",
+    ranksep="0.8",
+    label="FD2-VD HV Cathode · Dependencies",
+    labelloc="t",
+    labeljust="l",
+    fontname="Iowan Old Style",
+    fontsize=26,
+    fontcolor="#183247"
+  ];
+  node [fontname="Avenir Next", fontsize=12, margin="0.18,0.12", penwidth=1.3];
+  edge [fontname="Avenir Next", fontsize=10, arrowsize=0.8, penwidth=1.2, color="#33536a", fontcolor="#33536a"];
+
+  fd2_vd_hv_cathode [label="FD2-VD HV Cathode", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
+
+  subgraph cluster_fd2_vd_hv_cathode_lad {
+    label="Length Adjusting Device";
+    style="rounded,filled";
+    color="#c7b8a1";
+    fillcolor="#fbf7f0";
+    penwidth=1.1;
+    fontname="Avenir Next";
+    fontsize=13;
+    fontcolor="#5a4634";
+    fd2_vd_hv_cathode_lad_component [label="Length Adjusting Device", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+  }
+
+  subgraph cluster_fd2_vd_hv_cathode_ropes {
+    label="Ropes";
+    style="rounded,filled";
+    color="#c7b8a1";
+    fillcolor="#fbf7f0";
+    penwidth=1.1;
+    fontname="Avenir Next";
+    fontsize=13;
+    fontcolor="#5a4634";
+    fd2_vd_hv_cathode_rope_component [label="Rope", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+  }
+
+  subgraph cluster_fd2_vd_hv_cathode_tad {
+    label="Top Adjusting Device";
+    style="rounded,filled";
+    color="#c7b8a1";
+    fillcolor="#fbf7f0";
+    penwidth=1.1;
+    fontname="Avenir Next";
+    fontsize=13;
+    fontcolor="#5a4634";
+    fd2_vd_hv_cathode_tad_component [label="Top Adjusting Device", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+  }
+
+  fd2_vd_hv_cathode_tad_component -> fd2_vd_hv_cathode_rope_component [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_hv_cathode_rope_component -> fd2_vd_hv_cathode_lad_component [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+}

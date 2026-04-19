@@ -1053,6 +1053,7 @@ def publish_report(db_path: Path, output_dir: Path, views: list[str]) -> None:
 
     (assets_dir / "report.css").write_text(publication_css(), encoding="utf-8")
     (output_dir / "index.html").write_text(publication_html(conn, published_items, detector_plates), encoding="utf-8")
+    (output_dir / ".nojekyll").write_text("", encoding="utf-8")
     print(f"wrote {output_dir / 'index.html'}")
 
 
@@ -1078,6 +1079,7 @@ def publication_html(
     sections = []
     if detector_plates:
         nav_items.append('<a href="#detector-plates">Dense Detector Plate</a>')
+    nav_items.append('<a href="#reading-guide">Reading Guide</a>')
     for system_key in sorted(by_system, key=lambda key: system_names[key]):
         system_name = system_names[system_key]
         nav_items.append(f'<a href="#{html.escape(system_key)}">{html.escape(system_name)}</a>')
@@ -1191,10 +1193,53 @@ def publication_html(
             <span class="legend-chip cable">Cable</span>
             <span class="legend-chip fiber">Fiber</span>
             <span class="legend-chip sensor">Sensor</span>
-            <span class="legend-chip interface">Interface</span>
+            <span class="legend-chip interface">Connector / Interface</span>
             <span class="legend-chip batch">Batch</span>
           </div>
           <p class="legend-copy">Solid arrows indicate containment or assembly hierarchy. Dashed annotated arrows indicate interfaces, cable paths, timing, power, or other dependency links.</p>
+        </div>
+      </section>
+      <section class="guide" id="reading-guide">
+        <div class="guide-card">
+          <div class="section-head">
+            <p class="eyebrow">How To Read The Diagrams</p>
+            <h2>Reading Guide</h2>
+          </div>
+          <div class="guide-grid">
+            <div class="guide-item">
+              <span class="legend-chip hardware">Hardware</span>
+              <p>Mechanical assemblies, structures, boxes, frames, racks, drawers, and installed physical units.</p>
+            </div>
+            <div class="guide-item">
+              <span class="legend-chip electronics">Electronics</span>
+              <p>Active boards, readout cards, controllers, power modules, switches, and digitization hardware.</p>
+            </div>
+            <div class="guide-item">
+              <span class="legend-chip interface">Connector / Interface</span>
+              <p>Flanges, connector-bearing boundaries, warm/cold interfaces, and other typed connection surfaces. In these models, this category stands in for connectors and interface panels.</p>
+            </div>
+            <div class="guide-item">
+              <span class="legend-chip cable">Cable</span>
+              <p>Electrical cables and bundled cable objects that connect subsystems or carry power and signals.</p>
+            </div>
+            <div class="guide-item">
+              <span class="legend-chip fiber">Fiber</span>
+              <p>Optical fiber paths used for timing, data transport, or calibration distribution.</p>
+            </div>
+            <div class="guide-item">
+              <span class="legend-chip sensor">Sensor</span>
+              <p>Instrumentation endpoints such as RTDs, level meters, gas arrays, and other sensing elements.</p>
+            </div>
+            <div class="guide-item">
+              <span class="legend-chip batch">Batch</span>
+              <p>Batch-tracked or type-tracked parts where the model currently represents a production family rather than a serialized individual item.</p>
+            </div>
+            <div class="guide-item edge-guide">
+              <p><strong>Solid arrows</strong> mean assembly or containment.</p>
+              <p><strong>Dashed arrows</strong> mean functional links such as cabling, interfaces, timing, power, or readout dependence.</p>
+              <p><strong>Subsystem boxes</strong> group related component types. The dense detector plate uses these groupings to approximate the presentation-style hierarchy sheets.</p>
+            </div>
+          </div>
         </div>
       </section>
       {detector_plate_section}
@@ -1361,6 +1406,15 @@ body {
   padding: 1.4rem 1.6rem;
 }
 
+.guide-card {
+  padding: 1.4rem 1.6rem;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(255, 252, 247, 0.82);
+  backdrop-filter: blur(6px);
+  box-shadow: var(--shadow);
+}
+
 .legend-copy {
   margin: 1rem 0 0;
   color: var(--ink-soft);
@@ -1391,6 +1445,34 @@ body {
 .legend-chip.sensor { background: #f7dde0; border-color: #a14656; }
 .legend-chip.interface { background: #f3e5cc; border-color: #9d6a14; }
 .legend-chip.batch { background: #f0e6fa; border-color: #7d5bb6; }
+
+.guide {
+  margin-top: 1.75rem;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.guide-item {
+  padding: 1rem;
+  border: 1px solid rgba(203, 189, 168, 0.65);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.45);
+}
+
+.guide-item p {
+  margin: 0.8rem 0 0;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.edge-guide p:first-child {
+  margin-top: 0;
+}
 
 .system-section {
   margin-top: 1.75rem;

@@ -1,0 +1,50 @@
+digraph HardwareModel {
+  graph [
+    rankdir=LR,
+    splines=true,
+    overlap=false,
+    newrank=true,
+    compound=true,
+    bgcolor="#f6f1e8",
+    pad="0.35",
+    nodesep="0.45",
+    ranksep="0.8",
+    label="FD2-VD Cryogenic Instrumentation · Overview",
+    labelloc="t",
+    labeljust="l",
+    fontname="Iowan Old Style",
+    fontsize=26,
+    fontcolor="#183247"
+  ];
+  node [fontname="Avenir Next", fontsize=12, margin="0.18,0.12", penwidth=1.3];
+  edge [fontname="Avenir Next", fontsize=10, arrowsize=0.8, penwidth=1.2, color="#33536a", fontcolor="#33536a"];
+
+  fd2_vd_ci [label="FD2-VD Cryogenic Instrumentation", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
+
+  subgraph cluster_fd2_vd_ci_purity_monitors {
+    label="Purity Monitors";
+    style="rounded,filled";
+    color="#c7b8a1";
+    fillcolor="#fbf7f0";
+    penwidth=1.1;
+    fontname="Avenir Next";
+    fontsize=13;
+    fontcolor="#5a4634";
+    fd2_vd_ci_prm_array [label="Purity Monitor Array", fontname="Avenir Next", shape="ellipse", style="filled", fillcolor="#f7dde0", color="#a14656", fontcolor="#4a1823"];
+  }
+
+  subgraph cluster_fd2_vd_ci_tms {
+    label="Temperature Monitoring System";
+    style="rounded,filled";
+    color="#c7b8a1";
+    fillcolor="#fbf7f0";
+    penwidth=1.1;
+    fontname="Avenir Next";
+    fontsize=13;
+    fontcolor="#5a4634";
+    fd2_vd_ci_temperature_monitoring_system [label="Temperature Monitoring System", fontname="Avenir Next", shape="ellipse", style="filled", fillcolor="#f7dde0", color="#a14656", fontcolor="#4a1823"];
+  }
+
+  fd2_vd_ci -> fd2_vd_ci_temperature_monitoring_system [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_ci -> fd2_vd_ci_prm_array [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+}

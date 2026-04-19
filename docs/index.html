@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware Database Diagram Portfolio</title>
+  <link rel="stylesheet" href="assets/report.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <p class="eyebrow">Hardware Database Publication</p>
+      <h1>FD2-VD Diagram Portfolio</h1>
+      <p class="hero-copy">Styled SVG and PDF diagrams generated from the curated hardware model, grounded in the interface documents in this repository.</p>
+      <div class="stat-strip">
+        <div><span>5</span><small>Systems</small></div>
+        <div><span>35</span><small>Subsystems</small></div>
+        <div><span>74</span><small>Component Types</small></div>
+        <div><span>92</span><small>Relations</small></div>
+      </div>
+    </header>
+
+    <aside class="side-nav">
+      <div class="side-nav-inner">
+        <p class="eyebrow">Navigate</p>
+        <a href="#detector-plates">Dense Detector Plate</a><a href="#reading-guide">Reading Guide</a><a href="#fd2_vd_ci">FD2-VD Cryogenic Instrumentation</a><a href="#fd2_vd_overview">FD2-VD Detector Overview</a><a href="#fd2_vd_hv_cathode">FD2-VD HV Cathode</a><a href="#fd2_vd_top_crp">FD2-VD Top Charge Readout Planes</a><a href="#fd2_vd_tde">FD2-VD Top Vertical Drift CRP Electronics</a>
+        <p class="build-stamp">Generated 2026-04-19 16:35</p>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="legend">
+        <div class="legend-card">
+          <h2>Legend</h2>
+          <div class="legend-grid">
+            <span class="legend-chip hardware">Hardware</span>
+            <span class="legend-chip electronics">Electronics</span>
+            <span class="legend-chip cable">Cable</span>
+            <span class="legend-chip fiber">Fiber</span>
+            <span class="legend-chip sensor">Sensor</span>
+            <span class="legend-chip interface">Connector / Interface</span>
+            <span class="legend-chip batch">Batch</span>
+          </div>
+          <p class="legend-copy">Solid arrows indicate containment or assembly hierarchy. Dashed annotated arrows indicate interfaces, cable paths, timing, power, or other dependency links.</p>
+        </div>
+      </section>
+      <section class="guide" id="reading-guide">
+        <div class="guide-card">
+          <div class="section-head">
+            <p class="eyebrow">How To Read The Diagrams</p>
+            <h2>Reading Guide</h2>
+          </div>
+          <div class="guide-grid">
+            <div class="guide-item">
+              <span class="legend-chip hardware">Hardware</span>
+              <p>Mechanical assemblies, structures, boxes, frames, racks, drawers, and installed physical units.</p>
+            </div>
+            <div class="guide-item">
+              <span class="legend-chip electronics">Electronics</span>
+              <p>Active boards, readout cards, controllers, power modules, switches, and digitization hardware.</p>
+            </div>
+            <div class="guide-item">
+              <span class="legend-chip interface">Connector / Interface</span>
+              <p>Flanges, connector-bearing boundaries, warm/cold interfaces, and other typed connection surfaces. In these models, this category stands in for connectors and interface panels.</p>
+            </div>
+            <div class="guide-item">
+              <span class="legend-chip cable">Cable</span>
+              <p>Electrical cables and bundled cable objects that connect subsystems or carry power and signals.</p>
+            </div>
+            <div class="guide-item">
+              <span class="legend-chip fiber">Fiber</span>
+              <p>Optical fiber paths used for timing, data transport, or calibration distribution.</p>
+            </div>
+            <div class="guide-item">
+              <span class="legend-chip sensor">Sensor</span>
+              <p>Instrumentation endpoints such as RTDs, level meters, gas arrays, and other sensing elements.</p>
+            </div>
+            <div class="guide-item">
+              <span class="legend-chip batch">Batch</span>
+              <p>Batch-tracked or type-tracked parts where the model currently represents a production family rather than a serialized individual item.</p>
+            </div>
+            <div class="guide-item edge-guide">
+              <p><strong>Solid arrows</strong> mean assembly or containment.</p>
+              <p><strong>Dashed arrows</strong> mean functional links such as cabling, interfaces, timing, power, or readout dependence.</p>
+              <p><strong>Subsystem boxes</strong> group related component types. The dense detector plate uses these groupings to approximate the presentation-style hierarchy sheets.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+        <section class="system-section" id="detector-plates">
+          <div class="section-head">
+            <p class="eyebrow">Master Diagram</p>
+            <h2>Dense Detector Plate</h2>
+          </div>
+          <div class="diagram-grid detector-plate-grid">
+            
+                <article class="diagram-card detector-plate-card">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Dense Detector Plate</p>
+                    <h3>FD2-VD Full Dense Plate</h3>
+                    <p class="diagram-copy">Detector-wide dense composition grouped by modeled systems and bridged with top-level context from the hierarchy deck.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_full_dense.svg">SVG</a>
+                      <a href="pdf/fd2_vd_full_dense.pdf">PDF</a>
+                      <a href="dot/fd2_vd_full_dense.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame large-frame">
+                    <img src="diagrams/fd2_vd_full_dense.svg" alt="FD2-VD Full Dense Plate">
+                  </div>
+                </article>
+                
+          </div>
+        </section>
+        
+      
+            <section class="system-section" id="fd2_vd_ci">
+              <div class="section-head">
+                <p class="eyebrow">System Portfolio</p>
+                <h2>FD2-VD Cryogenic Instrumentation</h2>
+              </div>
+              <div class="diagram-grid">
+                
+                <article class="diagram-card" id="fd2_vd_ci-overview">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Overview</p>
+                    <h3>FD2-VD Cryogenic Instrumentation</h3>
+                    <p class="diagram-copy">High-level system framing for publication and stakeholder review.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_ci_overview.svg">SVG</a>
+                      <a href="pdf/fd2_vd_ci_overview.pdf">PDF</a>
+                      <a href="dot/fd2_vd_ci_overview.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_ci_overview.svg" alt="FD2-VD Cryogenic Instrumentation Overview diagram">
+                  </div>
+                </article>
+                
+                <article class="diagram-card" id="fd2_vd_ci-hierarchy">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Hierarchy</p>
+                    <h3>FD2-VD Cryogenic Instrumentation</h3>
+                    <p class="diagram-copy">Assembly and parent-child structure across tracked component types.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_ci_hierarchy.svg">SVG</a>
+                      <a href="pdf/fd2_vd_ci_hierarchy.pdf">PDF</a>
+                      <a href="dot/fd2_vd_ci_hierarchy.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_ci_hierarchy.svg" alt="FD2-VD Cryogenic Instrumentation Hierarchy diagram">
+                  </div>
+                </article>
+                
+                <article class="diagram-card" id="fd2_vd_ci-dependency">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Dependencies</p>
+                    <h3>FD2-VD Cryogenic Instrumentation</h3>
+                    <p class="diagram-copy">Interface and functional dependencies across subsystems and services.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_ci_dependency.svg">SVG</a>
+                      <a href="pdf/fd2_vd_ci_dependency.pdf">PDF</a>
+                      <a href="dot/fd2_vd_ci_dependency.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_ci_dependency.svg" alt="FD2-VD Cryogenic Instrumentation Dependencies diagram">
+                  </div>
+                </article>
+                
+                <article class="diagram-card" id="fd2_vd_ci-cabling">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Cabling</p>
+                    <h3>FD2-VD Cryogenic Instrumentation</h3>
+                    <p class="diagram-copy">Cable, fiber, flange, timing, and support-path relationships.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_ci_cabling.svg">SVG</a>
+                      <a href="pdf/fd2_vd_ci_cabling.pdf">PDF</a>
+                      <a href="dot/fd2_vd_ci_cabling.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_ci_cabling.svg" alt="FD2-VD Cryogenic Instrumentation Cabling diagram">
+                  </div>
+                </article>
+                
+              </div>
+            </section>
+            
+            <section class="system-section" id="fd2_vd_overview">
+              <div class="section-head">
+                <p class="eyebrow">System Portfolio</p>
+                <h2>FD2-VD Detector Overview</h2>
+              </div>
+              <div class="diagram-grid">
+                
+                <article class="diagram-card" id="fd2_vd_overview-overview">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Overview</p>
+                    <h3>FD2-VD Detector Overview</h3>
+                    <p class="diagram-copy">High-level system framing for publication and stakeholder review.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_overview_overview.svg">SVG</a>
+                      <a href="pdf/fd2_vd_overview_overview.pdf">PDF</a>
+                      <a href="dot/fd2_vd_overview_overview.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_overview_overview.svg" alt="FD2-VD Detector Overview Overview diagram">
+                  </div>
+                </article>
+                
+                <article class="diagram-card" id="fd2_vd_overview-hierarchy">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Hierarchy</p>
+                    <h3>FD2-VD Detector Overview</h3>
+                    <p class="diagram-copy">Assembly and parent-child structure across tracked component types.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_overview_hierarchy.svg">SVG</a>
+                      <a href="pdf/fd2_vd_overview_hierarchy.pdf">PDF</a>
+                      <a href="dot/fd2_vd_overview_hierarchy.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_overview_hierarchy.svg" alt="FD2-VD Detector Overview Hierarchy diagram">
+                  </div>
+                </article>
+                
+                <article class="diagram-card" id="fd2_vd_overview-dependency">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Dependencies</p>
+                    <h3>FD2-VD Detector Overview</h3>
+                    <p class="diagram-copy">Interface and functional dependencies across subsystems and services.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_overview_dependency.svg">SVG</a>
+                      <a href="pdf/fd2_vd_overview_dependency.pdf">PDF</a>
+                      <a href="dot/fd2_vd_overview_dependency.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_overview_dependency.svg" alt="FD2-VD Detector Overview Dependencies diagram">
+                  </div>
+                </article>
+                
+              </div>
+            </section>
+            
+            <section class="system-section" id="fd2_vd_hv_cathode">
+              <div class="section-head">
+                <p class="eyebrow">System Portfolio</p>
+                <h2>FD2-VD HV Cathode</h2>
+              </div>
+              <div class="diagram-grid">
+                
+                <article class="diagram-card" id="fd2_vd_hv_cathode-overview">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Overview</p>
+                    <h3>FD2-VD HV Cathode</h3>
+                    <p class="diagram-copy">High-level system framing for publication and stakeholder review.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_hv_cathode_overview.svg">SVG</a>
+                      <a href="pdf/fd2_vd_hv_cathode_overview.pdf">PDF</a>
+                      <a href="dot/fd2_vd_hv_cathode_overview.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_hv_cathode_overview.svg" alt="FD2-VD HV Cathode Overview diagram">
+                  </div>
+                </article>
+                
+                <article class="diagram-card" id="fd2_vd_hv_cathode-hierarchy">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Hierarchy</p>
+                    <h3>FD2-VD HV Cathode</h3>
+                    <p class="diagram-copy">Assembly and parent-child structure across tracked component types.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_hv_cathode_hierarchy.svg">SVG</a>
+                      <a href="pdf/fd2_vd_hv_cathode_hierarchy.pdf">PDF</a>
+                      <a href="dot/fd2_vd_hv_cathode_hierarchy.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_hv_cathode_hierarchy.svg" alt="FD2-VD HV Cathode Hierarchy diagram">
+                  </div>
+                </article>
+                
+                <article class="diagram-card" id="fd2_vd_hv_cathode-dependency">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Dependencies</p>
+                    <h3>FD2-VD HV Cathode</h3>
+                    <p class="diagram-copy">Interface and functional dependencies across subsystems and services.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_hv_cathode_dependency.svg">SVG</a>
+                      <a href="pdf/fd2_vd_hv_cathode_dependency.pdf">PDF</a>
+                      <a href="dot/fd2_vd_hv_cathode_dependency.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_hv_cathode_dependency.svg" alt="FD2-VD HV Cathode Dependencies diagram">
+                  </div>
+                </article>
+                
+                <article class="diagram-card" id="fd2_vd_hv_cathode-cabling">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Cabling</p>
+                    <h3>FD2-VD HV Cathode</h3>
+                    <p class="diagram-copy">Cable, fiber, flange, timing, and support-path relationships.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_hv_cathode_cabling.svg">SVG</a>
+                      <a href="pdf/fd2_vd_hv_cathode_cabling.pdf">PDF</a>
+                      <a href="dot/fd2_vd_hv_cathode_cabling.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_hv_cathode_cabling.svg" alt="FD2-VD HV Cathode Cabling diagram">
+                  </div>
+                </article>
+                
+              </div>
+            </section>
+            
+            <section class="system-section" id="fd2_vd_top_crp">
+              <div class="section-head">
+                <p class="eyebrow">System Portfolio</p>
+                <h2>FD2-VD Top Charge Readout Planes</h2>
+              </div>
+              <div class="diagram-grid">
+                
+                <article class="diagram-card" id="fd2_vd_top_crp-overview">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Overview</p>
+                    <h3>FD2-VD Top Charge Readout Planes</h3>
+                    <p class="diagram-copy">High-level system framing for publication and stakeholder review.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_top_crp_overview.svg">SVG</a>
+                      <a href="pdf/fd2_vd_top_crp_overview.pdf">PDF</a>
+                      <a href="dot/fd2_vd_top_crp_overview.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_top_crp_overview.svg" alt="FD2-VD Top Charge Readout Planes Overview diagram">
+                  </div>
+                </article>
+                
+                <article class="diagram-card" id="fd2_vd_top_crp-hierarchy">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Hierarchy</p>
+                    <h3>FD2-VD Top Charge Readout Planes</h3>
+                    <p class="diagram-copy">Assembly and parent-child structure across tracked component types.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_top_crp_hierarchy.svg">SVG</a>
+                      <a href="pdf/fd2_vd_top_crp_hierarchy.pdf">PDF</a>
+                      <a href="dot/fd2_vd_top_crp_hierarchy.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_top_crp_hierarchy.svg" alt="FD2-VD Top Charge Readout Planes Hierarchy diagram">
+                  </div>
+                </article>
+                
+                <article class="diagram-card" id="fd2_vd_top_crp-dependency">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Dependencies</p>
+                    <h3>FD2-VD Top Charge Readout Planes</h3>
+                    <p class="diagram-copy">Interface and functional dependencies across subsystems and services.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_top_crp_dependency.svg">SVG</a>
+                      <a href="pdf/fd2_vd_top_crp_dependency.pdf">PDF</a>
+                      <a href="dot/fd2_vd_top_crp_dependency.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_top_crp_dependency.svg" alt="FD2-VD Top Charge Readout Planes Dependencies diagram">
+                  </div>
+                </article>
+                
+                <article class="diagram-card" id="fd2_vd_top_crp-cabling">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Cabling</p>
+                    <h3>FD2-VD Top Charge Readout Planes</h3>
+                    <p class="diagram-copy">Cable, fiber, flange, timing, and support-path relationships.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_top_crp_cabling.svg">SVG</a>
+                      <a href="pdf/fd2_vd_top_crp_cabling.pdf">PDF</a>
+                      <a href="dot/fd2_vd_top_crp_cabling.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_top_crp_cabling.svg" alt="FD2-VD Top Charge Readout Planes Cabling diagram">
+                  </div>
+                </article>
+                
+              </div>
+            </section>
+            
+            <section class="system-section" id="fd2_vd_tde">
+              <div class="section-head">
+                <p class="eyebrow">System Portfolio</p>
+                <h2>FD2-VD Top Vertical Drift CRP Electronics</h2>
+              </div>
+              <div class="diagram-grid">
+                
+                <article class="diagram-card" id="fd2_vd_tde-overview">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Overview</p>
+                    <h3>FD2-VD Top Vertical Drift CRP Electronics</h3>
+                    <p class="diagram-copy">High-level system framing for publication and stakeholder review.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_tde_overview.svg">SVG</a>
+                      <a href="pdf/fd2_vd_tde_overview.pdf">PDF</a>
+                      <a href="dot/fd2_vd_tde_overview.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_tde_overview.svg" alt="FD2-VD Top Vertical Drift CRP Electronics Overview diagram">
+                  </div>
+                </article>
+                
+                <article class="diagram-card" id="fd2_vd_tde-hierarchy">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Hierarchy</p>
+                    <h3>FD2-VD Top Vertical Drift CRP Electronics</h3>
+                    <p class="diagram-copy">Assembly and parent-child structure across tracked component types.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_tde_hierarchy.svg">SVG</a>
+                      <a href="pdf/fd2_vd_tde_hierarchy.pdf">PDF</a>
+                      <a href="dot/fd2_vd_tde_hierarchy.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_tde_hierarchy.svg" alt="FD2-VD Top Vertical Drift CRP Electronics Hierarchy diagram">
+                  </div>
+                </article>
+                
+                <article class="diagram-card" id="fd2_vd_tde-dependency">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Dependencies</p>
+                    <h3>FD2-VD Top Vertical Drift CRP Electronics</h3>
+                    <p class="diagram-copy">Interface and functional dependencies across subsystems and services.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_tde_dependency.svg">SVG</a>
+                      <a href="pdf/fd2_vd_tde_dependency.pdf">PDF</a>
+                      <a href="dot/fd2_vd_tde_dependency.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_tde_dependency.svg" alt="FD2-VD Top Vertical Drift CRP Electronics Dependencies diagram">
+                  </div>
+                </article>
+                
+                <article class="diagram-card" id="fd2_vd_tde-cabling">
+                  <div class="diagram-head">
+                    <p class="eyebrow">Cabling</p>
+                    <h3>FD2-VD Top Vertical Drift CRP Electronics</h3>
+                    <p class="diagram-copy">Cable, fiber, flange, timing, and support-path relationships.</p>
+                    <p class="downloads">
+                      <a href="diagrams/fd2_vd_tde_cabling.svg">SVG</a>
+                      <a href="pdf/fd2_vd_tde_cabling.pdf">PDF</a>
+                      <a href="dot/fd2_vd_tde_cabling.dot">DOT</a>
+                    </p>
+                  </div>
+                  <div class="diagram-frame">
+                    <img src="diagrams/fd2_vd_tde_cabling.svg" alt="FD2-VD Top Vertical Drift CRP Electronics Cabling diagram">
+                  </div>
+                </article>
+                
+              </div>
+            </section>
+            
+    </main>
+  </div>
+</body>
+</html>

@@ -68,6 +68,12 @@ make publish
 make all
 ```
 
+To generate the static HTML portfolio into `docs/`:
+
+```bash
+make site
+```
+
 ### 2. Day-to-day edit loop
 
 When changing hierarchy, dependencies, cables, fields, or QC artifacts:
@@ -128,6 +134,22 @@ Render one publishable SVG or PDF directly:
 python3 tools/hwdb.py render-svg --system fd2_vd_tde --view cabling
 python3 tools/hwdb.py render-svg --system fd2_vd_top_crp --view hierarchy --pdf-output build/publish/pdf/top_crp_hierarchy_manual.pdf
 ```
+
+### Static HTML portfolio
+
+Generate a GitHub Pages-compatible static site in `docs/`:
+
+```bash
+make site
+```
+
+This writes:
+
+- `docs/index.html`
+- `docs/assets/report.css`
+- `docs/diagrams/*.svg`
+- `docs/pdf/*.pdf`
+- `docs/dot/*.dot`
 
 ## Output Map
 

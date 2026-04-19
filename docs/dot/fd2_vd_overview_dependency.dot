@@ -1,0 +1,40 @@
+digraph HardwareModel {
+  graph [
+    rankdir=LR,
+    splines=true,
+    overlap=false,
+    newrank=true,
+    compound=true,
+    bgcolor="#f6f1e8",
+    pad="0.35",
+    nodesep="0.45",
+    ranksep="0.8",
+    label="FD2-VD Detector Overview · Dependencies",
+    labelloc="t",
+    labeljust="l",
+    fontname="Iowan Old Style",
+    fontsize=26,
+    fontcolor="#183247"
+  ];
+  node [fontname="Avenir Next", fontsize=12, margin="0.18,0.12", penwidth=1.3];
+  edge [fontname="Avenir Next", fontsize=10, arrowsize=0.8, penwidth=1.2, color="#33536a", fontcolor="#33536a"];
+
+  fd2_vd_overview [label="FD2-VD Detector Overview", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
+
+  fd2_vd_overview_vd_bde [label="BDE", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+  fd2_vd_overview_vd_daq [label="DAQ", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+  fd2_vd_overview_vd_field_cage [label="Field Cage", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+  fd2_vd_overview_vd_hv_cathode [label="HV Cathode", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+  fd2_vd_overview_vd_pds_cathode [label="PDS Cathode Modules", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+  fd2_vd_overview_vd_pds_membrane [label="PDS Membrane Modules", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+  fd2_vd_overview_vd_tde [label="TDE", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+  fd2_vd_overview_vd_crp [label="Top CRP", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+
+  fd2_vd_overview_vd_crp -> fd2_vd_overview_vd_tde [color="#1f6f8b", fontcolor="#1f6f8b", style="dashed", penwidth="1.2", label="interface"];
+  fd2_vd_overview_vd_crp -> fd2_vd_overview_vd_bde [color="#1f6f8b", fontcolor="#1f6f8b", style="dashed", penwidth="1.2", label="interface"];
+  fd2_vd_overview_vd_bde -> fd2_vd_overview_vd_daq [color="#356c53", fontcolor="#356c53", style="dashed", penwidth="1.2", label="readout"];
+  fd2_vd_overview_vd_tde -> fd2_vd_overview_vd_daq [color="#356c53", fontcolor="#356c53", style="dashed", penwidth="1.2", label="readout"];
+  fd2_vd_overview_vd_pds_cathode -> fd2_vd_overview_vd_bde [color="#1f6f8b", fontcolor="#1f6f8b", style="dashed", penwidth="1.2", label="interface"];
+  fd2_vd_overview_vd_pds_membrane -> fd2_vd_overview_vd_bde [color="#1f6f8b", fontcolor="#1f6f8b", style="dashed", penwidth="1.2", label="interface"];
+  fd2_vd_overview_vd_hv_cathode -> fd2_vd_overview_vd_field_cage [color="#1f6f8b", fontcolor="#1f6f8b", style="dashed", penwidth="1.2", label="interface"];
+}

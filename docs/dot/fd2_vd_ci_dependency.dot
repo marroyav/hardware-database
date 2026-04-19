@@ -1,0 +1,49 @@
+digraph HardwareModel {
+  graph [
+    rankdir=LR,
+    splines=true,
+    overlap=false,
+    newrank=true,
+    compound=true,
+    bgcolor="#f6f1e8",
+    pad="0.35",
+    nodesep="0.45",
+    ranksep="0.8",
+    label="FD2-VD Cryogenic Instrumentation · Dependencies",
+    labelloc="t",
+    labeljust="l",
+    fontname="Iowan Old Style",
+    fontsize=26,
+    fontcolor="#183247"
+  ];
+  node [fontname="Avenir Next", fontsize=12, margin="0.18,0.12", penwidth=1.3];
+  edge [fontname="Avenir Next", fontsize=10, arrowsize=0.8, penwidth=1.2, color="#33536a", fontcolor="#33536a"];
+
+  fd2_vd_ci [label="FD2-VD Cryogenic Instrumentation", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
+
+  subgraph cluster_fd2_vd_ci_tms {
+    label="Temperature Monitoring System";
+    style="rounded,filled";
+    color="#c7b8a1";
+    fillcolor="#fbf7f0";
+    penwidth=1.1;
+    fontname="Avenir Next";
+    fontsize=13;
+    fontcolor="#5a4634";
+    fd2_vd_ci_cold_cable [label="Cold Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    fd2_vd_ci_rtd [label="RTD", fontname="Avenir Next", shape="ellipse", style="filled", fillcolor="#f7dde0", color="#a14656", fontcolor="#4a1823"];
+    fd2_vd_ci_t2_bundle [label="T2 Cable Bundle", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    fd2_vd_ci_t4_bundle [label="T4 Cable Bundle", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    fd2_vd_ci_t6_bundle [label="T6 Cable Bundle", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    fd2_vd_ci_tms_card [label="TMS Card", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+    fd2_vd_ci_tms_flange [label="TMS Flange", fontname="Avenir Next", shape="parallelogram", style="filled", fillcolor="#f3e5cc", color="#9d6a14", fontcolor="#52360a"];
+    fd2_vd_ci_warm_cable [label="Warm Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+  }
+
+  fd2_vd_ci_cold_cable -> fd2_vd_ci_rtd [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_ci_t6_bundle -> fd2_vd_ci_tms_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_ci_t4_bundle -> fd2_vd_ci_tms_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_ci_t2_bundle -> fd2_vd_ci_tms_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_ci_warm_cable -> fd2_vd_ci_tms_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_ci_warm_cable -> fd2_vd_ci_tms_card [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+}
