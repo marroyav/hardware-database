@@ -4,10 +4,12 @@ Place private `.docx` and `.pptx` source files for analysis in this folder.
 
 This directory is intentionally ignored by git except for this `README.md`, so the original documents are never pushed to GitHub from this repository.
 
-Typical workflow:
+This folder is not part of the normal build path. The repository is meant to operate from the TOML model in `specs/systems/`.
+
+Use local source material only if you explicitly want to run the legacy extractor for provenance or one-time analysis.
+
+Optional legacy command:
 
 ```bash
 python3 tools/hwdb.py extract-sources
-python3 tools/hwdb.py build-db
-python3 tools/hwdb.py publish
 ```

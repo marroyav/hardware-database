@@ -1,6 +1,6 @@
 # Hardware Database Diagram Pipeline
 
-This repository now includes a small, source-linked pipeline for turning the HWDB interface documents in this folder into:
+This repository now includes a TOML-first pipeline for turning a curated hardware model into:
 
 - a normalized SQLite database of systems, subsystems, component types, fields, QC artifacts, and relationships
 - Mermaid graphs for hierarchy views
@@ -8,21 +8,22 @@ This repository now includes a small, source-linked pipeline for turning the HWD
 - Mermaid graphs for cable and interface views
 - styled SVG and PDF publication diagrams
 
-The design is intentionally two-stage:
+The design is intentionally TOML-first:
 
-1. The original `.docx` and `.pptx` files are extracted into machine-readable text for traceability.
-2. A curated spec layer in [`specs/systems`](specs/systems) defines the canonical model that gets loaded into SQLite and rendered as diagrams.
+1. A curated spec layer in [`specs/systems`](specs/systems) defines the canonical model.
+2. That model gets loaded into SQLite and rendered as diagrams and publication outputs.
+3. Optional local document extraction exists only for provenance or one-time analysis.
 
-This avoids treating draft prose as the database of record while still keeping every modeled item tied back to a source document.
+This avoids treating draft prose as the database of record. The TOML specs are the source of truth.
 
 ## Repository Layout
 
 ```text
 .
 ├── docs/               # design notes and planning documents
-├── source-material/    # local-only private input documents, ignored by git
+├── source-material/    # optional local-only private input documents, ignored by git
 ├── specs/systems/      # canonical system model in TOML
-├── tools/              # CLI for extraction, DB build, and rendering
+├── tools/              # CLI for DB build and rendering
 ├── build/              # generated outputs, ignored by git
 ├── .gitignore
 ├── Makefile
@@ -44,18 +45,17 @@ Do **not** edit generated outputs in:
 
 Those files are regenerated from the specs.
 
-Private input documents belong in:
+Optional private reference documents belong in:
 
 - [`source-material/`](source-material/README.md)
 
-That folder is intentionally ignored by git, so the original `.docx` and `.pptx` files are kept local only.
+That folder is intentionally ignored by git, so the original `.docx` and `.pptx` files are kept local only. They are not required for building the repo outputs.
 
 ## Operating Workflow
 
-### 1. First build or refresh from source documents
+### 1. Normal build from the TOML model
 
 ```bash
-python3 tools/hwdb.py extract-sources
 python3 tools/hwdb.py build-db
 python3 tools/hwdb.py publish
 ```
@@ -63,9 +63,9 @@ python3 tools/hwdb.py publish
 Equivalent convenience targets:
 
 ```bash
-make extract
 make build
 make publish
+make all
 ```
 
 ### 2. Day-to-day edit loop
@@ -94,14 +94,22 @@ sqlite3 build/hardware.db '.tables'
 ### Quick Start
 
 ```bash
-python3 tools/hwdb.py extract-sources
 python3 tools/hwdb.py build-db
 python3 tools/hwdb.py list
 python3 tools/hwdb.py render-all
 python3 tools/hwdb.py publish
 ```
 
-The extractor defaults to `source-material/`, not the repo root.
+No document extraction is required for the normal workflow.
+
+### Optional legacy extraction
+
+If you want local text snapshots from private source documents for provenance only:
+
+```bash
+python3 tools/hwdb.py extract-sources
+make extract-legacy
+```
 
 ### One-off graph commands
 
@@ -125,13 +133,17 @@ python3 tools/hwdb.py render-svg --system fd2_vd_top_crp --view hierarchy --pdf-
 
 Generated outputs land in `build/`:
 
-- `build/sources/index.json`
 - `build/hardware.db`
 - `build/diagrams/*.mmd`
 - `build/publish/index.html`
 - `build/publish/diagrams/fd2_vd_full_dense.svg`
 - `build/publish/diagrams/*.svg`
 - `build/publish/pdf/*.pdf`
+
+Optional provenance outputs, if you run the extractor:
+
+- `build/sources/index.json`
+- `build/sources/*.txt`
 
 The main report to open in a browser is:
 
@@ -146,7 +158,7 @@ The dense full-system publication graphic is:
 
 The database currently stores:
 
-- `sources`: extracted document records
+- `sources`: optional extracted document records
 - `systems`
 - `subsystems`
 - `component_types`
@@ -272,7 +284,7 @@ command -v dot
 
 ### `extract-sources` finds nothing
 
-Check that the private source documents are under `source-material/`:
+This is only relevant if you intentionally run the legacy extractor. Check that the private source documents are under `source-material/`:
 
 ```bash
 find source-material -maxdepth 1 -type f

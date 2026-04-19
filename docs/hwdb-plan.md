@@ -19,16 +19,16 @@ The interface documents in this folder already define the right raw ingredients:
 
 ## Recommended Architecture
 
-### 1. Source layer
+### 1. Optional source layer
 
 Keep the original EDMS-derived `.docx` and hierarchy `.pptx` files untouched.
 
-Use the extractor to generate:
+If you need provenance, use the extractor to generate:
 
 - plain text snapshots for review
 - a source index with titles, timestamps, and extracted text paths
 
-This gives traceability and makes later audits possible.
+This gives traceability and makes later audits possible. It is not required for normal operation of this repository.
 
 ### 2. Curated spec layer
 
@@ -43,7 +43,7 @@ Each spec defines:
 - QC artifacts
 - typed relations
 
-This is the canonical layer because the documents are still partly draft-like and contain open questions.
+This is the canonical layer because the documents are still partly draft-like and contain open questions. In practice, this repository should be operated from the TOML specs upward.
 
 ### 3. SQLite model
 

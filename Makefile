@@ -1,6 +1,8 @@
-.PHONY: extract build publish list clean
+.PHONY: build publish list clean extract-legacy all
 
-extract:
+all: build publish
+
+extract-legacy:
 	python3 tools/hwdb.py extract-sources
 
 build:
