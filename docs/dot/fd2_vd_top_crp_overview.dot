@@ -21,18 +21,6 @@ digraph HardwareModel {
 
   fd2_vd_top_crp [label="FD2-VD Top Charge Readout Planes", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
 
-  subgraph cluster_fd2_vd_top_crp_complete_crp {
-    label="Complete CRP";
-    style="rounded,filled";
-    color="#c7b8a1";
-    fillcolor="#fbf7f0";
-    penwidth=1.1;
-    fontname="Avenir Next";
-    fontsize=13;
-    fontcolor="#5a4634";
-    fd2_vd_top_crp_top_crp [label="Top CRP", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
-  }
-
   subgraph cluster_fd2_vd_top_crp_half_crp {
     label="Half CRP / CRU";
     style="rounded,filled";
@@ -43,6 +31,18 @@ digraph HardwareModel {
     fontsize=13;
     fontcolor="#5a4634";
     fd2_vd_top_crp_cru [label="Top Half CRP / CRU", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+  }
+
+  subgraph cluster_fd2_vd_top_crp_complete_crp {
+    label="Instrumented CRP / Complete CRP";
+    style="rounded,filled";
+    color="#c7b8a1";
+    fillcolor="#fbf7f0";
+    penwidth=1.1;
+    fontname="Avenir Next";
+    fontsize=13;
+    fontcolor="#5a4634";
+    fd2_vd_top_crp_top_crp [label="Instrumented Top CRP", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
   }
 
   fd2_vd_top_crp -> fd2_vd_top_crp_top_crp [color="#274c67", fontcolor="#274c67", penwidth="1.4"];

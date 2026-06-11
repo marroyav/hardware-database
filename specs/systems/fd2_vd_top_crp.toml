@@ -5,14 +5,14 @@ short_name = "Top CRP"
 detector = "FD2-VD"
 pid_prefix = "055"
 description = "Top CRP mechanical and cable hierarchy for the vertical drift detector."
-source_document = "3402888_DID_HWDB_TOP_CRP_March08_2026-2.docx"
-notes = "Seeded from the March 8, 2026 CRP interface document. Signal cables and cable trays are included because the document explicitly extends to instrumented CRP objects."
+source_document = "3402888_DID_HWDB_TOP_CRP_March08_2026.docx"
+notes = "Updated from the March 2026 CRP interface document and HWDB_FD-VD_CRP_PIDtable_2June2026.xlsx. Signal cables and cable trays are kept in this model even though the interface document also describes them as System ID 052 instrumented-CRP scope."
 
 [[subsystems]]
 key = "complete_crp"
 id = "001"
-name = "Complete CRP"
-description = "Top-level CRP assembly composed of two CRUs."
+name = "Instrumented CRP / Complete CRP"
+description = "Top-level instrumented CRP assembly composed of two CRUs."
 
 [[subsystems]]
 key = "half_crp"
@@ -70,32 +70,44 @@ description = "HV bundle jumpers between filter boxes."
 
 [[subsystems]]
 key = "decoupling"
-id = "011"
+id = "021"
 name = "Decoupling Devices"
 description = "Suspension and alignment hardware."
 
 [[subsystems]]
 key = "level_meter"
-id = "020"
-name = "Level Meter"
+id = "031"
+name = "Level Meters"
 description = "Level meter devices, cable bundles, and readout boards."
 
 [[subsystems]]
 key = "shipping"
-id = "050"
+id = "051"
 name = "Shipping"
 description = "Transport boxes and shipping containers."
 
 [[subsystems]]
 key = "signal_cabling"
-id = "052"
-name = "Instrumented CRP Cables"
-description = "Signal cables and cable trays covered by the CRP interface document."
+id = "011"
+name = "Signal Cable"
+description = "Flat signal cables covered by the CRP interface document and June 2026 PID table."
+
+[[subsystems]]
+key = "cable_trays"
+id = "012"
+name = "Cable Tray"
+description = "Pre-assembled cable trays connecting pairs of chimneys."
+
+[[subsystems]]
+key = "installation_tooling"
+id = "041"
+name = "Installation Tooling"
+description = "Tooling used to assemble CRPs and superstructures in the cryostat."
 
 [[components]]
 key = "top_crp"
 subsystem = "complete_crp"
-name = "Top CRP"
+name = "Instrumented Top CRP"
 category = "hardware"
 description = "A complete top CRP composed of two CRUs."
 
@@ -127,7 +139,7 @@ subsystem = "anode_panels"
 name = "CRU Anode Panel"
 category = "hardware"
 description = "Collection and shield anode panel family."
-notes = "The source document defines two variants: collection and shield."
+notes = "The June 2026 PID table lists collection-induction two-layer and shield-induction one-layer variants."
 
 [[components]]
 key = "peek_spacer"
@@ -149,7 +161,7 @@ name = "PCB Anode Segment"
 category = "batch"
 is_batch = true
 description = "Production batch of PCB segments used in the anode build."
-notes = "The document cites 22 variants but treats them as batch-like records."
+notes = "The June 2026 PID table lists collection, shield, induction 1, and induction 2 batches; the interface document still cites a larger PCB variant set."
 
 [[components]]
 key = "adapter_board"
@@ -194,7 +206,7 @@ subsystem = "decoupling"
 name = "Decoupling Device"
 category = "hardware"
 description = "Mechanical decoupling and positioning hardware."
-notes = "The source document defines spherical-joint, fixed-support, and guiding-support variants."
+notes = "The June 2026 PID table lists three production-batch types for decoupling devices."
 
 [[components]]
 key = "level_meter_assembly"
@@ -244,6 +256,7 @@ subsystem = "shipping"
 name = "Shipping Box"
 category = "hardware"
 description = "Wooden transport box for CRUs."
+notes = "The June 2026 PID table indicates the shipping box may include level-meter cables and electronics and cable trays."
 
 [[components]]
 key = "shipping_container"
@@ -251,10 +264,11 @@ subsystem = "shipping"
 name = "Shipping Container"
 category = "hardware"
 description = "Container holding CRU shipping boxes."
+notes = "The June 2026 PID table describes the SURF container as also covering TDE, PDS, cathode, chimney, and blade shipments."
 
 [[components]]
 key = "cable_tray"
-subsystem = "signal_cabling"
+subsystem = "cable_trays"
 name = "CRP Cable Tray"
 category = "hardware"
 description = "Tray pre-assembling signal cables for two chimneys."
@@ -285,6 +299,14 @@ description = "Flat 68-pin signal cable between CRU adapter boards and chimney c
   name = "batch_qc"
   artifact_type = "qc_file"
   description = "Manufacturer QC data for the cable batch."
+
+[[components]]
+key = "crp_installation_tooling"
+subsystem = "installation_tooling"
+name = "CRP Installation Tooling"
+category = "hardware"
+description = "Tooling used to assemble CRP and superstructures in the cryostat."
+notes = "June 2026 PID table: installation tooling subsystem ID 041."
 
 [[relations]]
 source = "fd2_vd_top_crp"
@@ -362,6 +384,12 @@ tags = ["hierarchy"]
 [[relations]]
 source = "top_crp"
 target = "level_meter_assembly"
+type = "contains"
+tags = ["hierarchy"]
+
+[[relations]]
+source = "top_crp"
+target = "crp_installation_tooling"
 type = "contains"
 tags = ["hierarchy"]
 

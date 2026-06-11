@@ -82,7 +82,7 @@ digraph HardwareModel {
     fontname="Avenir Next";
     fontsize=13;
     fontcolor="#5a4634";
-    fd2_vd_tde_timing_fiber [label="Timing Fiber", fontname="Avenir Next", shape="octagon", style="filled", fillcolor="#fde7c8", color="#b7671e", fontcolor="#5a320a"];
+    fd2_vd_tde_timing_fiber [label="WR Fiber", fontname="Avenir Next", shape="octagon", style="filled", fillcolor="#fde7c8", color="#b7671e", fontcolor="#5a320a"];
     fd2_vd_tde_wr_switch [label="White Rabbit Switch", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
   }
 

@@ -12,7 +12,7 @@ The design is intentionally TOML-first:
 
 1. A curated spec layer in [`specs/systems`](specs/systems) defines the canonical model.
 2. That model gets loaded into SQLite and rendered as diagrams and publication outputs.
-3. Optional local document extraction exists only for provenance or one-time analysis.
+3. Optional local source extraction exists only for provenance or one-time analysis.
 
 This avoids treating draft prose as the database of record. The TOML specs are the source of truth.
 
@@ -49,7 +49,7 @@ Optional private reference documents belong in:
 
 - [`source-material/`](source-material/README.md)
 
-That folder is intentionally ignored by git, so the original `.docx` and `.pptx` files are kept local only. They are not required for building the repo outputs.
+That folder is intentionally ignored by git, so the original `.docx`, `.pptx`, and `.xlsx` files are kept local only. They are not required for building the repo outputs.
 
 ## Operating Workflow
 
@@ -73,6 +73,10 @@ To generate the static HTML portfolio into `docs/`:
 ```bash
 make site
 ```
+
+This also writes the interactive database explorer:
+
+- `docs/explorer.html`
 
 ### 2. Day-to-day edit loop
 
@@ -110,7 +114,7 @@ No document extraction is required for the normal workflow.
 
 ### Optional legacy extraction
 
-If you want local text snapshots from private source documents for provenance only:
+If you want local text snapshots from private DOCX, PPTX, and XLSX source files for provenance only:
 
 ```bash
 python3 tools/hwdb.py extract-sources
@@ -146,6 +150,7 @@ make site
 This writes:
 
 - `docs/index.html`
+- `docs/explorer.html`
 - `docs/assets/report.css`
 - `docs/diagrams/*.svg`
 - `docs/pdf/*.pdf`

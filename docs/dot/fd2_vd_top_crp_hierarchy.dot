@@ -45,6 +45,18 @@ digraph HardwareModel {
     fd2_vd_top_crp_cru_anode_panel [label="CRU Anode Panel", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
   }
 
+  subgraph cluster_fd2_vd_top_crp_cable_trays {
+    label="Cable Tray";
+    style="rounded,filled";
+    color="#c7b8a1";
+    fillcolor="#fbf7f0";
+    penwidth=1.1;
+    fontname="Avenir Next";
+    fontsize=13;
+    fontcolor="#5a4634";
+    fd2_vd_top_crp_cable_tray [label="CRP Cable Tray", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+  }
+
   subgraph cluster_fd2_vd_top_crp_bias_filtering {
     label="Cold Bias Filter Boards";
     style="rounded,filled";
@@ -67,18 +79,6 @@ digraph HardwareModel {
     fontsize=13;
     fontcolor="#5a4634";
     fd2_vd_top_crp_cold_bias_hv_cable [label="Cold Bias HV Cable Bundle Jumper", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
-  }
-
-  subgraph cluster_fd2_vd_top_crp_complete_crp {
-    label="Complete CRP";
-    style="rounded,filled";
-    color="#c7b8a1";
-    fillcolor="#fbf7f0";
-    penwidth=1.1;
-    fontname="Avenir Next";
-    fontsize=13;
-    fontcolor="#5a4634";
-    fd2_vd_top_crp_top_crp [label="Top CRP", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
   }
 
   subgraph cluster_fd2_vd_top_crp_composite_frames {
@@ -129,8 +129,8 @@ digraph HardwareModel {
     fd2_vd_top_crp_cru [label="Top Half CRP / CRU", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
   }
 
-  subgraph cluster_fd2_vd_top_crp_signal_cabling {
-    label="Instrumented CRP Cables";
+  subgraph cluster_fd2_vd_top_crp_installation_tooling {
+    label="Installation Tooling";
     style="rounded,filled";
     color="#c7b8a1";
     fillcolor="#fbf7f0";
@@ -138,12 +138,23 @@ digraph HardwareModel {
     fontname="Avenir Next";
     fontsize=13;
     fontcolor="#5a4634";
-    fd2_vd_top_crp_cable_tray [label="CRP Cable Tray", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
-    fd2_vd_top_crp_signal_cable [label="CRP Signal Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    fd2_vd_top_crp_crp_installation_tooling [label="CRP Installation Tooling", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+  }
+
+  subgraph cluster_fd2_vd_top_crp_complete_crp {
+    label="Instrumented CRP / Complete CRP";
+    style="rounded,filled";
+    color="#c7b8a1";
+    fillcolor="#fbf7f0";
+    penwidth=1.1;
+    fontname="Avenir Next";
+    fontsize=13;
+    fontcolor="#5a4634";
+    fd2_vd_top_crp_top_crp [label="Instrumented Top CRP", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
   }
 
   subgraph cluster_fd2_vd_top_crp_level_meter {
-    label="Level Meter";
+    label="Level Meters";
     style="rounded,filled";
     color="#c7b8a1";
     fillcolor="#fbf7f0";
@@ -195,6 +206,18 @@ digraph HardwareModel {
     fd2_vd_top_crp_shipping_container [label="Shipping Container", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
   }
 
+  subgraph cluster_fd2_vd_top_crp_signal_cabling {
+    label="Signal Cable";
+    style="rounded,filled";
+    color="#c7b8a1";
+    fillcolor="#fbf7f0";
+    penwidth=1.1;
+    fontname="Avenir Next";
+    fontsize=13;
+    fontcolor="#5a4634";
+    fd2_vd_top_crp_signal_cable [label="CRP Signal Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+  }
+
   fd2_vd_top_crp -> fd2_vd_top_crp_top_crp [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
   fd2_vd_top_crp_top_crp -> fd2_vd_top_crp_cru [color="#274c67", fontcolor="#274c67", penwidth="1.4", label="2"];
   fd2_vd_top_crp_cru -> fd2_vd_top_crp_composite_frame [color="#274c67", fontcolor="#274c67", penwidth="1.4", label="1"];
@@ -207,6 +230,7 @@ digraph HardwareModel {
   fd2_vd_top_crp_top_crp -> fd2_vd_top_crp_cold_bias_hv_cable [color="#274c67", fontcolor="#274c67", penwidth="1.4", label="1"];
   fd2_vd_top_crp_top_crp -> fd2_vd_top_crp_decoupling_device [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
   fd2_vd_top_crp_top_crp -> fd2_vd_top_crp_level_meter_assembly [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_top_crp_top_crp -> fd2_vd_top_crp_crp_installation_tooling [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
   fd2_vd_top_crp_level_meter_assembly -> fd2_vd_top_crp_level_meter_internal_bundle [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
   fd2_vd_top_crp_level_meter_drawer -> fd2_vd_top_crp_level_meter_active_board [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
   fd2_vd_top_crp_level_meter_drawer -> fd2_vd_top_crp_level_meter_passive_board [color="#274c67", fontcolor="#274c67", penwidth="1.4"];

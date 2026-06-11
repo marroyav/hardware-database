@@ -15,6 +15,11 @@
 <path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M606,-336C606,-336 833.15,-336 833.15,-336 839.15,-336 845.15,-342 845.15,-348 845.15,-348 845.15,-412 845.15,-412 845.15,-418 839.15,-424 833.15,-424 833.15,-424 606,-424 606,-424 600,-424 594,-418 594,-412 594,-412 594,-348 594,-348 594,-342 600,-336 606,-336"/>
 <text text-anchor="middle" x="667" y="-409.6" font-family="Avenir Next" font-size="13.00" fill="#5a4634">Cathode Interconnect</text>
 </g>
+<g id="clust5" class="cluster">
+<title>cluster_fd2_vd_hv_cathode_half_cathode_plane</title>
+<path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M416,-387C416,-387 539,-387 539,-387 545,-387 551,-393 551,-399 551,-399 551,-449 551,-449 551,-455 545,-461 539,-461 539,-461 416,-461 416,-461 410,-461 404,-455 404,-449 404,-449 404,-399 404,-399 404,-393 410,-387 416,-387"/>
+<text text-anchor="middle" x="468.5" y="-446.6" font-family="Avenir Next" font-size="13.00" fill="#5a4634">Half Cathode Plane</text>
+</g>
 <g id="clust2" class="cluster">
 <title>cluster_fd2_vd_hv_cathode_cathode_plane</title>
 <path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M245,-387C245,-387 343,-387 343,-387 349,-387 355,-393 355,-399 355,-399 355,-449 355,-449 355,-455 349,-461 343,-461 343,-461 245,-461 245,-461 239,-461 233,-455 233,-449 233,-449 233,-399 233,-399 233,-393 239,-387 245,-387"/>
@@ -29,11 +34,6 @@
 <title>cluster_fd2_vd_hv_cathode_cross_ribs</title>
 <path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M684.58,-172C684.58,-172 754.58,-172 754.58,-172 760.58,-172 766.58,-178 766.58,-184 766.58,-184 766.58,-234 766.58,-234 766.58,-240 760.58,-246 754.58,-246 754.58,-246 684.58,-246 684.58,-246 678.58,-246 672.58,-240 672.58,-234 672.58,-234 672.58,-184 672.58,-184 672.58,-178 678.58,-172 684.58,-172"/>
 <text text-anchor="middle" x="711.58" y="-231.6" font-family="Avenir Next" font-size="13.00" fill="#5a4634">Cross Ribs</text>
-</g>
-<g id="clust5" class="cluster">
-<title>cluster_fd2_vd_hv_cathode_half_cathode_plane</title>
-<path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M416,-387C416,-387 539,-387 539,-387 545,-387 551,-393 551,-399 551,-399 551,-449 551,-449 551,-455 545,-461 539,-461 539,-461 416,-461 416,-461 410,-461 404,-455 404,-449 404,-449 404,-399 404,-399 404,-393 410,-387 416,-387"/>
-<text text-anchor="middle" x="468.5" y="-446.6" font-family="Avenir Next" font-size="13.00" fill="#5a4634">Half Cathode Plane</text>
 </g>
 <g id="clust6" class="cluster">
 <title>cluster_fd2_vd_hv_cathode_half_frame</title>

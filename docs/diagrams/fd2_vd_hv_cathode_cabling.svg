@@ -10,16 +10,6 @@
 <title>HardwareModel</title>
 <polygon fill="#f6f1e8" stroke="none" points="-25.2,25.2 -25.2,-313.2 819.35,-313.2 819.35,25.2 -25.2,25.2"/>
 <text text-anchor="middle" x="184.5" y="-263.2" font-family="Iowan Old Style" font-size="26.00" fill="#183247">FD2&#45;VD HV Cathode · Cabling</text>
-<g id="clust1" class="cluster">
-<title>cluster_fd2_vd_hv_cathode_cathode_interconnect</title>
-<path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M287,-59C287,-59 514.15,-59 514.15,-59 520.15,-59 526.15,-65 526.15,-71 526.15,-71 526.15,-135 526.15,-135 526.15,-141 520.15,-147 514.15,-147 514.15,-147 287,-147 287,-147 281,-147 275,-141 275,-135 275,-135 275,-71 275,-71 275,-65 281,-59 287,-59"/>
-<text text-anchor="middle" x="348" y="-132.6" font-family="Avenir Next" font-size="13.00" fill="#5a4634">Cathode Interconnect</text>
-</g>
-<g id="clust2" class="cluster">
-<title>cluster_fd2_vd_hv_cathode_half_cathode_plane</title>
-<path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M29.5,-66C29.5,-66 152.5,-66 152.5,-66 158.5,-66 164.5,-72 164.5,-78 164.5,-78 164.5,-128 164.5,-128 164.5,-134 158.5,-140 152.5,-140 152.5,-140 29.5,-140 29.5,-140 23.5,-140 17.5,-134 17.5,-128 17.5,-128 17.5,-78 17.5,-78 17.5,-72 23.5,-66 29.5,-66"/>
-<text text-anchor="middle" x="82" y="-125.6" font-family="Avenir Next" font-size="13.00" fill="#5a4634">Half Cathode Plane</text>
-</g>
 <g id="clust3" class="cluster">
 <title>cluster_fd2_vd_hv_cathode_lad</title>
 <path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M623.15,-162C623.15,-162 774.15,-162 774.15,-162 780.15,-162 786.15,-168 786.15,-174 786.15,-174 786.15,-224 786.15,-224 786.15,-230 780.15,-236 774.15,-236 774.15,-236 623.15,-236 623.15,-236 617.15,-236 611.15,-230 611.15,-224 611.15,-224 611.15,-174 611.15,-174 611.15,-168 617.15,-162 623.15,-162"/>
@@ -34,6 +24,16 @@
 <title>cluster_fd2_vd_hv_cathode_tad</title>
 <path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M23.5,-162C23.5,-162 158.5,-162 158.5,-162 164.5,-162 170.5,-168 170.5,-174 170.5,-174 170.5,-224 170.5,-224 170.5,-230 164.5,-236 158.5,-236 158.5,-236 23.5,-236 23.5,-236 17.5,-236 11.5,-230 11.5,-224 11.5,-224 11.5,-174 11.5,-174 11.5,-168 17.5,-162 23.5,-162"/>
 <text text-anchor="middle" x="82.5" y="-221.6" font-family="Avenir Next" font-size="13.00" fill="#5a4634">Top Adjusting Device</text>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_fd2_vd_hv_cathode_cathode_interconnect</title>
+<path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M287,-59C287,-59 514.15,-59 514.15,-59 520.15,-59 526.15,-65 526.15,-71 526.15,-71 526.15,-135 526.15,-135 526.15,-141 520.15,-147 514.15,-147 514.15,-147 287,-147 287,-147 281,-147 275,-141 275,-135 275,-135 275,-71 275,-71 275,-65 281,-59 287,-59"/>
+<text text-anchor="middle" x="348" y="-132.6" font-family="Avenir Next" font-size="13.00" fill="#5a4634">Cathode Interconnect</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_fd2_vd_hv_cathode_half_cathode_plane</title>
+<path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M29.5,-66C29.5,-66 152.5,-66 152.5,-66 158.5,-66 164.5,-72 164.5,-78 164.5,-78 164.5,-128 164.5,-128 164.5,-134 158.5,-140 152.5,-140 152.5,-140 29.5,-140 29.5,-140 23.5,-140 17.5,-134 17.5,-128 17.5,-128 17.5,-78 17.5,-78 17.5,-72 23.5,-66 29.5,-66"/>
+<text text-anchor="middle" x="82" y="-125.6" font-family="Avenir Next" font-size="13.00" fill="#5a4634">Half Cathode Plane</text>
 </g>
 <!-- fd2_vd_hv_cathode -->
 <g id="node1" class="node">

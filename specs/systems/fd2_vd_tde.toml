@@ -5,8 +5,8 @@ short_name = "TDE"
 detector = "FD2-VD"
 pid_prefix = "057"
 description = "Top drift electronics, chimneys, uTCA crates, timing, and support systems."
-source_document = "3416255_DID_HWDB_TDE_V1.docx"
-notes = "Seeded from the March 13, 2026 TDE interface document."
+source_document = "YYY_DID_HWDB_TDE_V1.docx"
+notes = "Updated from the June 2026 TDE interface document and HWDB_FD-VD_TDE_PIDtable_2June2026.xlsx."
 
 [[subsystems]]
 key = "sgft_chimney"
@@ -44,12 +44,19 @@ id = "006"
 name = "Shipping Containers"
 description = "Containers used for shipment to SURF."
 
+[[subsystems]]
+key = "cables"
+id = "007"
+name = "TDE Cables"
+description = "Cable component types from the June 2026 TDE PID table."
+
 [[components]]
 key = "sgft_chimney_assembly"
 subsystem = "sgft_chimney"
 name = "SGFT Chimney"
 category = "hardware"
 description = "Signal feedthrough chimney vessel."
+notes = "The June 2026 PID table separates 48-card and 24-card chimney component types."
 
   [[components.fields]]
   name = "serial_number"
@@ -67,6 +74,7 @@ subsystem = "sgft_chimney"
 name = "Cold Flange"
 category = "interface"
 description = "Cryostat-side interface between CRP signal cables and FEB slots."
+notes = "The June 2026 PID table separates 48-card and 24-card cold flange component types."
 
 [[components]]
 key = "warm_flange"
@@ -74,6 +82,7 @@ subsystem = "sgft_chimney"
 name = "Warm Flange"
 category = "interface"
 description = "Exterior SGFT interface carrying VHDCI, DB9, and SMA connections."
+notes = "Warm flange PID type covers the common warm-flange design used with V24 and V48 SGFT chimneys."
 
 [[components]]
 key = "feb_analog_card"
@@ -187,17 +196,59 @@ description = "Charge-injection support unit tied to warm-flange controls."
 
 [[components]]
 key = "tde_cable"
-subsystem = "ancillary_systems"
-name = "TDE Cable"
+subsystem = "cables"
+name = "VHDCI Signal Cable"
 category = "cable"
-description = "Electrical cable between warm-flange interfaces and downstream electronics."
+description = "VHDCI signal cable between warm-flange halves and AMC connectors in the associated uTCA crate."
+notes = "June 2026 PID table: Cable component type 5, hierarchy label TDE cable."
 
 [[components]]
 key = "timing_fiber"
 subsystem = "timing_distribution"
-name = "Timing Fiber"
+name = "WR Fiber"
 category = "fiber"
 description = "Optical fiber between the WR switch and the WR-MCH end-node."
+notes = "June 2026 PID table: Timing component type 2."
+
+[[components]]
+key = "lv_feb_power_sense_cable"
+subsystem = "cables"
+name = "LV FEB Power Sense Cable"
+category = "cable"
+description = "Shielded nine-wire sense cable between a warm-flange half and LV distribution in the slow-control mezzanine."
+notes = "June 2026 PID table: Cable component type 1."
+
+[[components]]
+key = "lv_feb_power_cable"
+subsystem = "cables"
+name = "LV FEB Power Cable"
+category = "cable"
+description = "Shielded nine-wire power cable between a warm-flange half and LV distribution in the slow-control mezzanine."
+notes = "June 2026 PID table: Cable component type 2."
+
+[[components]]
+key = "feb_pulsing_cable"
+subsystem = "cables"
+name = "FEB Pulsing Cable"
+category = "cable"
+description = "Coax SMA pulsing cable between the warm flange and the FEB calibration unit."
+notes = "June 2026 PID table: Cable component type 3."
+
+[[components]]
+key = "feb_pulsing_control_cable"
+subsystem = "cables"
+name = "FEB Pulsing Controls Cable"
+category = "cable"
+description = "Shielded control cable between the warm flange and the FEB calibration unit."
+notes = "June 2026 PID table: Cable component type 4."
+
+[[components]]
+key = "crate_power_cable"
+subsystem = "cables"
+name = "Crate Power Cable"
+category = "cable"
+description = "Power cord between the uTCA power unit and roof AC distribution."
+notes = "June 2026 PID table: Cable component type 6."
 
 [[components]]
 key = "shipping_container"
@@ -205,6 +256,7 @@ subsystem = "shipping"
 name = "Shipping Container"
 category = "hardware"
 description = "Container used to ship TDE hardware."
+notes = "Aggregate diagram node for the SGFT24 crate, SGFT48 crate, electronics box, cable box, uTCA container, and FEB container types listed in the June 2026 PID table."
 
 [[relations]]
 source = "fd2_vd_tde"
@@ -332,11 +384,65 @@ tags = ["dependency", "cabling"]
 description = "The warm flange DB9 ports carry low-voltage services to groups of FEBs."
 
 [[relations]]
+source = "lv_feb_power_cable"
+target = "filter_fanout_box"
+type = "connects_to"
+tags = ["cabling"]
+
+[[relations]]
+source = "lv_feb_power_cable"
+target = "warm_flange"
+type = "connects_to"
+tags = ["cabling"]
+
+[[relations]]
+source = "lv_feb_power_sense_cable"
+target = "filter_fanout_box"
+type = "connects_to"
+tags = ["cabling"]
+
+[[relations]]
+source = "lv_feb_power_sense_cable"
+target = "warm_flange"
+type = "connects_to"
+tags = ["cabling"]
+
+[[relations]]
 source = "calibration_unit"
 target = "warm_flange"
 type = "connects_to"
 tags = ["dependency", "cabling"]
 description = "Calibration injection enters through dedicated warm-flange connectors."
+
+[[relations]]
+source = "feb_pulsing_cable"
+target = "calibration_unit"
+type = "connects_to"
+tags = ["cabling"]
+
+[[relations]]
+source = "feb_pulsing_cable"
+target = "warm_flange"
+type = "connects_to"
+tags = ["cabling"]
+
+[[relations]]
+source = "feb_pulsing_control_cable"
+target = "calibration_unit"
+type = "connects_to"
+tags = ["cabling"]
+
+[[relations]]
+source = "feb_pulsing_control_cable"
+target = "warm_flange"
+type = "connects_to"
+tags = ["cabling"]
+
+[[relations]]
+source = "crate_power_cable"
+target = "utca_pu"
+type = "connects_to"
+tags = ["cabling"]
 
 [[relations]]
 source = "timing_fiber"

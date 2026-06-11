@@ -112,6 +112,15 @@ PPTX_TEXT_NS = {
     "dcterms": "http://purl.org/dc/terms/",
 }
 
+XLSX_NS = {
+    "main": "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
+    "rel": "http://schemas.openxmlformats.org/officeDocument/2006/relationships",
+    "pkgrel": "http://schemas.openxmlformats.org/package/2006/relationships",
+    "cp": "http://schemas.openxmlformats.org/package/2006/metadata/core-properties",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcterms": "http://purl.org/dc/terms/",
+}
+
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build and render hardware-database design graphs.")
@@ -206,7 +215,7 @@ def extract_sources(source_dir: Path, output_dir: Path) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     records: list[dict[str, Any]] = []
     for path in sorted(source_dir.iterdir()):
-        if path.suffix.lower() not in {".docx", ".pptx"}:
+        if path.suffix.lower() not in {".docx", ".pptx", ".xlsx"}:
             continue
         record = extract_source(path, output_dir)
         records.append(record)
@@ -223,6 +232,9 @@ def extract_source(path: Path, output_dir: Path) -> dict[str, Any]:
     elif path.suffix.lower() == ".pptx":
         metadata, text = parse_pptx(path)
         file_type = "pptx"
+    elif path.suffix.lower() == ".xlsx":
+        metadata, text = parse_xlsx(path)
+        file_type = "xlsx"
     else:
         raise ValueError(f"Unsupported source type: {path}")
 
@@ -267,6 +279,103 @@ def parse_pptx(path: Path) -> tuple[dict[str, Any], str]:
             if texts:
                 sections.append(f"[{slide_name}]\n" + "\n".join(texts))
         return metadata, "\n\n".join(sections)
+
+
+def parse_xlsx(path: Path) -> tuple[dict[str, Any], str]:
+    with ZipFile(path) as archive:
+        metadata = parse_core_properties(archive, XLSX_NS)
+        shared_strings = parse_xlsx_shared_strings(archive)
+        sheets = parse_xlsx_sheets(archive)
+        sections: list[str] = []
+        for sheet_name, sheet_path in sheets:
+            if sheet_path not in archive.namelist():
+                continue
+            rows = parse_xlsx_worksheet(archive.read(sheet_path), shared_strings)
+            lines = ["\t".join(row).rstrip() for row in rows]
+            lines = [line for line in lines if line.strip()]
+            if lines:
+                sections.append(f"[{sheet_name}]\n" + "\n".join(lines))
+        return metadata, "\n\n".join(sections)
+
+
+def parse_xlsx_shared_strings(archive: ZipFile) -> list[str]:
+    if "xl/sharedStrings.xml" not in archive.namelist():
+        return []
+    root = ET.fromstring(archive.read("xl/sharedStrings.xml"))
+    values: list[str] = []
+    for item in root.findall("main:si", XLSX_NS):
+        parts = [node.text or "" for node in item.findall(".//main:t", XLSX_NS)]
+        values.append("".join(parts))
+    return values
+
+
+def parse_xlsx_sheets(archive: ZipFile) -> list[tuple[str, str]]:
+    workbook_path = "xl/workbook.xml"
+    rels_path = "xl/_rels/workbook.xml.rels"
+    if workbook_path not in archive.namelist() or rels_path not in archive.namelist():
+        return []
+
+    rels_root = ET.fromstring(archive.read(rels_path))
+    relationships = {
+        rel.attrib["Id"]: rel.attrib["Target"]
+        for rel in rels_root.findall("pkgrel:Relationship", XLSX_NS)
+        if "Id" in rel.attrib and "Target" in rel.attrib
+    }
+
+    workbook_root = ET.fromstring(archive.read(workbook_path))
+    sheets: list[tuple[str, str]] = []
+    for sheet in workbook_root.findall(".//main:sheet", XLSX_NS):
+        rel_id = sheet.attrib.get(f"{{{XLSX_NS['rel']}}}id")
+        if rel_id is None or rel_id not in relationships:
+            continue
+        target = relationships[rel_id]
+        sheet_path = target.lstrip("/") if target.startswith("/") else f"xl/{target}"
+        sheets.append((sheet.attrib.get("name", rel_id), sheet_path))
+    return sheets
+
+
+def parse_xlsx_worksheet(xml_bytes: bytes, shared_strings: list[str]) -> list[list[str]]:
+    root = ET.fromstring(xml_bytes)
+    rows: list[list[str]] = []
+    for row_node in root.findall(".//main:sheetData/main:row", XLSX_NS):
+        cells: dict[int, str] = {}
+        max_col = 0
+        for cell in row_node.findall("main:c", XLSX_NS):
+            column = xlsx_column_index(cell.attrib.get("r", ""))
+            max_col = max(max_col, column)
+            value = xlsx_cell_text(cell, shared_strings)
+            if value:
+                cells[column] = value
+        if max_col:
+            rows.append([cells.get(index, "") for index in range(1, max_col + 1)])
+    return rows
+
+
+def xlsx_column_index(cell_reference: str) -> int:
+    letters = re.match(r"[A-Z]+", cell_reference.upper())
+    if letters is None:
+        return 1
+    value = 0
+    for letter in letters.group(0):
+        value = value * 26 + (ord(letter) - ord("A") + 1)
+    return value
+
+
+def xlsx_cell_text(cell: ET.Element, shared_strings: list[str]) -> str:
+    cell_type = cell.attrib.get("t")
+    if cell_type == "inlineStr":
+        return "".join(node.text or "" for node in cell.findall(".//main:t", XLSX_NS)).strip()
+
+    value = cell.findtext("main:v", default="", namespaces=XLSX_NS)
+    if value is None:
+        return ""
+    value = value.strip()
+    if cell_type == "s" and value:
+        try:
+            return shared_strings[int(value)].strip()
+        except (IndexError, ValueError):
+            return value
+    return value
 
 
 def parse_core_properties(archive: ZipFile, namespaces: dict[str, str]) -> dict[str, Any]:
@@ -1053,8 +1162,929 @@ def publish_report(db_path: Path, output_dir: Path, views: list[str]) -> None:
 
     (assets_dir / "report.css").write_text(publication_css(), encoding="utf-8")
     (output_dir / "index.html").write_text(publication_html(conn, published_items, detector_plates), encoding="utf-8")
+    (output_dir / "explorer.html").write_text(explorer_html(conn), encoding="utf-8")
     (output_dir / ".nojekyll").write_text("", encoding="utf-8")
     print(f"wrote {output_dir / 'index.html'}")
+    print(f"wrote {output_dir / 'explorer.html'}")
+
+
+def explorer_data(conn: sqlite3.Connection) -> dict[str, Any]:
+    systems = conn.execute("SELECT * FROM systems ORDER BY detector, name").fetchall()
+    subsystems = conn.execute("SELECT * FROM subsystems ORDER BY system_key, subsystem_id, name").fetchall()
+    components = conn.execute("SELECT * FROM component_types ORDER BY system_key, name").fetchall()
+    relations = conn.execute("SELECT * FROM relations ORDER BY system_key, id").fetchall()
+
+    fields_by_component: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in conn.execute("SELECT * FROM fields ORDER BY component_key, id").fetchall():
+        fields_by_component[row["component_key"]].append(
+            {
+                "name": row["name"],
+                "data_type": row["data_type"],
+                "is_qc": bool(row["is_qc"]),
+                "description": row["description"],
+            }
+        )
+
+    artifacts_by_component: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in conn.execute("SELECT * FROM artifacts ORDER BY component_key, id").fetchall():
+        artifacts_by_component[row["component_key"]].append(
+            {
+                "name": row["name"],
+                "artifact_type": row["artifact_type"],
+                "description": row["description"],
+            }
+        )
+
+    source_rows = conn.execute("SELECT key, filename, file_type FROM sources ORDER BY filename").fetchall()
+    sources = {row["key"]: {"filename": row["filename"], "file_type": row["file_type"]} for row in source_rows}
+
+    node_labels: dict[str, str] = {}
+    system_labels: dict[str, str] = {}
+    subsystem_labels: dict[str, str] = {}
+    for row in systems:
+        node_labels[row["key"]] = row["name"]
+        system_labels[row["key"]] = row["name"]
+    for row in subsystems:
+        node_labels[row["key"]] = row["name"]
+        subsystem_labels[row["key"]] = row["name"]
+    for row in components:
+        node_labels[row["key"]] = row["name"]
+
+    records: list[dict[str, Any]] = []
+    system_payloads: list[dict[str, Any]] = []
+    for row in systems:
+        system_key = row["key"]
+        component_count = sum(1 for component in components if component["system_key"] == system_key)
+        subsystem_count = sum(1 for subsystem in subsystems if subsystem["system_key"] == system_key)
+        relation_count = sum(1 for relation in relations if relation["system_key"] == system_key)
+        system_payload = {
+            "key": system_key,
+            "name": row["name"],
+            "short_name": row["short_name"],
+            "detector": row["detector"],
+            "pid_prefix": row["pid_prefix"],
+            "description": row["description"],
+            "source_key": row["source_key"],
+            "notes": row["notes"],
+            "stats": {
+                "subsystems": subsystem_count,
+                "components": component_count,
+                "relations": relation_count,
+            },
+        }
+        system_payloads.append(system_payload)
+        records.append(
+            {
+                "key": system_key,
+                "kind": "system",
+                "kind_label": "System",
+                "system_key": system_key,
+                "label": row["name"],
+                "description": row["description"],
+                "notes": row["notes"],
+                "source_key": row["source_key"],
+                "detector": row["detector"],
+                "pid_prefix": row["pid_prefix"],
+                "category": "system",
+                "fields": [],
+                "artifacts": [],
+            }
+        )
+
+    for row in subsystems:
+        records.append(
+            {
+                "key": row["key"],
+                "kind": "subsystem",
+                "kind_label": "Subsystem",
+                "system_key": row["system_key"],
+                "system_label": system_labels.get(row["system_key"], row["system_key"]),
+                "label": row["name"],
+                "description": row["description"],
+                "notes": row["notes"],
+                "source_key": row["source_key"],
+                "pid_id": row["subsystem_id"],
+                "category": "subsystem",
+                "fields": [],
+                "artifacts": [],
+            }
+        )
+
+    for row in components:
+        records.append(
+            {
+                "key": row["key"],
+                "kind": "component",
+                "kind_label": "Component Type",
+                "system_key": row["system_key"],
+                "system_label": system_labels.get(row["system_key"], row["system_key"]),
+                "subsystem_key": row["subsystem_key"],
+                "subsystem_label": subsystem_labels.get(row["subsystem_key"], row["subsystem_key"]),
+                "label": row["name"],
+                "description": row["description"],
+                "notes": row["notes"],
+                "source_key": row["source_key"],
+                "category": row["category"],
+                "is_batch": bool(row["is_batch"]),
+                "has_exec_summary": bool(row["has_exec_summary"]),
+                "fields": fields_by_component.get(row["key"], []),
+                "artifacts": artifacts_by_component.get(row["key"], []),
+            }
+        )
+
+    for row in relations:
+        source_label = node_labels.get(row["source_node"], row["source_node"])
+        target_label = node_labels.get(row["target_node"], row["target_node"])
+        label = f"{source_label} {row['relation_type'].replace('_', ' ')} {target_label}"
+        records.append(
+            {
+                "key": f"relation:{row['id']}",
+                "kind": "relation",
+                "kind_label": "Relation",
+                "system_key": row["system_key"],
+                "system_label": system_labels.get(row["system_key"], row["system_key"]),
+                "label": label,
+                "description": row["description"],
+                "source_key": row["source_key"],
+                "category": row["relation_type"],
+                "relation_type": row["relation_type"],
+                "source_node": row["source_node"],
+                "target_node": row["target_node"],
+                "source_label": source_label,
+                "target_label": target_label,
+                "cardinality": row["cardinality"],
+                "phase": row["phase"],
+                "tags": [tag for tag in (row["tags"] or "").split(",") if tag],
+                "fields": [],
+                "artifacts": [],
+            }
+        )
+
+    return {
+        "systems": system_payloads,
+        "records": records,
+        "relations": [record for record in records if record["kind"] == "relation"],
+        "sources": sources,
+    }
+
+
+def explorer_html(conn: sqlite3.Connection) -> str:
+    data_json = json.dumps(explorer_data(conn), separators=(",", ":"), ensure_ascii=False).replace("</", "<\\/")
+    generated = html.escape(datetime.now().strftime("%Y-%m-%d %H:%M"))
+    page = """<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware Database Explorer</title>
+  <style>
+    :root {
+      --bg: #f5f7f8;
+      --panel: #ffffff;
+      --ink: #172634;
+      --muted: #607080;
+      --line: #d7dee4;
+      --blue: #244b6a;
+      --teal: #24736f;
+      --green: #4f7b42;
+      --amber: #9d6514;
+      --rose: #9a4254;
+      --violet: #7451a5;
+      --shadow: 0 16px 40px rgba(22, 38, 52, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    a { color: inherit; }
+
+    .app-shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 18rem minmax(0, 1fr);
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    header {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.15rem;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .top-actions a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    aside {
+      border-right: 1px solid var(--line);
+      background: #eef3f5;
+      padding: 1rem;
+      overflow: auto;
+    }
+
+    .systems-title,
+    .panel-title {
+      margin: 0 0 0.65rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .system-list {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .system-button {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--panel);
+      text-align: left;
+      text-decoration: none;
+      box-shadow: 0 1px 0 rgba(22, 38, 52, 0.04);
+    }
+
+    .system-button.active {
+      border-color: var(--teal);
+      outline: 2px solid rgba(36, 115, 111, 0.14);
+    }
+
+    .system-name {
+      display: block;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .system-meta {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    main {
+      min-width: 0;
+      padding: 1rem;
+      overflow: auto;
+    }
+
+    .query-panel {
+      display: grid;
+      gap: 0.75rem;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .query-row {
+      display: grid;
+      grid-template-columns: minmax(14rem, 1fr) auto;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    input[type="search"] {
+      width: 100%;
+      min-height: 2.55rem;
+      padding: 0.55rem 0.7rem;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      color: var(--ink);
+      font: inherit;
+      background: #fbfcfd;
+    }
+
+    .kind-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .kind-filter button,
+    .dialog-actions button {
+      min-height: 2.25rem;
+      padding: 0 0.7rem;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fbfcfd;
+      color: var(--ink);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .kind-filter button.active {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: #ffffff;
+    }
+
+    .summary-line {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .result-panel {
+      margin-top: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 0.72rem 0.8rem;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 0.9rem;
+    }
+
+    th {
+      background: #f0f4f7;
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    tbody tr:hover {
+      background: #f8fbfc;
+    }
+
+    .object-link {
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .object-key {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.76rem;
+      overflow-wrap: anywhere;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 1.45rem;
+      padding: 0 0.45rem;
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .badge.system { background: var(--blue); }
+    .badge.subsystem { background: var(--teal); }
+    .badge.component { background: var(--green); }
+    .badge.relation { background: var(--amber); }
+    .badge.batch { background: var(--violet); }
+    .badge.sensor { background: var(--rose); }
+
+    dialog {
+      width: min(860px, calc(100vw - 2rem));
+      max-height: min(780px, calc(100vh - 2rem));
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0;
+      color: var(--ink);
+      box-shadow: 0 24px 80px rgba(22, 38, 52, 0.30);
+    }
+
+    dialog::backdrop {
+      background: rgba(11, 20, 28, 0.45);
+    }
+
+    .dialog-shell {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      max-height: inherit;
+    }
+
+    .dialog-head,
+    .dialog-actions {
+      padding: 1rem;
+      border-bottom: 1px solid var(--line);
+      background: #f8fafb;
+    }
+
+    .dialog-actions {
+      border-top: 1px solid var(--line);
+      border-bottom: 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+    }
+
+    .dialog-title {
+      margin: 0.45rem 0 0;
+      font-size: 1.35rem;
+      line-height: 1.2;
+    }
+
+    .dialog-body {
+      overflow: auto;
+      padding: 1rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+
+    .detail-item {
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 0.65rem;
+      background: #fbfcfd;
+    }
+
+    .detail-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .detail-item code,
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.83rem;
+      overflow-wrap: anywhere;
+    }
+
+    .dialog-section h3 {
+      margin: 0 0 0.45rem;
+      font-size: 0.92rem;
+    }
+
+    .dialog-section p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .mini-table th,
+    .mini-table td {
+      font-size: 0.83rem;
+      padding: 0.55rem;
+    }
+
+    .empty-state {
+      padding: 1.4rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 860px) {
+      .app-shell {
+        display: block;
+      }
+
+      header {
+        position: static;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      aside {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .system-list {
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      }
+
+      .query-row,
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header>
+      <h1>Hardware Database Explorer</h1>
+      <div class="top-actions">
+        <a href="index.html">Portfolio</a>
+        <span>Generated __GENERATED__</span>
+      </div>
+    </header>
+    <aside>
+      <p class="systems-title">Systems</p>
+      <nav class="system-list" id="system-list"></nav>
+    </aside>
+    <main>
+      <section class="query-panel" aria-label="Database query">
+        <div>
+          <p class="panel-title" id="active-system-title">Database Query</p>
+          <p class="summary-line" id="summary-line"></p>
+        </div>
+        <div class="query-row">
+          <input id="query-input" type="search" autocomplete="off" placeholder="Search key, PID, name, source, relation">
+          <div class="kind-filter" id="kind-filter">
+            <button type="button" data-kind="all" class="active">All</button>
+            <button type="button" data-kind="subsystem">Subsystems</button>
+            <button type="button" data-kind="component">Components</button>
+            <button type="button" data-kind="relation">Relations</button>
+          </div>
+        </div>
+      </section>
+      <section class="result-panel" aria-label="Query results">
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Object</th>
+              <th>Context</th>
+              <th>Source</th>
+            </tr>
+          </thead>
+          <tbody id="result-body"></tbody>
+        </table>
+        <div class="empty-state" id="empty-state" hidden>No matching rows.</div>
+      </section>
+    </main>
+  </div>
+  <dialog id="object-dialog"></dialog>
+  <script id="hwdb-data" type="application/json">__DATA_JSON__</script>
+  <script>
+(() => {
+  const data = JSON.parse(document.getElementById("hwdb-data").textContent);
+  const records = data.records;
+  const systems = data.systems;
+  const relations = data.relations;
+  const recordByKey = new Map(records.map((record) => [record.key, record]));
+  const systemByKey = new Map(systems.map((system) => [system.key, system]));
+  const state = {
+    systemKey: systems[0] ? systems[0].key : "",
+    kind: "all",
+    query: "",
+  };
+
+  const systemList = document.getElementById("system-list");
+  const queryInput = document.getElementById("query-input");
+  const resultBody = document.getElementById("result-body");
+  const emptyState = document.getElementById("empty-state");
+  const activeSystemTitle = document.getElementById("active-system-title");
+  const summaryLine = document.getElementById("summary-line");
+  const dialog = document.getElementById("object-dialog");
+
+  function esc(value) {
+    return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    }[char]));
+  }
+
+  function compact(value) {
+    return value === undefined || value === null || value === "" ? "-" : value;
+  }
+
+  function recordText(record) {
+    return [
+      record.key,
+      record.kind_label,
+      record.label,
+      record.description,
+      record.notes,
+      record.source_key,
+      record.category,
+      record.pid_id,
+      record.subsystem_label,
+      record.source_label,
+      record.target_label,
+      record.relation_type,
+      (record.fields || []).map((field) => `${field.name} ${field.description}`).join(" "),
+      (record.artifacts || []).map((artifact) => `${artifact.name} ${artifact.description}`).join(" "),
+    ].filter(Boolean).join(" ").toLowerCase();
+  }
+
+  function badgeClass(record) {
+    if (record.kind === "system" || record.kind === "subsystem" || record.kind === "relation") {
+      return record.kind;
+    }
+    if (record.is_batch || record.category === "batch") {
+      return "batch";
+    }
+    if (record.category === "sensor") {
+      return "sensor";
+    }
+    return "component";
+  }
+
+  function renderSystems() {
+    systemList.innerHTML = systems.map((system) => `
+      <a class="system-button ${system.key === state.systemKey ? "active" : ""}" href="#system=${encodeURIComponent(system.key)}" data-system="${esc(system.key)}">
+        <span class="system-name">${esc(system.name)}</span>
+        <span class="system-meta">${esc(compact(system.pid_prefix))} PID prefix · ${system.stats.subsystems} subsystems · ${system.stats.components} components</span>
+      </a>
+    `).join("");
+  }
+
+  function matchingRecords() {
+    const query = state.query.trim().toLowerCase();
+    return records
+      .filter((record) => record.system_key === state.systemKey)
+      .filter((record) => state.kind === "all" || record.kind === state.kind)
+      .filter((record) => !query || recordText(record).includes(query))
+      .sort((left, right) => {
+        const order = {system: 0, subsystem: 1, component: 2, relation: 3};
+        return (order[left.kind] - order[right.kind]) || left.label.localeCompare(right.label);
+      });
+  }
+
+  function renderResults() {
+    const system = systemByKey.get(state.systemKey);
+    const rows = matchingRecords();
+    activeSystemTitle.textContent = system ? system.name : "Database Query";
+    summaryLine.textContent = `${rows.length} rows from ${system ? system.name : "the database"}`;
+    resultBody.innerHTML = rows.map((record) => {
+      const context = record.kind === "relation"
+        ? `${record.source_label} -> ${record.target_label}`
+        : (record.subsystem_label || record.system_label || system?.name || "-");
+      return `
+        <tr data-key="${esc(record.key)}">
+          <td><span class="badge ${badgeClass(record)}">${esc(record.kind_label)}</span></td>
+          <td>
+            <a class="object-link" href="#object=${encodeURIComponent(record.key)}">${esc(record.label)}</a>
+            <span class="object-key">${esc(record.key)}</span>
+          </td>
+          <td>${esc(compact(context))}</td>
+          <td>${esc(compact(record.source_key))}</td>
+        </tr>
+      `;
+    }).join("");
+    emptyState.hidden = rows.length !== 0;
+  }
+
+  function renderKindFilter() {
+    document.querySelectorAll("[data-kind]").forEach((button) => {
+      button.classList.toggle("active", button.dataset.kind === state.kind);
+    });
+  }
+
+  function selectSystem(systemKey, updateHash = true) {
+    if (!systemByKey.has(systemKey)) {
+      return;
+    }
+    state.systemKey = systemKey;
+    renderSystems();
+    renderResults();
+    if (updateHash) {
+      history.replaceState(null, "", `#system=${encodeURIComponent(systemKey)}`);
+    }
+  }
+
+  function detailItems(record) {
+    const items = [
+      ["Database Key", `<code>${esc(record.key)}</code>`],
+      ["System", esc(systemByKey.get(record.system_key)?.name || record.system_key)],
+      ["Type", esc(record.kind_label)],
+      ["Category", esc(compact(record.category))],
+      ["PID / Subsystem ID", esc(compact(record.pid_id || record.pid_prefix))],
+      ["Source", esc(compact(record.source_key))],
+    ];
+    if (record.subsystem_label) {
+      items.splice(2, 0, ["Subsystem", esc(record.subsystem_label)]);
+    }
+    return items.map(([label, value]) => `
+      <div class="detail-item"><span>${label}</span>${value}</div>
+    `).join("");
+  }
+
+  function tableRows(rows, columns) {
+    if (!rows.length) {
+      return "";
+    }
+    return `
+      <table class="mini-table">
+        <thead><tr>${columns.map((column) => `<th>${esc(column.label)}</th>`).join("")}</tr></thead>
+        <tbody>
+          ${rows.map((row) => `
+            <tr>${columns.map((column) => `<td>${esc(compact(row[column.key]))}</td>`).join("")}</tr>
+          `).join("")}
+        </tbody>
+      </table>
+    `;
+  }
+
+  function relatedRows(record) {
+    if (record.kind === "relation") {
+      return [];
+    }
+    return relations
+      .filter((relation) => relation.source_node === record.key || relation.target_node === record.key)
+      .map((relation) => ({
+        key: relation.key,
+        relation_type: relation.relation_type,
+        source: relation.source_label,
+        target: relation.target_label,
+      }));
+  }
+
+  function renderRelationDetail(record) {
+    if (record.kind !== "relation") {
+      return "";
+    }
+    return `
+      <section class="dialog-section">
+        <h3>Relation</h3>
+        <div class="detail-grid">
+          <div class="detail-item"><span>Source</span><a href="#object=${encodeURIComponent(record.source_node)}">${esc(record.source_label)}</a></div>
+          <div class="detail-item"><span>Target</span><a href="#object=${encodeURIComponent(record.target_node)}">${esc(record.target_label)}</a></div>
+          <div class="detail-item"><span>Relation Type</span>${esc(record.relation_type)}</div>
+          <div class="detail-item"><span>Cardinality</span>${esc(compact(record.cardinality))}</div>
+        </div>
+      </section>
+    `;
+  }
+
+  function renderDialog(record) {
+    const fields = tableRows(record.fields || [], [
+      {key: "name", label: "Field"},
+      {key: "data_type", label: "Type"},
+      {key: "description", label: "Description"},
+    ]);
+    const artifacts = tableRows(record.artifacts || [], [
+      {key: "name", label: "Artifact"},
+      {key: "artifact_type", label: "Type"},
+      {key: "description", label: "Description"},
+    ]);
+    const related = relatedRows(record);
+    const relatedTable = tableRows(related, [
+      {key: "relation_type", label: "Type"},
+      {key: "source", label: "Source"},
+      {key: "target", label: "Target"},
+    ]);
+    const link = `${location.origin}${location.pathname}#object=${encodeURIComponent(record.key)}`;
+    dialog.innerHTML = `
+      <div class="dialog-shell">
+        <div class="dialog-head">
+          <span class="badge ${badgeClass(record)}">${esc(record.kind_label)}</span>
+          <h2 class="dialog-title">${esc(record.label)}</h2>
+        </div>
+        <div class="dialog-body">
+          <section class="dialog-section">
+            <div class="detail-grid">${detailItems(record)}</div>
+          </section>
+          ${record.description ? `<section class="dialog-section"><h3>Description</h3><p>${esc(record.description)}</p></section>` : ""}
+          ${record.notes ? `<section class="dialog-section"><h3>Notes</h3><p>${esc(record.notes)}</p></section>` : ""}
+          ${renderRelationDetail(record)}
+          ${fields ? `<section class="dialog-section"><h3>Fields</h3>${fields}</section>` : ""}
+          ${artifacts ? `<section class="dialog-section"><h3>Artifacts</h3>${artifacts}</section>` : ""}
+          ${relatedTable ? `<section class="dialog-section"><h3>Related Relations</h3>${relatedTable}</section>` : ""}
+          <section class="dialog-section"><h3>Stable Link</h3><p><a class="object-link" href="#object=${encodeURIComponent(record.key)}">${esc(link)}</a></p></section>
+        </div>
+        <div class="dialog-actions">
+          <button type="button" id="close-dialog">Close</button>
+        </div>
+      </div>
+    `;
+    dialog.querySelector("#close-dialog").addEventListener("click", () => dialog.close());
+    dialog.querySelectorAll("a[href^='#object=']").forEach((linkNode) => {
+      linkNode.addEventListener("click", (event) => {
+        const params = new URLSearchParams(linkNode.hash.slice(1));
+        const key = params.get("object");
+        if (key && recordByKey.has(key)) {
+          event.preventDefault();
+          openRecord(key, true);
+        }
+      });
+    });
+  }
+
+  function openRecord(key, updateHash = true) {
+    const record = recordByKey.get(key);
+    if (!record) {
+      return;
+    }
+    if (record.system_key !== state.systemKey) {
+      selectSystem(record.system_key, false);
+    }
+    renderDialog(record);
+    if (!dialog.open) {
+      dialog.showModal();
+    }
+    if (updateHash) {
+      history.replaceState(null, "", `#object=${encodeURIComponent(key)}`);
+    }
+  }
+
+  function syncFromHash() {
+    const params = new URLSearchParams(location.hash.slice(1));
+    const objectKey = params.get("object");
+    const systemKey = params.get("system");
+    if (objectKey && recordByKey.has(objectKey)) {
+      openRecord(objectKey, false);
+      return;
+    }
+    if (systemKey && systemByKey.has(systemKey)) {
+      selectSystem(systemKey, false);
+    }
+  }
+
+  systemList.addEventListener("click", (event) => {
+    const link = event.target.closest("[data-system]");
+    if (!link) {
+      return;
+    }
+    event.preventDefault();
+    selectSystem(link.dataset.system);
+  });
+
+  resultBody.addEventListener("click", (event) => {
+    const row = event.target.closest("tr[data-key]");
+    if (!row) {
+      return;
+    }
+    event.preventDefault();
+    openRecord(row.dataset.key);
+  });
+
+  document.getElementById("kind-filter").addEventListener("click", (event) => {
+    const button = event.target.closest("[data-kind]");
+    if (!button) {
+      return;
+    }
+    state.kind = button.dataset.kind;
+    renderKindFilter();
+    renderResults();
+  });
+
+  queryInput.addEventListener("input", () => {
+    state.query = queryInput.value;
+    renderResults();
+  });
+
+  window.addEventListener("hashchange", syncFromHash);
+  renderSystems();
+  renderKindFilter();
+  renderResults();
+  syncFromHash();
+})();
+  </script>
+</body>
+</html>
+"""
+    return page.replace("__DATA_JSON__", data_json).replace("__GENERATED__", generated)
 
 
 def publication_html(
@@ -1080,6 +2110,7 @@ def publication_html(
     if detector_plates:
         nav_items.append('<a href="#detector-plates">Dense Detector Plate</a>')
     nav_items.append('<a href="#reading-guide">Reading Guide</a>')
+    nav_items.append('<a href="explorer.html">Interactive Explorer</a>')
     for system_key in sorted(by_system, key=lambda key: system_names[key]):
         system_name = system_names[system_key]
         nav_items.append(f'<a href="#{html.escape(system_key)}">{html.escape(system_name)}</a>')

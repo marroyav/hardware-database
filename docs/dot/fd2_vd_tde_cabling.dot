@@ -44,6 +44,7 @@ digraph HardwareModel {
     fontcolor="#5a4634";
     fd2_vd_tde_amc_digitization_card [label="AMC Digitization Card", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
     fd2_vd_tde_wr_mch_timing_end_node [label="WR-MCH Timing End-Node", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+    fd2_vd_tde_utca_pu [label="uTCA Power Unit", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
   }
 
   subgraph cluster_fd2_vd_tde_sgft_chimney {
@@ -72,7 +73,23 @@ digraph HardwareModel {
     fd2_vd_tde_calibration_unit [label="Calibration Unit", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
     fd2_vd_tde_filter_fanout_box [label="LV Filter And Fanout", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
     fd2_vd_tde_lv_ps [label="Low-Voltage Power Supply", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
-    fd2_vd_tde_tde_cable [label="TDE Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+  }
+
+  subgraph cluster_fd2_vd_tde_cables {
+    label="TDE Cables";
+    style="rounded,filled";
+    color="#c7b8a1";
+    fillcolor="#fbf7f0";
+    penwidth=1.1;
+    fontname="Avenir Next";
+    fontsize=13;
+    fontcolor="#5a4634";
+    fd2_vd_tde_crate_power_cable [label="Crate Power Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    fd2_vd_tde_feb_pulsing_cable [label="FEB Pulsing Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    fd2_vd_tde_feb_pulsing_control_cable [label="FEB Pulsing Controls Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    fd2_vd_tde_lv_feb_power_cable [label="LV FEB Power Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    fd2_vd_tde_lv_feb_power_sense_cable [label="LV FEB Power Sense Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    fd2_vd_tde_tde_cable [label="VHDCI Signal Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
   }
 
   subgraph cluster_fd2_vd_tde_timing_distribution {
@@ -84,7 +101,7 @@ digraph HardwareModel {
     fontname="Avenir Next";
     fontsize=13;
     fontcolor="#5a4634";
-    fd2_vd_tde_timing_fiber [label="Timing Fiber", fontname="Avenir Next", shape="octagon", style="filled", fillcolor="#fde7c8", color="#b7671e", fontcolor="#5a320a"];
+    fd2_vd_tde_timing_fiber [label="WR Fiber", fontname="Avenir Next", shape="octagon", style="filled", fillcolor="#fde7c8", color="#b7671e", fontcolor="#5a320a"];
     fd2_vd_tde_wr_switch [label="White Rabbit Switch", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
   }
 
@@ -96,7 +113,16 @@ digraph HardwareModel {
   fd2_vd_tde_tde_cable -> fd2_vd_tde_amc_digitization_card [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
   fd2_vd_tde_lv_ps -> fd2_vd_tde_filter_fanout_box [color="#b54b32", fontcolor="#9e412b", style="dashed", penwidth="1.2", label="power"];
   fd2_vd_tde_filter_fanout_box -> fd2_vd_tde_warm_flange [color="#b54b32", fontcolor="#9e412b", style="dashed", penwidth="1.2", label="power"];
+  fd2_vd_tde_lv_feb_power_cable -> fd2_vd_tde_filter_fanout_box [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_lv_feb_power_cable -> fd2_vd_tde_warm_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_lv_feb_power_sense_cable -> fd2_vd_tde_filter_fanout_box [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_lv_feb_power_sense_cable -> fd2_vd_tde_warm_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
   fd2_vd_tde_calibration_unit -> fd2_vd_tde_warm_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_feb_pulsing_cable -> fd2_vd_tde_calibration_unit [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_feb_pulsing_cable -> fd2_vd_tde_warm_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_feb_pulsing_control_cable -> fd2_vd_tde_calibration_unit [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_feb_pulsing_control_cable -> fd2_vd_tde_warm_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_crate_power_cable -> fd2_vd_tde_utca_pu [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
   fd2_vd_tde_timing_fiber -> fd2_vd_tde_wr_switch [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
   fd2_vd_tde_timing_fiber -> fd2_vd_tde_wr_mch_timing_end_node [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
 }
