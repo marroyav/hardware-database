@@ -14,6 +14,7 @@ from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote
 from xml.etree import ElementTree as ET
 from zipfile import ZipFile
 
@@ -826,6 +827,7 @@ def to_graphviz(
                 '    fontname="Avenir Next";',
                 '    fontsize=13;',
                 '    fontcolor="#5a4634";',
+                *dot_cluster_click_lines(subsystem_key, subsystem_node["label"]),
             ]
         )
         for node_key in sorted(subsystem_groups[subsystem_key], key=lambda key: nodes[key]["label"]):
@@ -890,6 +892,7 @@ def dot_node_attrs(node: dict[str, Any], system_root: bool = False) -> str:
         "label": node["label"],
         "fontname": "Avenir Next",
     }
+    attrs.update(dot_click_attrs(node.get("key"), node.get("label")))
 
     if system_root or node["entity_type"] == "system":
         attrs.update(
@@ -982,7 +985,7 @@ def dot_node_attrs(node: dict[str, Any], system_root: bool = False) -> str:
 
 def dot_edge_attrs(relation: sqlite3.Row) -> str:
     relation_type = relation["relation_type"]
-    attrs: dict[str, str] = {}
+    attrs: dict[str, str] = dot_click_attrs(f"relation:{relation['id']}", f"{relation_type.replace('_', ' ')} relation")
     cardinality = relation["cardinality"]
 
     if relation_type == "contains":
@@ -1068,6 +1071,25 @@ def dot_edge_attrs(relation: sqlite3.Row) -> str:
             attrs["label"] = cardinality
 
     return format_dot_attrs(attrs)
+
+
+def dot_cluster_click_lines(object_key: str, label: str | None) -> list[str]:
+    attrs = dot_click_attrs(object_key, label)
+    return [f'    {key}="{dot_escape(value)}";' for key, value in attrs.items()]
+
+
+def dot_click_attrs(object_key: str | None, label: str | None = None) -> dict[str, str]:
+    if not object_key or object_key.startswith("context."):
+        return {}
+    return {
+        "URL": explorer_object_href(object_key),
+        "target": "_top",
+        "tooltip": f"Open {label or object_key} in the interactive explorer",
+    }
+
+
+def explorer_object_href(object_key: str) -> str:
+    return f"../explorer.html#object={quote(object_key, safe='')}"
 
 
 def format_dot_attrs(attrs: dict[str, str]) -> str:
@@ -2130,7 +2152,7 @@ def publication_html(
                     </p>
                   </div>
                   <div class="diagram-frame">
-                    <img src="{html.escape(item['svg'])}" alt="{html.escape(system_name)} {html.escape(item['view_title'])} diagram">
+                    {diagram_object_html(item['svg'], f"{system_name} {item['view_title']} diagram")}
                   </div>
                 </article>
                 """
@@ -2168,7 +2190,7 @@ def publication_html(
                     </p>
                   </div>
                   <div class="diagram-frame large-frame">
-                    <img src="{html.escape(plate['svg'])}" alt="{html.escape(plate['title'])}">
+                    {diagram_object_html(plate['svg'], plate['title'])}
                   </div>
                 </article>
                 """
@@ -2280,6 +2302,15 @@ def publication_html(
 </body>
 </html>
 """
+
+
+def diagram_object_html(svg_path: str, label: str) -> str:
+    return (
+        f'<object class="diagram-object" data="{html.escape(svg_path)}" '
+        f'type="image/svg+xml" aria-label="{html.escape(label)}">'
+        f'<a href="{html.escape(svg_path)}">Open {html.escape(label)}</a>'
+        "</object>"
+    )
 
 
 def publication_css() -> str:
@@ -2566,17 +2597,17 @@ body {
     );
 }
 
-.diagram-frame img {
+.diagram-object {
   display: block;
   width: 100%;
-  height: auto;
+  height: clamp(24rem, 54vw, 52rem);
   border-radius: 18px;
   background: #ffffff;
   border: 1px solid rgba(203, 189, 168, 0.7);
 }
 
-.large-frame img {
-  max-height: none;
+.large-frame .diagram-object {
+  height: clamp(34rem, 74vw, 78rem);
 }
 
 @media (max-width: 980px) {
@@ -2740,6 +2771,7 @@ def to_detector_graphviz(conn: sqlite3.Connection, detector: str) -> str:
                 '    fontname="Avenir Next";',
                 '    fontsize=15;',
                 '    fontcolor="#4f3f31";',
+                *dot_cluster_click_lines(system_row["key"], system_row["name"]),
                 f'    {dot_id(system_row["key"])} [{dot_node_attrs(all_nodes[system_row["key"]], system_root=True)}];',
             ]
         )
@@ -2757,6 +2789,7 @@ def to_detector_graphviz(conn: sqlite3.Connection, detector: str) -> str:
                     '      fontname="Avenir Next";',
                     '      fontsize=12;',
                     '      fontcolor="#6a5640";',
+                    *dot_cluster_click_lines(subsystem_key, all_nodes[subsystem_key]["label"]),
                 ]
             )
             for node_key in sorted(subsystem_groups[subsystem_key], key=lambda key: all_nodes[key]["label"]):

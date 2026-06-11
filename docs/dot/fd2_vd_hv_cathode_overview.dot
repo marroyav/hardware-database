@@ -19,7 +19,7 @@ digraph HardwareModel {
   node [fontname="Avenir Next", fontsize=12, margin="0.18,0.12", penwidth=1.3];
   edge [fontname="Avenir Next", fontsize=10, arrowsize=0.8, penwidth=1.2, color="#33536a", fontcolor="#33536a"];
 
-  fd2_vd_hv_cathode [label="FD2-VD HV Cathode", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
+  fd2_vd_hv_cathode [label="FD2-VD HV Cathode", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_hv_cathode", target="_top", tooltip="Open FD2-VD HV Cathode in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
 
   subgraph cluster_fd2_vd_hv_cathode_cathode_plane {
     label="Cathode Plane";
@@ -30,8 +30,11 @@ digraph HardwareModel {
     fontname="Avenir Next";
     fontsize=13;
     fontcolor="#5a4634";
-    fd2_vd_hv_cathode_cathode_plane_assembly [label="Cathode Plane", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+    URL="../explorer.html#object=fd2_vd_hv_cathode.cathode_plane";
+    target="_top";
+    tooltip="Open Cathode Plane in the interactive explorer";
+    fd2_vd_hv_cathode_cathode_plane_assembly [label="Cathode Plane", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_hv_cathode.cathode_plane_assembly", target="_top", tooltip="Open Cathode Plane in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
   }
 
-  fd2_vd_hv_cathode -> fd2_vd_hv_cathode_cathode_plane_assembly [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_hv_cathode -> fd2_vd_hv_cathode_cathode_plane_assembly [URL="../explorer.html#object=relation%3A16", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
 }

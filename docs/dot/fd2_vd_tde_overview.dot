@@ -19,7 +19,7 @@ digraph HardwareModel {
   node [fontname="Avenir Next", fontsize=12, margin="0.18,0.12", penwidth=1.3];
   edge [fontname="Avenir Next", fontsize=10, arrowsize=0.8, penwidth=1.2, color="#33536a", fontcolor="#33536a"];
 
-  fd2_vd_tde [label="FD2-VD Top Vertical Drift CRP Electronics", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
+  fd2_vd_tde [label="FD2-VD Top Vertical Drift CRP Electronics", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde", target="_top", tooltip="Open FD2-VD Top Vertical Drift CRP Electronics in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
 
   subgraph cluster_fd2_vd_tde_analog_electronics {
     label="Analog Electronics";
@@ -30,7 +30,10 @@ digraph HardwareModel {
     fontname="Avenir Next";
     fontsize=13;
     fontcolor="#5a4634";
-    fd2_vd_tde_feb_analog_card [label="FEB Analog Card", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+    URL="../explorer.html#object=fd2_vd_tde.analog_electronics";
+    target="_top";
+    tooltip="Open Analog Electronics in the interactive explorer";
+    fd2_vd_tde_feb_analog_card [label="FEB Analog Card", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.feb_analog_card", target="_top", tooltip="Open FEB Analog Card in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
   }
 
   subgraph cluster_fd2_vd_tde_digital_electronics {
@@ -42,7 +45,10 @@ digraph HardwareModel {
     fontname="Avenir Next";
     fontsize=13;
     fontcolor="#5a4634";
-    fd2_vd_tde_utca_crate [label="uTCA Crate", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+    URL="../explorer.html#object=fd2_vd_tde.digital_electronics";
+    target="_top";
+    tooltip="Open Digital Electronics in the interactive explorer";
+    fd2_vd_tde_utca_crate [label="uTCA Crate", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.utca_crate", target="_top", tooltip="Open uTCA Crate in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
   }
 
   subgraph cluster_fd2_vd_tde_sgft_chimney {
@@ -54,7 +60,10 @@ digraph HardwareModel {
     fontname="Avenir Next";
     fontsize=13;
     fontcolor="#5a4634";
-    fd2_vd_tde_sgft_chimney_assembly [label="SGFT Chimney", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+    URL="../explorer.html#object=fd2_vd_tde.sgft_chimney";
+    target="_top";
+    tooltip="Open SGFT Chimney in the interactive explorer";
+    fd2_vd_tde_sgft_chimney_assembly [label="SGFT Chimney", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.sgft_chimney_assembly", target="_top", tooltip="Open SGFT Chimney in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
   }
 
   subgraph cluster_fd2_vd_tde_ancillary_systems {
@@ -66,7 +75,10 @@ digraph HardwareModel {
     fontname="Avenir Next";
     fontsize=13;
     fontcolor="#5a4634";
-    fd2_vd_tde_lv_ps [label="Low-Voltage Power Supply", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+    URL="../explorer.html#object=fd2_vd_tde.ancillary_systems";
+    target="_top";
+    tooltip="Open TDE Ancillary Systems in the interactive explorer";
+    fd2_vd_tde_lv_ps [label="Low-Voltage Power Supply", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.lv_ps", target="_top", tooltip="Open Low-Voltage Power Supply in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
   }
 
   subgraph cluster_fd2_vd_tde_timing_distribution {
@@ -78,12 +90,15 @@ digraph HardwareModel {
     fontname="Avenir Next";
     fontsize=13;
     fontcolor="#5a4634";
-    fd2_vd_tde_wr_switch [label="White Rabbit Switch", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+    URL="../explorer.html#object=fd2_vd_tde.timing_distribution";
+    target="_top";
+    tooltip="Open Timing Distribution in the interactive explorer";
+    fd2_vd_tde_wr_switch [label="White Rabbit Switch", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.wr_switch", target="_top", tooltip="Open White Rabbit Switch in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
   }
 
-  fd2_vd_tde -> fd2_vd_tde_sgft_chimney_assembly [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_tde -> fd2_vd_tde_utca_crate [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_tde -> fd2_vd_tde_wr_switch [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_tde -> fd2_vd_tde_lv_ps [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_tde_sgft_chimney_assembly -> fd2_vd_tde_feb_analog_card [color="#274c67", fontcolor="#274c67", penwidth="1.4", label="24 or 48"];
+  fd2_vd_tde -> fd2_vd_tde_sgft_chimney_assembly [URL="../explorer.html#object=relation%3A47", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_tde -> fd2_vd_tde_utca_crate [URL="../explorer.html#object=relation%3A48", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_tde -> fd2_vd_tde_wr_switch [URL="../explorer.html#object=relation%3A49", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_tde -> fd2_vd_tde_lv_ps [URL="../explorer.html#object=relation%3A50", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_tde_sgft_chimney_assembly -> fd2_vd_tde_feb_analog_card [URL="../explorer.html#object=relation%3A54", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4", label="24 or 48"];
 }

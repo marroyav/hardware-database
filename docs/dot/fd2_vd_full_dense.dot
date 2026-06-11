@@ -46,7 +46,10 @@ digraph DetectorPlate {
     fontname="Avenir Next";
     fontsize=15;
     fontcolor="#4f3f31";
-    fd2_vd_ci [label="FD2-VD Cryogenic Instrumentation", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
+    URL="../explorer.html#object=fd2_vd_ci";
+    target="_top";
+    tooltip="Open FD2-VD Cryogenic Instrumentation in the interactive explorer";
+    fd2_vd_ci [label="FD2-VD Cryogenic Instrumentation", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_ci", target="_top", tooltip="Open FD2-VD Cryogenic Instrumentation in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
     subgraph cluster_fd2_vd_ci_purity_monitors {
       label="Purity Monitors";
       style="rounded,filled";
@@ -56,7 +59,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_ci_prm_array [label="Purity Monitor Array", fontname="Avenir Next", shape="ellipse", style="filled", fillcolor="#f7dde0", color="#a14656", fontcolor="#4a1823"];
+    URL="../explorer.html#object=fd2_vd_ci.purity_monitors";
+    target="_top";
+    tooltip="Open Purity Monitors in the interactive explorer";
+      fd2_vd_ci_prm_array [label="Purity Monitor Array", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_ci.prm_array", target="_top", tooltip="Open Purity Monitor Array in the interactive explorer", shape="ellipse", style="filled", fillcolor="#f7dde0", color="#a14656", fontcolor="#4a1823"];
     }
     subgraph cluster_fd2_vd_ci_tms {
       label="Temperature Monitoring System";
@@ -67,18 +73,21 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_ci_cold_cable [label="Cold Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
-      fd2_vd_ci_gas_array [label="Gas Array", fontname="Avenir Next", shape="ellipse", style="filled", fillcolor="#f7dde0", color="#a14656", fontcolor="#4a1823"];
-      fd2_vd_ci_rtd [label="RTD", fontname="Avenir Next", shape="ellipse", style="filled", fillcolor="#f7dde0", color="#a14656", fontcolor="#4a1823"];
-      fd2_vd_ci_t2_bundle [label="T2 Cable Bundle", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
-      fd2_vd_ci_t4_bundle [label="T4 Cable Bundle", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
-      fd2_vd_ci_t6_bundle [label="T6 Cable Bundle", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
-      fd2_vd_ci_tms_card [label="TMS Card", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
-      fd2_vd_ci_tms_crate [label="TMS Crate", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
-      fd2_vd_ci_tms_flange [label="TMS Flange", fontname="Avenir Next", shape="parallelogram", style="filled", fillcolor="#f3e5cc", color="#9d6a14", fontcolor="#52360a"];
-      fd2_vd_ci_tms_rack [label="TMS Rack", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
-      fd2_vd_ci_temperature_monitoring_system [label="Temperature Monitoring System", fontname="Avenir Next", shape="ellipse", style="filled", fillcolor="#f7dde0", color="#a14656", fontcolor="#4a1823"];
-      fd2_vd_ci_warm_cable [label="Warm Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    URL="../explorer.html#object=fd2_vd_ci.tms";
+    target="_top";
+    tooltip="Open Temperature Monitoring System in the interactive explorer";
+      fd2_vd_ci_cold_cable [label="Cold Cable", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_ci.cold_cable", target="_top", tooltip="Open Cold Cable in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+      fd2_vd_ci_gas_array [label="Gas Array", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_ci.gas_array", target="_top", tooltip="Open Gas Array in the interactive explorer", shape="ellipse", style="filled", fillcolor="#f7dde0", color="#a14656", fontcolor="#4a1823"];
+      fd2_vd_ci_rtd [label="RTD", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_ci.rtd", target="_top", tooltip="Open RTD in the interactive explorer", shape="ellipse", style="filled", fillcolor="#f7dde0", color="#a14656", fontcolor="#4a1823"];
+      fd2_vd_ci_t2_bundle [label="T2 Cable Bundle", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_ci.t2_bundle", target="_top", tooltip="Open T2 Cable Bundle in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+      fd2_vd_ci_t4_bundle [label="T4 Cable Bundle", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_ci.t4_bundle", target="_top", tooltip="Open T4 Cable Bundle in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+      fd2_vd_ci_t6_bundle [label="T6 Cable Bundle", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_ci.t6_bundle", target="_top", tooltip="Open T6 Cable Bundle in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+      fd2_vd_ci_tms_card [label="TMS Card", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_ci.tms_card", target="_top", tooltip="Open TMS Card in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+      fd2_vd_ci_tms_crate [label="TMS Crate", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_ci.tms_crate", target="_top", tooltip="Open TMS Crate in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+      fd2_vd_ci_tms_flange [label="TMS Flange", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_ci.tms_flange", target="_top", tooltip="Open TMS Flange in the interactive explorer", shape="parallelogram", style="filled", fillcolor="#f3e5cc", color="#9d6a14", fontcolor="#52360a"];
+      fd2_vd_ci_tms_rack [label="TMS Rack", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_ci.tms_rack", target="_top", tooltip="Open TMS Rack in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+      fd2_vd_ci_temperature_monitoring_system [label="Temperature Monitoring System", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_ci.temperature_monitoring_system", target="_top", tooltip="Open Temperature Monitoring System in the interactive explorer", shape="ellipse", style="filled", fillcolor="#f7dde0", color="#a14656", fontcolor="#4a1823"];
+      fd2_vd_ci_warm_cable [label="Warm Cable", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_ci.warm_cable", target="_top", tooltip="Open Warm Cable in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
     }
   }
 
@@ -91,7 +100,10 @@ digraph DetectorPlate {
     fontname="Avenir Next";
     fontsize=15;
     fontcolor="#4f3f31";
-    fd2_vd_hv_cathode [label="FD2-VD HV Cathode", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
+    URL="../explorer.html#object=fd2_vd_hv_cathode";
+    target="_top";
+    tooltip="Open FD2-VD HV Cathode in the interactive explorer";
+    fd2_vd_hv_cathode [label="FD2-VD HV Cathode", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_hv_cathode", target="_top", tooltip="Open FD2-VD HV Cathode in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
     subgraph cluster_fd2_vd_hv_cathode_cathode_interconnect {
       label="Cathode Interconnect";
       style="rounded,filled";
@@ -101,7 +113,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_hv_cathode_cathode_interconnect_cable [label="Cathode Interconnect", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    URL="../explorer.html#object=fd2_vd_hv_cathode.cathode_interconnect";
+    target="_top";
+    tooltip="Open Cathode Interconnect in the interactive explorer";
+      fd2_vd_hv_cathode_cathode_interconnect_cable [label="Cathode Interconnect", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_hv_cathode.cathode_interconnect_cable", target="_top", tooltip="Open Cathode Interconnect in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
     }
     subgraph cluster_fd2_vd_hv_cathode_cathode_plane {
       label="Cathode Plane";
@@ -112,7 +127,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_hv_cathode_cathode_plane_assembly [label="Cathode Plane", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+    URL="../explorer.html#object=fd2_vd_hv_cathode.cathode_plane";
+    target="_top";
+    tooltip="Open Cathode Plane in the interactive explorer";
+      fd2_vd_hv_cathode_cathode_plane_assembly [label="Cathode Plane", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_hv_cathode.cathode_plane_assembly", target="_top", tooltip="Open Cathode Plane in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
     }
     subgraph cluster_fd2_vd_hv_cathode_copper_tape {
       label="Copper Tape Strips";
@@ -123,7 +141,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_hv_cathode_copper_tape_strip [label="Copper Tape Strip", fontname="Avenir Next", shape="note", style="filled", fillcolor="#f0e6fa", color="#7d5bb6", fontcolor="#382451"];
+    URL="../explorer.html#object=fd2_vd_hv_cathode.copper_tape";
+    target="_top";
+    tooltip="Open Copper Tape Strips in the interactive explorer";
+      fd2_vd_hv_cathode_copper_tape_strip [label="Copper Tape Strip", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_hv_cathode.copper_tape_strip", target="_top", tooltip="Open Copper Tape Strip in the interactive explorer", shape="note", style="filled", fillcolor="#f0e6fa", color="#7d5bb6", fontcolor="#382451"];
     }
     subgraph cluster_fd2_vd_hv_cathode_cross_ribs {
       label="Cross Ribs";
@@ -134,7 +155,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_hv_cathode_cross_rib [label="Cross Rib", fontname="Avenir Next", shape="note", style="filled", fillcolor="#f0e6fa", color="#7d5bb6", fontcolor="#382451"];
+    URL="../explorer.html#object=fd2_vd_hv_cathode.cross_ribs";
+    target="_top";
+    tooltip="Open Cross Ribs in the interactive explorer";
+      fd2_vd_hv_cathode_cross_rib [label="Cross Rib", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_hv_cathode.cross_rib", target="_top", tooltip="Open Cross Rib in the interactive explorer", shape="note", style="filled", fillcolor="#f0e6fa", color="#7d5bb6", fontcolor="#382451"];
     }
     subgraph cluster_fd2_vd_hv_cathode_half_cathode_plane {
       label="Half Cathode Plane";
@@ -145,7 +169,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_hv_cathode_half_cathode_plane_assembly [label="Half Cathode Plane", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+    URL="../explorer.html#object=fd2_vd_hv_cathode.half_cathode_plane";
+    target="_top";
+    tooltip="Open Half Cathode Plane in the interactive explorer";
+      fd2_vd_hv_cathode_half_cathode_plane_assembly [label="Half Cathode Plane", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_hv_cathode.half_cathode_plane_assembly", target="_top", tooltip="Open Half Cathode Plane in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
     }
     subgraph cluster_fd2_vd_hv_cathode_half_frame {
       label="Half Frame";
@@ -156,7 +183,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_hv_cathode_half_frame_component [label="Half Frame", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+    URL="../explorer.html#object=fd2_vd_hv_cathode.half_frame";
+    target="_top";
+    tooltip="Open Half Frame in the interactive explorer";
+      fd2_vd_hv_cathode_half_frame_component [label="Half Frame", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_hv_cathode.half_frame_component", target="_top", tooltip="Open Half Frame in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
     }
     subgraph cluster_fd2_vd_hv_cathode_lad {
       label="Length Adjusting Device";
@@ -167,7 +197,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_hv_cathode_lad_component [label="Length Adjusting Device", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+    URL="../explorer.html#object=fd2_vd_hv_cathode.lad";
+    target="_top";
+    tooltip="Open Length Adjusting Device in the interactive explorer";
+      fd2_vd_hv_cathode_lad_component [label="Length Adjusting Device", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_hv_cathode.lad_component", target="_top", tooltip="Open Length Adjusting Device in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
     }
     subgraph cluster_fd2_vd_hv_cathode_metallic_mesh {
       label="Metallic Mesh";
@@ -178,7 +211,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_hv_cathode_metallic_mesh_component [label="Metallic Mesh", fontname="Avenir Next", shape="note", style="filled", fillcolor="#f0e6fa", color="#7d5bb6", fontcolor="#382451"];
+    URL="../explorer.html#object=fd2_vd_hv_cathode.metallic_mesh";
+    target="_top";
+    tooltip="Open Metallic Mesh in the interactive explorer";
+      fd2_vd_hv_cathode_metallic_mesh_component [label="Metallic Mesh", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_hv_cathode.metallic_mesh_component", target="_top", tooltip="Open Metallic Mesh in the interactive explorer", shape="note", style="filled", fillcolor="#f0e6fa", color="#7d5bb6", fontcolor="#382451"];
     }
     subgraph cluster_fd2_vd_hv_cathode_pd_xar_support {
       label="PD XAR Support";
@@ -189,7 +225,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_hv_cathode_pd_xar_support_component [label="PD XAR Support", fontname="Avenir Next", shape="note", style="filled", fillcolor="#f0e6fa", color="#7d5bb6", fontcolor="#382451"];
+    URL="../explorer.html#object=fd2_vd_hv_cathode.pd_xar_support";
+    target="_top";
+    tooltip="Open PD XAR Support in the interactive explorer";
+      fd2_vd_hv_cathode_pd_xar_support_component [label="PD XAR Support", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_hv_cathode.pd_xar_support_component", target="_top", tooltip="Open PD XAR Support in the interactive explorer", shape="note", style="filled", fillcolor="#f0e6fa", color="#7d5bb6", fontcolor="#382451"];
     }
     subgraph cluster_fd2_vd_hv_cathode_resistive_mesh {
       label="Resistive Mesh";
@@ -200,7 +239,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_hv_cathode_resistive_mesh_component [label="Resistive Mesh", fontname="Avenir Next", shape="note", style="filled", fillcolor="#f0e6fa", color="#7d5bb6", fontcolor="#382451"];
+    URL="../explorer.html#object=fd2_vd_hv_cathode.resistive_mesh";
+    target="_top";
+    tooltip="Open Resistive Mesh in the interactive explorer";
+      fd2_vd_hv_cathode_resistive_mesh_component [label="Resistive Mesh", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_hv_cathode.resistive_mesh_component", target="_top", tooltip="Open Resistive Mesh in the interactive explorer", shape="note", style="filled", fillcolor="#f0e6fa", color="#7d5bb6", fontcolor="#382451"];
     }
     subgraph cluster_fd2_vd_hv_cathode_ropes {
       label="Ropes";
@@ -211,7 +253,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_hv_cathode_rope_component [label="Rope", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    URL="../explorer.html#object=fd2_vd_hv_cathode.ropes";
+    target="_top";
+    tooltip="Open Ropes in the interactive explorer";
+      fd2_vd_hv_cathode_rope_component [label="Rope", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_hv_cathode.rope_component", target="_top", tooltip="Open Rope in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
     }
     subgraph cluster_fd2_vd_hv_cathode_tad {
       label="Top Adjusting Device";
@@ -222,7 +267,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_hv_cathode_tad_component [label="Top Adjusting Device", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+    URL="../explorer.html#object=fd2_vd_hv_cathode.tad";
+    target="_top";
+    tooltip="Open Top Adjusting Device in the interactive explorer";
+      fd2_vd_hv_cathode_tad_component [label="Top Adjusting Device", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_hv_cathode.tad_component", target="_top", tooltip="Open Top Adjusting Device in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
     }
   }
 
@@ -235,7 +283,10 @@ digraph DetectorPlate {
     fontname="Avenir Next";
     fontsize=15;
     fontcolor="#4f3f31";
-    fd2_vd_top_crp [label="FD2-VD Top Charge Readout Planes", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
+    URL="../explorer.html#object=fd2_vd_top_crp";
+    target="_top";
+    tooltip="Open FD2-VD Top Charge Readout Planes in the interactive explorer";
+    fd2_vd_top_crp [label="FD2-VD Top Charge Readout Planes", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp", target="_top", tooltip="Open FD2-VD Top Charge Readout Planes in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
     subgraph cluster_fd2_vd_top_crp_adapter_boards {
       label="Adapter Boards";
       style="rounded,filled";
@@ -245,7 +296,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_top_crp_adapter_board [label="Adapter Board", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+    URL="../explorer.html#object=fd2_vd_top_crp.adapter_boards";
+    target="_top";
+    tooltip="Open Adapter Boards in the interactive explorer";
+      fd2_vd_top_crp_adapter_board [label="Adapter Board", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.adapter_board", target="_top", tooltip="Open Adapter Board in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
     }
     subgraph cluster_fd2_vd_top_crp_anode_panels {
       label="CRU Anode Panels";
@@ -256,7 +310,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_top_crp_cru_anode_panel [label="CRU Anode Panel", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+    URL="../explorer.html#object=fd2_vd_top_crp.anode_panels";
+    target="_top";
+    tooltip="Open CRU Anode Panels in the interactive explorer";
+      fd2_vd_top_crp_cru_anode_panel [label="CRU Anode Panel", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.cru_anode_panel", target="_top", tooltip="Open CRU Anode Panel in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
     }
     subgraph cluster_fd2_vd_top_crp_cable_trays {
       label="Cable Tray";
@@ -267,7 +324,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_top_crp_cable_tray [label="CRP Cable Tray", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+    URL="../explorer.html#object=fd2_vd_top_crp.cable_trays";
+    target="_top";
+    tooltip="Open Cable Tray in the interactive explorer";
+      fd2_vd_top_crp_cable_tray [label="CRP Cable Tray", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.cable_tray", target="_top", tooltip="Open CRP Cable Tray in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
     }
     subgraph cluster_fd2_vd_top_crp_bias_filtering {
       label="Cold Bias Filter Boards";
@@ -278,7 +338,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_top_crp_cold_bias_filter_board [label="Cold Bias Filter Board", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+    URL="../explorer.html#object=fd2_vd_top_crp.bias_filtering";
+    target="_top";
+    tooltip="Open Cold Bias Filter Boards in the interactive explorer";
+      fd2_vd_top_crp_cold_bias_filter_board [label="Cold Bias Filter Board", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.cold_bias_filter_board", target="_top", tooltip="Open Cold Bias Filter Board in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
     }
     subgraph cluster_fd2_vd_top_crp_bias_cabling {
       label="Cold Bias HV Cables";
@@ -289,7 +352,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_top_crp_cold_bias_hv_cable [label="Cold Bias HV Cable Bundle Jumper", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    URL="../explorer.html#object=fd2_vd_top_crp.bias_cabling";
+    target="_top";
+    tooltip="Open Cold Bias HV Cables in the interactive explorer";
+      fd2_vd_top_crp_cold_bias_hv_cable [label="Cold Bias HV Cable Bundle Jumper", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.cold_bias_hv_cable", target="_top", tooltip="Open Cold Bias HV Cable Bundle Jumper in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
     }
     subgraph cluster_fd2_vd_top_crp_composite_frames {
       label="Composite Frames";
@@ -300,7 +366,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_top_crp_composite_frame [label="Composite Frame", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+    URL="../explorer.html#object=fd2_vd_top_crp.composite_frames";
+    target="_top";
+    tooltip="Open Composite Frames in the interactive explorer";
+      fd2_vd_top_crp_composite_frame [label="Composite Frame", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.composite_frame", target="_top", tooltip="Open Composite Frame in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
     }
     subgraph cluster_fd2_vd_top_crp_decoupling {
       label="Decoupling Devices";
@@ -311,7 +380,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_top_crp_decoupling_device [label="Decoupling Device", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+    URL="../explorer.html#object=fd2_vd_top_crp.decoupling";
+    target="_top";
+    tooltip="Open Decoupling Devices in the interactive explorer";
+      fd2_vd_top_crp_decoupling_device [label="Decoupling Device", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.decoupling_device", target="_top", tooltip="Open Decoupling Device in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
     }
     subgraph cluster_fd2_vd_top_crp_edge_connectors {
       label="Edge Connector Boards";
@@ -322,7 +394,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_top_crp_edge_connector_board [label="Edge Connector Board", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+    URL="../explorer.html#object=fd2_vd_top_crp.edge_connectors";
+    target="_top";
+    tooltip="Open Edge Connector Boards in the interactive explorer";
+      fd2_vd_top_crp_edge_connector_board [label="Edge Connector Board", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.edge_connector_board", target="_top", tooltip="Open Edge Connector Board in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
     }
     subgraph cluster_fd2_vd_top_crp_half_crp {
       label="Half CRP / CRU";
@@ -333,7 +408,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_top_crp_cru [label="Top Half CRP / CRU", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+    URL="../explorer.html#object=fd2_vd_top_crp.half_crp";
+    target="_top";
+    tooltip="Open Half CRP / CRU in the interactive explorer";
+      fd2_vd_top_crp_cru [label="Top Half CRP / CRU", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.cru", target="_top", tooltip="Open Top Half CRP / CRU in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
     }
     subgraph cluster_fd2_vd_top_crp_installation_tooling {
       label="Installation Tooling";
@@ -344,7 +422,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_top_crp_crp_installation_tooling [label="CRP Installation Tooling", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+    URL="../explorer.html#object=fd2_vd_top_crp.installation_tooling";
+    target="_top";
+    tooltip="Open Installation Tooling in the interactive explorer";
+      fd2_vd_top_crp_crp_installation_tooling [label="CRP Installation Tooling", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.crp_installation_tooling", target="_top", tooltip="Open CRP Installation Tooling in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
     }
     subgraph cluster_fd2_vd_top_crp_complete_crp {
       label="Instrumented CRP / Complete CRP";
@@ -355,7 +436,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_top_crp_top_crp [label="Instrumented Top CRP", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+    URL="../explorer.html#object=fd2_vd_top_crp.complete_crp";
+    target="_top";
+    tooltip="Open Instrumented CRP / Complete CRP in the interactive explorer";
+      fd2_vd_top_crp_top_crp [label="Instrumented Top CRP", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.top_crp", target="_top", tooltip="Open Instrumented Top CRP in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
     }
     subgraph cluster_fd2_vd_top_crp_level_meter {
       label="Level Meters";
@@ -366,12 +450,15 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_top_crp_level_meter_active_board [label="Level Meter Active Board", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
-      fd2_vd_top_crp_level_meter_assembly [label="Level Meter Assembly", fontname="Avenir Next", shape="ellipse", style="filled", fillcolor="#f7dde0", color="#a14656", fontcolor="#4a1823"];
-      fd2_vd_top_crp_level_meter_drawer [label="Level Meter Drawer", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
-      fd2_vd_top_crp_level_meter_external_bundle [label="Level Meter External Cable Bundle", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
-      fd2_vd_top_crp_level_meter_internal_bundle [label="Level Meter Internal Cable Bundle", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
-      fd2_vd_top_crp_level_meter_passive_board [label="Level Meter Passive Board", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+    URL="../explorer.html#object=fd2_vd_top_crp.level_meter";
+    target="_top";
+    tooltip="Open Level Meters in the interactive explorer";
+      fd2_vd_top_crp_level_meter_active_board [label="Level Meter Active Board", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.level_meter_active_board", target="_top", tooltip="Open Level Meter Active Board in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+      fd2_vd_top_crp_level_meter_assembly [label="Level Meter Assembly", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.level_meter_assembly", target="_top", tooltip="Open Level Meter Assembly in the interactive explorer", shape="ellipse", style="filled", fillcolor="#f7dde0", color="#a14656", fontcolor="#4a1823"];
+      fd2_vd_top_crp_level_meter_drawer [label="Level Meter Drawer", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.level_meter_drawer", target="_top", tooltip="Open Level Meter Drawer in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+      fd2_vd_top_crp_level_meter_external_bundle [label="Level Meter External Cable Bundle", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.level_meter_external_bundle", target="_top", tooltip="Open Level Meter External Cable Bundle in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+      fd2_vd_top_crp_level_meter_internal_bundle [label="Level Meter Internal Cable Bundle", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.level_meter_internal_bundle", target="_top", tooltip="Open Level Meter Internal Cable Bundle in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+      fd2_vd_top_crp_level_meter_passive_board [label="Level Meter Passive Board", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.level_meter_passive_board", target="_top", tooltip="Open Level Meter Passive Board in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
     }
     subgraph cluster_fd2_vd_top_crp_pcb_segments {
       label="PCB Anode Segments";
@@ -382,7 +469,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_top_crp_pcb_anode_segment [label="PCB Anode Segment", fontname="Avenir Next", shape="note", style="filled", fillcolor="#f0e6fa", color="#7d5bb6", fontcolor="#382451"];
+    URL="../explorer.html#object=fd2_vd_top_crp.pcb_segments";
+    target="_top";
+    tooltip="Open PCB Anode Segments in the interactive explorer";
+      fd2_vd_top_crp_pcb_anode_segment [label="PCB Anode Segment", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.pcb_anode_segment", target="_top", tooltip="Open PCB Anode Segment in the interactive explorer", shape="note", style="filled", fillcolor="#f0e6fa", color="#7d5bb6", fontcolor="#382451"];
     }
     subgraph cluster_fd2_vd_top_crp_spacers {
       label="PEEK Spacers";
@@ -393,7 +483,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_top_crp_peek_spacer [label="PEEK Spacer", fontname="Avenir Next", shape="note", style="filled", fillcolor="#f0e6fa", color="#7d5bb6", fontcolor="#382451"];
+    URL="../explorer.html#object=fd2_vd_top_crp.spacers";
+    target="_top";
+    tooltip="Open PEEK Spacers in the interactive explorer";
+      fd2_vd_top_crp_peek_spacer [label="PEEK Spacer", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.peek_spacer", target="_top", tooltip="Open PEEK Spacer in the interactive explorer", shape="note", style="filled", fillcolor="#f0e6fa", color="#7d5bb6", fontcolor="#382451"];
     }
     subgraph cluster_fd2_vd_top_crp_signal_cabling {
       label="Signal Cable";
@@ -404,7 +497,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_top_crp_signal_cable [label="CRP Signal Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    URL="../explorer.html#object=fd2_vd_top_crp.signal_cabling";
+    target="_top";
+    tooltip="Open Signal Cable in the interactive explorer";
+      fd2_vd_top_crp_signal_cable [label="CRP Signal Cable", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.signal_cable", target="_top", tooltip="Open CRP Signal Cable in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
     }
   }
 
@@ -417,7 +513,10 @@ digraph DetectorPlate {
     fontname="Avenir Next";
     fontsize=15;
     fontcolor="#4f3f31";
-    fd2_vd_tde [label="FD2-VD Top Vertical Drift CRP Electronics", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
+    URL="../explorer.html#object=fd2_vd_tde";
+    target="_top";
+    tooltip="Open FD2-VD Top Vertical Drift CRP Electronics in the interactive explorer";
+    fd2_vd_tde [label="FD2-VD Top Vertical Drift CRP Electronics", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde", target="_top", tooltip="Open FD2-VD Top Vertical Drift CRP Electronics in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
     subgraph cluster_fd2_vd_tde_analog_electronics {
       label="Analog Electronics";
       style="rounded,filled";
@@ -427,7 +526,10 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_tde_feb_analog_card [label="FEB Analog Card", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+    URL="../explorer.html#object=fd2_vd_tde.analog_electronics";
+    target="_top";
+    tooltip="Open Analog Electronics in the interactive explorer";
+      fd2_vd_tde_feb_analog_card [label="FEB Analog Card", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.feb_analog_card", target="_top", tooltip="Open FEB Analog Card in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
     }
     subgraph cluster_fd2_vd_tde_digital_electronics {
       label="Digital Electronics";
@@ -438,11 +540,14 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_tde_amc_digitization_card [label="AMC Digitization Card", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
-      fd2_vd_tde_wr_mch_timing_end_node [label="WR-MCH Timing End-Node", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
-      fd2_vd_tde_utca_crate [label="uTCA Crate", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
-      fd2_vd_tde_utca_mch [label="uTCA MCH", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
-      fd2_vd_tde_utca_pu [label="uTCA Power Unit", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+    URL="../explorer.html#object=fd2_vd_tde.digital_electronics";
+    target="_top";
+    tooltip="Open Digital Electronics in the interactive explorer";
+      fd2_vd_tde_amc_digitization_card [label="AMC Digitization Card", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.amc_digitization_card", target="_top", tooltip="Open AMC Digitization Card in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+      fd2_vd_tde_wr_mch_timing_end_node [label="WR-MCH Timing End-Node", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.wr_mch_timing_end_node", target="_top", tooltip="Open WR-MCH Timing End-Node in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+      fd2_vd_tde_utca_crate [label="uTCA Crate", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.utca_crate", target="_top", tooltip="Open uTCA Crate in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+      fd2_vd_tde_utca_mch [label="uTCA MCH", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.utca_mch", target="_top", tooltip="Open uTCA MCH in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+      fd2_vd_tde_utca_pu [label="uTCA Power Unit", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.utca_pu", target="_top", tooltip="Open uTCA Power Unit in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
     }
     subgraph cluster_fd2_vd_tde_sgft_chimney {
       label="SGFT Chimney";
@@ -453,9 +558,12 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_tde_cold_flange [label="Cold Flange", fontname="Avenir Next", shape="parallelogram", style="filled", fillcolor="#f3e5cc", color="#9d6a14", fontcolor="#52360a"];
-      fd2_vd_tde_sgft_chimney_assembly [label="SGFT Chimney", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
-      fd2_vd_tde_warm_flange [label="Warm Flange", fontname="Avenir Next", shape="parallelogram", style="filled", fillcolor="#f3e5cc", color="#9d6a14", fontcolor="#52360a"];
+    URL="../explorer.html#object=fd2_vd_tde.sgft_chimney";
+    target="_top";
+    tooltip="Open SGFT Chimney in the interactive explorer";
+      fd2_vd_tde_cold_flange [label="Cold Flange", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.cold_flange", target="_top", tooltip="Open Cold Flange in the interactive explorer", shape="parallelogram", style="filled", fillcolor="#f3e5cc", color="#9d6a14", fontcolor="#52360a"];
+      fd2_vd_tde_sgft_chimney_assembly [label="SGFT Chimney", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.sgft_chimney_assembly", target="_top", tooltip="Open SGFT Chimney in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+      fd2_vd_tde_warm_flange [label="Warm Flange", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.warm_flange", target="_top", tooltip="Open Warm Flange in the interactive explorer", shape="parallelogram", style="filled", fillcolor="#f3e5cc", color="#9d6a14", fontcolor="#52360a"];
     }
     subgraph cluster_fd2_vd_tde_ancillary_systems {
       label="TDE Ancillary Systems";
@@ -466,9 +574,12 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_tde_calibration_unit [label="Calibration Unit", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
-      fd2_vd_tde_filter_fanout_box [label="LV Filter And Fanout", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
-      fd2_vd_tde_lv_ps [label="Low-Voltage Power Supply", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+    URL="../explorer.html#object=fd2_vd_tde.ancillary_systems";
+    target="_top";
+    tooltip="Open TDE Ancillary Systems in the interactive explorer";
+      fd2_vd_tde_calibration_unit [label="Calibration Unit", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.calibration_unit", target="_top", tooltip="Open Calibration Unit in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+      fd2_vd_tde_filter_fanout_box [label="LV Filter And Fanout", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.filter_fanout_box", target="_top", tooltip="Open LV Filter And Fanout in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+      fd2_vd_tde_lv_ps [label="Low-Voltage Power Supply", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.lv_ps", target="_top", tooltip="Open Low-Voltage Power Supply in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
     }
     subgraph cluster_fd2_vd_tde_cables {
       label="TDE Cables";
@@ -479,12 +590,15 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_tde_crate_power_cable [label="Crate Power Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
-      fd2_vd_tde_feb_pulsing_cable [label="FEB Pulsing Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
-      fd2_vd_tde_feb_pulsing_control_cable [label="FEB Pulsing Controls Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
-      fd2_vd_tde_lv_feb_power_cable [label="LV FEB Power Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
-      fd2_vd_tde_lv_feb_power_sense_cable [label="LV FEB Power Sense Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
-      fd2_vd_tde_tde_cable [label="VHDCI Signal Cable", fontname="Avenir Next", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    URL="../explorer.html#object=fd2_vd_tde.cables";
+    target="_top";
+    tooltip="Open TDE Cables in the interactive explorer";
+      fd2_vd_tde_crate_power_cable [label="Crate Power Cable", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.crate_power_cable", target="_top", tooltip="Open Crate Power Cable in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+      fd2_vd_tde_feb_pulsing_cable [label="FEB Pulsing Cable", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.feb_pulsing_cable", target="_top", tooltip="Open FEB Pulsing Cable in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+      fd2_vd_tde_feb_pulsing_control_cable [label="FEB Pulsing Controls Cable", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.feb_pulsing_control_cable", target="_top", tooltip="Open FEB Pulsing Controls Cable in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+      fd2_vd_tde_lv_feb_power_cable [label="LV FEB Power Cable", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.lv_feb_power_cable", target="_top", tooltip="Open LV FEB Power Cable in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+      fd2_vd_tde_lv_feb_power_sense_cable [label="LV FEB Power Sense Cable", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.lv_feb_power_sense_cable", target="_top", tooltip="Open LV FEB Power Sense Cable in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+      fd2_vd_tde_tde_cable [label="VHDCI Signal Cable", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.tde_cable", target="_top", tooltip="Open VHDCI Signal Cable in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
     }
     subgraph cluster_fd2_vd_tde_timing_distribution {
       label="Timing Distribution";
@@ -495,89 +609,92 @@ digraph DetectorPlate {
       fontname="Avenir Next";
       fontsize=12;
       fontcolor="#6a5640";
-      fd2_vd_tde_timing_fiber [label="WR Fiber", fontname="Avenir Next", shape="octagon", style="filled", fillcolor="#fde7c8", color="#b7671e", fontcolor="#5a320a"];
-      fd2_vd_tde_wr_switch [label="White Rabbit Switch", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+    URL="../explorer.html#object=fd2_vd_tde.timing_distribution";
+    target="_top";
+    tooltip="Open Timing Distribution in the interactive explorer";
+      fd2_vd_tde_timing_fiber [label="WR Fiber", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.timing_fiber", target="_top", tooltip="Open WR Fiber in the interactive explorer", shape="octagon", style="filled", fillcolor="#fde7c8", color="#b7671e", fontcolor="#5a320a"];
+      fd2_vd_tde_wr_switch [label="White Rabbit Switch", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_tde.wr_switch", target="_top", tooltip="Open White Rabbit Switch in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
     }
   }
 
-  fd2_vd_ci -> fd2_vd_ci_temperature_monitoring_system [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_ci -> fd2_vd_ci_prm_array [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_ci_temperature_monitoring_system -> fd2_vd_ci_gas_array [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_ci_gas_array -> fd2_vd_ci_t6_bundle [color="#274c67", fontcolor="#274c67", penwidth="1.4", label="3"];
-  fd2_vd_ci_t6_bundle -> fd2_vd_ci_cold_cable [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_ci_t4_bundle -> fd2_vd_ci_cold_cable [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_ci_t2_bundle -> fd2_vd_ci_cold_cable [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_ci_cold_cable -> fd2_vd_ci_rtd [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_ci_t6_bundle -> fd2_vd_ci_tms_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_ci_t4_bundle -> fd2_vd_ci_tms_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_ci_t2_bundle -> fd2_vd_ci_tms_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_ci_warm_cable -> fd2_vd_ci_tms_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_ci_warm_cable -> fd2_vd_ci_tms_card [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_ci_tms_rack -> fd2_vd_ci_tms_crate [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_ci_tms_crate -> fd2_vd_ci_tms_card [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_hv_cathode -> fd2_vd_hv_cathode_cathode_plane_assembly [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_hv_cathode_cathode_plane_assembly -> fd2_vd_hv_cathode_half_cathode_plane_assembly [color="#274c67", fontcolor="#274c67", penwidth="1.4", label="2"];
-  fd2_vd_hv_cathode_half_cathode_plane_assembly -> fd2_vd_hv_cathode_half_frame_component [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_hv_cathode_half_cathode_plane_assembly -> fd2_vd_hv_cathode_cross_rib [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_hv_cathode_half_cathode_plane_assembly -> fd2_vd_hv_cathode_resistive_mesh_component [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_hv_cathode_half_cathode_plane_assembly -> fd2_vd_hv_cathode_metallic_mesh_component [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_hv_cathode_half_cathode_plane_assembly -> fd2_vd_hv_cathode_pd_xar_support_component [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_hv_cathode_half_cathode_plane_assembly -> fd2_vd_hv_cathode_lad_component [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_hv_cathode_half_cathode_plane_assembly -> fd2_vd_hv_cathode_cathode_interconnect_cable [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_hv_cathode_half_cathode_plane_assembly -> fd2_vd_hv_cathode_copper_tape_strip [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_hv_cathode_tad_component -> fd2_vd_hv_cathode_rope_component [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_hv_cathode_rope_component -> fd2_vd_hv_cathode_lad_component [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_top_crp -> fd2_vd_top_crp_top_crp [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_top_crp_top_crp -> fd2_vd_top_crp_cru [color="#274c67", fontcolor="#274c67", penwidth="1.4", label="2"];
-  fd2_vd_top_crp_cru -> fd2_vd_top_crp_composite_frame [color="#274c67", fontcolor="#274c67", penwidth="1.4", label="1"];
-  fd2_vd_top_crp_cru -> fd2_vd_top_crp_cru_anode_panel [color="#274c67", fontcolor="#274c67", penwidth="1.4", label="2"];
-  fd2_vd_top_crp_cru_anode_panel -> fd2_vd_top_crp_pcb_anode_segment [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_top_crp_composite_frame -> fd2_vd_top_crp_peek_spacer [color="#274c67", fontcolor="#274c67", penwidth="1.4", label="61"];
-  fd2_vd_top_crp_cru -> fd2_vd_top_crp_adapter_board [color="#274c67", fontcolor="#274c67", penwidth="1.4", label="12"];
-  fd2_vd_top_crp_cru -> fd2_vd_top_crp_edge_connector_board [color="#274c67", fontcolor="#274c67", penwidth="1.4", label="24"];
-  fd2_vd_top_crp_cru -> fd2_vd_top_crp_cold_bias_filter_board [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_top_crp_top_crp -> fd2_vd_top_crp_cold_bias_hv_cable [color="#274c67", fontcolor="#274c67", penwidth="1.4", label="1"];
-  fd2_vd_top_crp_top_crp -> fd2_vd_top_crp_decoupling_device [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_top_crp_top_crp -> fd2_vd_top_crp_level_meter_assembly [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_top_crp_top_crp -> fd2_vd_top_crp_crp_installation_tooling [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_top_crp_level_meter_assembly -> fd2_vd_top_crp_level_meter_internal_bundle [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_top_crp_level_meter_internal_bundle -> fd2_vd_top_crp_level_meter_external_bundle [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_top_crp_level_meter_active_board -> fd2_vd_top_crp_level_meter_passive_board [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_top_crp_level_meter_drawer -> fd2_vd_top_crp_level_meter_active_board [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_top_crp_level_meter_drawer -> fd2_vd_top_crp_level_meter_passive_board [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_top_crp_cable_tray -> fd2_vd_top_crp_signal_cable [color="#274c67", fontcolor="#274c67", penwidth="1.4", label="bundle of 12"];
-  fd2_vd_top_crp_signal_cable -> fd2_vd_top_crp_adapter_board [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_top_crp_cold_bias_hv_cable -> fd2_vd_top_crp_cold_bias_filter_board [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde -> fd2_vd_tde_sgft_chimney_assembly [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_tde -> fd2_vd_tde_utca_crate [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_tde -> fd2_vd_tde_wr_switch [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_tde -> fd2_vd_tde_lv_ps [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_tde_sgft_chimney_assembly -> fd2_vd_tde_cold_flange [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_tde_sgft_chimney_assembly -> fd2_vd_tde_warm_flange [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_tde_sgft_chimney_assembly -> fd2_vd_tde_feb_analog_card [color="#274c67", fontcolor="#274c67", penwidth="1.4", label="24 or 48"];
-  fd2_vd_tde_utca_crate -> fd2_vd_tde_amc_digitization_card [color="#274c67", fontcolor="#274c67", penwidth="1.4", label="24 or 48 channels worth of AMC slots"];
-  fd2_vd_tde_utca_crate -> fd2_vd_tde_utca_mch [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_tde_utca_crate -> fd2_vd_tde_utca_pu [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_tde_utca_crate -> fd2_vd_tde_wr_mch_timing_end_node [color="#274c67", fontcolor="#274c67", penwidth="1.4"];
-  fd2_vd_tde_cold_flange -> fd2_vd_tde_feb_analog_card [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde_warm_flange -> fd2_vd_tde_amc_digitization_card [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde_tde_cable -> fd2_vd_tde_warm_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde_tde_cable -> fd2_vd_tde_amc_digitization_card [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde_lv_ps -> fd2_vd_tde_filter_fanout_box [color="#b54b32", fontcolor="#9e412b", style="dashed", penwidth="1.2", label="power"];
-  fd2_vd_tde_filter_fanout_box -> fd2_vd_tde_warm_flange [color="#b54b32", fontcolor="#9e412b", style="dashed", penwidth="1.2", label="power"];
-  fd2_vd_tde_lv_feb_power_cable -> fd2_vd_tde_filter_fanout_box [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde_lv_feb_power_cable -> fd2_vd_tde_warm_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde_lv_feb_power_sense_cable -> fd2_vd_tde_filter_fanout_box [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde_lv_feb_power_sense_cable -> fd2_vd_tde_warm_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde_calibration_unit -> fd2_vd_tde_warm_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde_feb_pulsing_cable -> fd2_vd_tde_calibration_unit [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde_feb_pulsing_cable -> fd2_vd_tde_warm_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde_feb_pulsing_control_cable -> fd2_vd_tde_calibration_unit [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde_feb_pulsing_control_cable -> fd2_vd_tde_warm_flange [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde_crate_power_cable -> fd2_vd_tde_utca_pu [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde_timing_fiber -> fd2_vd_tde_wr_switch [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde_timing_fiber -> fd2_vd_tde_wr_mch_timing_end_node [color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_tde_wr_switch -> fd2_vd_tde_wr_mch_timing_end_node [color="#4f7c7a", fontcolor="#4f7c7a", style="dashed", penwidth="1.2", label="timing"];
+  fd2_vd_ci -> fd2_vd_ci_temperature_monitoring_system [URL="../explorer.html#object=relation%3A1", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_ci -> fd2_vd_ci_prm_array [URL="../explorer.html#object=relation%3A2", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_ci_temperature_monitoring_system -> fd2_vd_ci_gas_array [URL="../explorer.html#object=relation%3A3", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_ci_gas_array -> fd2_vd_ci_t6_bundle [URL="../explorer.html#object=relation%3A4", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4", label="3"];
+  fd2_vd_ci_t6_bundle -> fd2_vd_ci_cold_cable [URL="../explorer.html#object=relation%3A5", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_ci_t4_bundle -> fd2_vd_ci_cold_cable [URL="../explorer.html#object=relation%3A6", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_ci_t2_bundle -> fd2_vd_ci_cold_cable [URL="../explorer.html#object=relation%3A7", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_ci_cold_cable -> fd2_vd_ci_rtd [URL="../explorer.html#object=relation%3A8", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_ci_t6_bundle -> fd2_vd_ci_tms_flange [URL="../explorer.html#object=relation%3A9", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_ci_t4_bundle -> fd2_vd_ci_tms_flange [URL="../explorer.html#object=relation%3A10", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_ci_t2_bundle -> fd2_vd_ci_tms_flange [URL="../explorer.html#object=relation%3A11", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_ci_warm_cable -> fd2_vd_ci_tms_flange [URL="../explorer.html#object=relation%3A12", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_ci_warm_cable -> fd2_vd_ci_tms_card [URL="../explorer.html#object=relation%3A13", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_ci_tms_rack -> fd2_vd_ci_tms_crate [URL="../explorer.html#object=relation%3A14", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_ci_tms_crate -> fd2_vd_ci_tms_card [URL="../explorer.html#object=relation%3A15", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_hv_cathode -> fd2_vd_hv_cathode_cathode_plane_assembly [URL="../explorer.html#object=relation%3A16", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_hv_cathode_cathode_plane_assembly -> fd2_vd_hv_cathode_half_cathode_plane_assembly [URL="../explorer.html#object=relation%3A17", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4", label="2"];
+  fd2_vd_hv_cathode_half_cathode_plane_assembly -> fd2_vd_hv_cathode_half_frame_component [URL="../explorer.html#object=relation%3A18", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_hv_cathode_half_cathode_plane_assembly -> fd2_vd_hv_cathode_cross_rib [URL="../explorer.html#object=relation%3A19", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_hv_cathode_half_cathode_plane_assembly -> fd2_vd_hv_cathode_resistive_mesh_component [URL="../explorer.html#object=relation%3A20", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_hv_cathode_half_cathode_plane_assembly -> fd2_vd_hv_cathode_metallic_mesh_component [URL="../explorer.html#object=relation%3A21", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_hv_cathode_half_cathode_plane_assembly -> fd2_vd_hv_cathode_pd_xar_support_component [URL="../explorer.html#object=relation%3A22", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_hv_cathode_half_cathode_plane_assembly -> fd2_vd_hv_cathode_lad_component [URL="../explorer.html#object=relation%3A23", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_hv_cathode_half_cathode_plane_assembly -> fd2_vd_hv_cathode_cathode_interconnect_cable [URL="../explorer.html#object=relation%3A24", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_hv_cathode_half_cathode_plane_assembly -> fd2_vd_hv_cathode_copper_tape_strip [URL="../explorer.html#object=relation%3A25", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_hv_cathode_tad_component -> fd2_vd_hv_cathode_rope_component [URL="../explorer.html#object=relation%3A26", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_hv_cathode_rope_component -> fd2_vd_hv_cathode_lad_component [URL="../explorer.html#object=relation%3A27", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_top_crp -> fd2_vd_top_crp_top_crp [URL="../explorer.html#object=relation%3A80", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_top_crp_top_crp -> fd2_vd_top_crp_cru [URL="../explorer.html#object=relation%3A81", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4", label="2"];
+  fd2_vd_top_crp_cru -> fd2_vd_top_crp_composite_frame [URL="../explorer.html#object=relation%3A82", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4", label="1"];
+  fd2_vd_top_crp_cru -> fd2_vd_top_crp_cru_anode_panel [URL="../explorer.html#object=relation%3A83", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4", label="2"];
+  fd2_vd_top_crp_cru_anode_panel -> fd2_vd_top_crp_pcb_anode_segment [URL="../explorer.html#object=relation%3A84", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_top_crp_composite_frame -> fd2_vd_top_crp_peek_spacer [URL="../explorer.html#object=relation%3A85", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4", label="61"];
+  fd2_vd_top_crp_cru -> fd2_vd_top_crp_adapter_board [URL="../explorer.html#object=relation%3A86", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4", label="12"];
+  fd2_vd_top_crp_cru -> fd2_vd_top_crp_edge_connector_board [URL="../explorer.html#object=relation%3A87", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4", label="24"];
+  fd2_vd_top_crp_cru -> fd2_vd_top_crp_cold_bias_filter_board [URL="../explorer.html#object=relation%3A88", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_top_crp_top_crp -> fd2_vd_top_crp_cold_bias_hv_cable [URL="../explorer.html#object=relation%3A89", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4", label="1"];
+  fd2_vd_top_crp_top_crp -> fd2_vd_top_crp_decoupling_device [URL="../explorer.html#object=relation%3A90", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_top_crp_top_crp -> fd2_vd_top_crp_level_meter_assembly [URL="../explorer.html#object=relation%3A91", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_top_crp_top_crp -> fd2_vd_top_crp_crp_installation_tooling [URL="../explorer.html#object=relation%3A92", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_top_crp_level_meter_assembly -> fd2_vd_top_crp_level_meter_internal_bundle [URL="../explorer.html#object=relation%3A93", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_top_crp_level_meter_internal_bundle -> fd2_vd_top_crp_level_meter_external_bundle [URL="../explorer.html#object=relation%3A94", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_top_crp_level_meter_active_board -> fd2_vd_top_crp_level_meter_passive_board [URL="../explorer.html#object=relation%3A95", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_top_crp_level_meter_drawer -> fd2_vd_top_crp_level_meter_active_board [URL="../explorer.html#object=relation%3A96", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_top_crp_level_meter_drawer -> fd2_vd_top_crp_level_meter_passive_board [URL="../explorer.html#object=relation%3A97", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_top_crp_cable_tray -> fd2_vd_top_crp_signal_cable [URL="../explorer.html#object=relation%3A98", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4", label="bundle of 12"];
+  fd2_vd_top_crp_signal_cable -> fd2_vd_top_crp_adapter_board [URL="../explorer.html#object=relation%3A99", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_top_crp_cold_bias_hv_cable -> fd2_vd_top_crp_cold_bias_filter_board [URL="../explorer.html#object=relation%3A100", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde -> fd2_vd_tde_sgft_chimney_assembly [URL="../explorer.html#object=relation%3A47", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_tde -> fd2_vd_tde_utca_crate [URL="../explorer.html#object=relation%3A48", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_tde -> fd2_vd_tde_wr_switch [URL="../explorer.html#object=relation%3A49", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_tde -> fd2_vd_tde_lv_ps [URL="../explorer.html#object=relation%3A50", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_tde_sgft_chimney_assembly -> fd2_vd_tde_cold_flange [URL="../explorer.html#object=relation%3A52", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_tde_sgft_chimney_assembly -> fd2_vd_tde_warm_flange [URL="../explorer.html#object=relation%3A53", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_tde_sgft_chimney_assembly -> fd2_vd_tde_feb_analog_card [URL="../explorer.html#object=relation%3A54", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4", label="24 or 48"];
+  fd2_vd_tde_utca_crate -> fd2_vd_tde_amc_digitization_card [URL="../explorer.html#object=relation%3A55", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4", label="24 or 48 channels worth of AMC slots"];
+  fd2_vd_tde_utca_crate -> fd2_vd_tde_utca_mch [URL="../explorer.html#object=relation%3A56", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_tde_utca_crate -> fd2_vd_tde_utca_pu [URL="../explorer.html#object=relation%3A57", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_tde_utca_crate -> fd2_vd_tde_wr_mch_timing_end_node [URL="../explorer.html#object=relation%3A58", target="_top", tooltip="Open contains relation in the interactive explorer", color="#274c67", fontcolor="#274c67", penwidth="1.4"];
+  fd2_vd_tde_cold_flange -> fd2_vd_tde_feb_analog_card [URL="../explorer.html#object=relation%3A61", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_warm_flange -> fd2_vd_tde_amc_digitization_card [URL="../explorer.html#object=relation%3A62", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_tde_cable -> fd2_vd_tde_warm_flange [URL="../explorer.html#object=relation%3A63", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_tde_cable -> fd2_vd_tde_amc_digitization_card [URL="../explorer.html#object=relation%3A64", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_lv_ps -> fd2_vd_tde_filter_fanout_box [URL="../explorer.html#object=relation%3A65", target="_top", tooltip="Open powers relation in the interactive explorer", color="#b54b32", fontcolor="#9e412b", style="dashed", penwidth="1.2", label="power"];
+  fd2_vd_tde_filter_fanout_box -> fd2_vd_tde_warm_flange [URL="../explorer.html#object=relation%3A66", target="_top", tooltip="Open powers relation in the interactive explorer", color="#b54b32", fontcolor="#9e412b", style="dashed", penwidth="1.2", label="power"];
+  fd2_vd_tde_lv_feb_power_cable -> fd2_vd_tde_filter_fanout_box [URL="../explorer.html#object=relation%3A67", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_lv_feb_power_cable -> fd2_vd_tde_warm_flange [URL="../explorer.html#object=relation%3A68", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_lv_feb_power_sense_cable -> fd2_vd_tde_filter_fanout_box [URL="../explorer.html#object=relation%3A69", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_lv_feb_power_sense_cable -> fd2_vd_tde_warm_flange [URL="../explorer.html#object=relation%3A70", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_calibration_unit -> fd2_vd_tde_warm_flange [URL="../explorer.html#object=relation%3A71", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_feb_pulsing_cable -> fd2_vd_tde_calibration_unit [URL="../explorer.html#object=relation%3A72", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_feb_pulsing_cable -> fd2_vd_tde_warm_flange [URL="../explorer.html#object=relation%3A73", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_feb_pulsing_control_cable -> fd2_vd_tde_calibration_unit [URL="../explorer.html#object=relation%3A74", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_feb_pulsing_control_cable -> fd2_vd_tde_warm_flange [URL="../explorer.html#object=relation%3A75", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_crate_power_cable -> fd2_vd_tde_utca_pu [URL="../explorer.html#object=relation%3A76", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_timing_fiber -> fd2_vd_tde_wr_switch [URL="../explorer.html#object=relation%3A77", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_timing_fiber -> fd2_vd_tde_wr_mch_timing_end_node [URL="../explorer.html#object=relation%3A78", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_tde_wr_switch -> fd2_vd_tde_wr_mch_timing_end_node [URL="../explorer.html#object=relation%3A79", target="_top", tooltip="Open timed by relation in the interactive explorer", color="#4f7c7a", fontcolor="#4f7c7a", style="dashed", penwidth="1.2", label="timing"];
   context_fd2_vd_detector -> context_fd2_vd_superstructure [color="#274c67", penwidth="1.4"];
   context_fd2_vd_detector -> fd2_vd_hv_cathode [color="#274c67", penwidth="1.4"];
   context_fd2_vd_detector -> context_fd2_vd_field_cage [color="#274c67", penwidth="1.4"];

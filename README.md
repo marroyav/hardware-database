@@ -78,6 +78,8 @@ This also writes the interactive database explorer:
 
 - `docs/explorer.html`
 
+The generated SVG diagrams are clickable: system, subsystem, component, and relation objects link into `docs/explorer.html` with stable `#object=...` deep links.
+
 ### 2. Day-to-day edit loop
 
 When changing hierarchy, dependencies, cables, fields, or QC artifacts:

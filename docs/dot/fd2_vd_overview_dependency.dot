@@ -19,22 +19,22 @@ digraph HardwareModel {
   node [fontname="Avenir Next", fontsize=12, margin="0.18,0.12", penwidth=1.3];
   edge [fontname="Avenir Next", fontsize=10, arrowsize=0.8, penwidth=1.2, color="#33536a", fontcolor="#33536a"];
 
-  fd2_vd_overview [label="FD2-VD Detector Overview", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
+  fd2_vd_overview [label="FD2-VD Detector Overview", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_overview", target="_top", tooltip="Open FD2-VD Detector Overview in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
 
-  fd2_vd_overview_vd_bde [label="BDE", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
-  fd2_vd_overview_vd_daq [label="DAQ", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
-  fd2_vd_overview_vd_field_cage [label="Field Cage", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
-  fd2_vd_overview_vd_hv_cathode [label="HV Cathode", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
-  fd2_vd_overview_vd_pds_cathode [label="PDS Cathode Modules", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
-  fd2_vd_overview_vd_pds_membrane [label="PDS Membrane Modules", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
-  fd2_vd_overview_vd_tde [label="TDE", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
-  fd2_vd_overview_vd_crp [label="Top CRP", fontname="Avenir Next", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+  fd2_vd_overview_vd_bde [label="BDE", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_overview.vd_bde", target="_top", tooltip="Open BDE in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+  fd2_vd_overview_vd_daq [label="DAQ", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_overview.vd_daq", target="_top", tooltip="Open DAQ in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+  fd2_vd_overview_vd_field_cage [label="Field Cage", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_overview.vd_field_cage", target="_top", tooltip="Open Field Cage in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+  fd2_vd_overview_vd_hv_cathode [label="HV Cathode", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_overview.vd_hv_cathode", target="_top", tooltip="Open HV Cathode in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
+  fd2_vd_overview_vd_pds_cathode [label="PDS Cathode Modules", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_overview.vd_pds_cathode", target="_top", tooltip="Open PDS Cathode Modules in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+  fd2_vd_overview_vd_pds_membrane [label="PDS Membrane Modules", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_overview.vd_pds_membrane", target="_top", tooltip="Open PDS Membrane Modules in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+  fd2_vd_overview_vd_tde [label="TDE", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_overview.vd_tde", target="_top", tooltip="Open TDE in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+  fd2_vd_overview_vd_crp [label="Top CRP", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_overview.vd_crp", target="_top", tooltip="Open Top CRP in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#dfe9f2", color="#53718a", fontcolor="#173140"];
 
-  fd2_vd_overview_vd_crp -> fd2_vd_overview_vd_tde [color="#1f6f8b", fontcolor="#1f6f8b", style="dashed", penwidth="1.2", label="interface"];
-  fd2_vd_overview_vd_crp -> fd2_vd_overview_vd_bde [color="#1f6f8b", fontcolor="#1f6f8b", style="dashed", penwidth="1.2", label="interface"];
-  fd2_vd_overview_vd_bde -> fd2_vd_overview_vd_daq [color="#356c53", fontcolor="#356c53", style="dashed", penwidth="1.2", label="readout"];
-  fd2_vd_overview_vd_tde -> fd2_vd_overview_vd_daq [color="#356c53", fontcolor="#356c53", style="dashed", penwidth="1.2", label="readout"];
-  fd2_vd_overview_vd_pds_cathode -> fd2_vd_overview_vd_bde [color="#1f6f8b", fontcolor="#1f6f8b", style="dashed", penwidth="1.2", label="interface"];
-  fd2_vd_overview_vd_pds_membrane -> fd2_vd_overview_vd_bde [color="#1f6f8b", fontcolor="#1f6f8b", style="dashed", penwidth="1.2", label="interface"];
-  fd2_vd_overview_vd_hv_cathode -> fd2_vd_overview_vd_field_cage [color="#1f6f8b", fontcolor="#1f6f8b", style="dashed", penwidth="1.2", label="interface"];
+  fd2_vd_overview_vd_crp -> fd2_vd_overview_vd_tde [URL="../explorer.html#object=relation%3A38", target="_top", tooltip="Open interfaces with relation in the interactive explorer", color="#1f6f8b", fontcolor="#1f6f8b", style="dashed", penwidth="1.2", label="interface"];
+  fd2_vd_overview_vd_crp -> fd2_vd_overview_vd_bde [URL="../explorer.html#object=relation%3A39", target="_top", tooltip="Open interfaces with relation in the interactive explorer", color="#1f6f8b", fontcolor="#1f6f8b", style="dashed", penwidth="1.2", label="interface"];
+  fd2_vd_overview_vd_bde -> fd2_vd_overview_vd_daq [URL="../explorer.html#object=relation%3A40", target="_top", tooltip="Open reads out relation in the interactive explorer", color="#356c53", fontcolor="#356c53", style="dashed", penwidth="1.2", label="readout"];
+  fd2_vd_overview_vd_tde -> fd2_vd_overview_vd_daq [URL="../explorer.html#object=relation%3A41", target="_top", tooltip="Open reads out relation in the interactive explorer", color="#356c53", fontcolor="#356c53", style="dashed", penwidth="1.2", label="readout"];
+  fd2_vd_overview_vd_pds_cathode -> fd2_vd_overview_vd_bde [URL="../explorer.html#object=relation%3A44", target="_top", tooltip="Open interfaces with relation in the interactive explorer", color="#1f6f8b", fontcolor="#1f6f8b", style="dashed", penwidth="1.2", label="interface"];
+  fd2_vd_overview_vd_pds_membrane -> fd2_vd_overview_vd_bde [URL="../explorer.html#object=relation%3A45", target="_top", tooltip="Open interfaces with relation in the interactive explorer", color="#1f6f8b", fontcolor="#1f6f8b", style="dashed", penwidth="1.2", label="interface"];
+  fd2_vd_overview_vd_hv_cathode -> fd2_vd_overview_vd_field_cage [URL="../explorer.html#object=relation%3A46", target="_top", tooltip="Open interfaces with relation in the interactive explorer", color="#1f6f8b", fontcolor="#1f6f8b", style="dashed", penwidth="1.2", label="interface"];
 }

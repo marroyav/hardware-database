@@ -12,197 +12,302 @@
 <text text-anchor="middle" x="318.5" y="-608.2" font-family="Iowan Old Style" font-size="26.00" fill="#183247">FD2&#45;VD Top Vertical Drift CRP Electronics · Hierarchy</text>
 <g id="clust1" class="cluster">
 <title>cluster_fd2_vd_tde_analog_electronics</title>
+<g id="a_clust1"><a xlink:href="../explorer.html#object=fd2_vd_tde.analog_electronics" xlink:title="Open Analog Electronics in the interactive explorer" target="_top">
 <path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M1003.68,-228C1003.68,-228 1115.68,-228 1115.68,-228 1121.68,-228 1127.68,-234 1127.68,-240 1127.68,-240 1127.68,-290 1127.68,-290 1127.68,-296 1121.68,-302 1115.68,-302 1115.68,-302 1003.68,-302 1003.68,-302 997.68,-302 991.68,-296 991.68,-290 991.68,-290 991.68,-240 991.68,-240 991.68,-234 997.68,-228 1003.68,-228"/>
 <text text-anchor="middle" x="1055.18" y="-287.6" font-family="Avenir Next" font-size="13.00" fill="#5a4634">Analog Electronics</text>
+</a>
+</g>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_fd2_vd_tde_digital_electronics</title>
+<g id="a_clust2"><a xlink:href="../explorer.html#object=fd2_vd_tde.digital_electronics" xlink:title="Open Digital Electronics in the interactive explorer" target="_top">
 <path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M633,-310C633,-310 1144.18,-310 1144.18,-310 1150.18,-310 1156.18,-316 1156.18,-322 1156.18,-322 1156.18,-576 1156.18,-576 1156.18,-582 1150.18,-588 1144.18,-588 1144.18,-588 633,-588 633,-588 627,-588 621,-582 621,-576 621,-576 621,-322 621,-322 621,-316 627,-310 633,-310"/>
 <text text-anchor="middle" x="682" y="-573.6" font-family="Avenir Next" font-size="13.00" fill="#5a4634">Digital Electronics</text>
+</a>
+</g>
 </g>
 <g id="clust3" class="cluster">
 <title>cluster_fd2_vd_tde_sgft_chimney</title>
+<g id="a_clust3"><a xlink:href="../explorer.html#object=fd2_vd_tde.sgft_chimney" xlink:title="Open SGFT Chimney in the interactive explorer" target="_top">
 <path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M624,-26C624,-26 1159.35,-26 1159.35,-26 1165.35,-26 1171.35,-32 1171.35,-38 1171.35,-38 1171.35,-208 1171.35,-208 1171.35,-214 1165.35,-220 1159.35,-220 1159.35,-220 624,-220 624,-220 618,-220 612,-214 612,-208 612,-208 612,-38 612,-38 612,-32 618,-26 624,-26"/>
 <text text-anchor="middle" x="664" y="-205.6" font-family="Avenir Next" font-size="13.00" fill="#5a4634">SGFT Chimney</text>
+</a>
+</g>
 </g>
 <g id="clust4" class="cluster">
 <title>cluster_fd2_vd_tde_shipping</title>
+<g id="a_clust4"><a xlink:href="../explorer.html#object=fd2_vd_tde.shipping" xlink:title="Open Shipping Containers in the interactive explorer" target="_top">
 <path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M413,-230C413,-230 537,-230 537,-230 543,-230 549,-236 549,-242 549,-242 549,-292 549,-292 549,-298 543,-304 537,-304 537,-304 413,-304 413,-304 407,-304 401,-298 401,-292 401,-292 401,-242 401,-242 401,-236 407,-230 413,-230"/>
 <text text-anchor="middle" x="469.5" y="-289.6" font-family="Avenir Next" font-size="13.00" fill="#5a4634">Shipping Containers</text>
+</a>
+</g>
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_fd2_vd_tde_ancillary_systems</title>
+<g id="a_clust5"><a xlink:href="../explorer.html#object=fd2_vd_tde.ancillary_systems" xlink:title="Open TDE Ancillary Systems in the interactive explorer" target="_top">
 <path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M393,-90C393,-90 557,-90 557,-90 563,-90 569,-96 569,-102 569,-102 569,-152 569,-152 569,-158 563,-164 557,-164 557,-164 393,-164 393,-164 387,-164 381,-158 381,-152 381,-152 381,-102 381,-102 381,-96 387,-90 393,-90"/>
 <text text-anchor="middle" x="453.5" y="-149.6" font-family="Avenir Next" font-size="13.00" fill="#5a4634">TDE Ancillary Systems</text>
+</a>
+</g>
 </g>
 <g id="clust6" class="cluster">
 <title>cluster_fd2_vd_tde_timing_distribution</title>
+<g id="a_clust6"><a xlink:href="../explorer.html#object=fd2_vd_tde.timing_distribution" xlink:title="Open Timing Distribution in the interactive explorer" target="_top">
 <path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M411.5,-8C411.5,-8 538.5,-8 538.5,-8 544.5,-8 550.5,-14 550.5,-20 550.5,-20 550.5,-70 550.5,-70 550.5,-76 544.5,-82 538.5,-82 538.5,-82 411.5,-82 411.5,-82 405.5,-82 399.5,-76 399.5,-70 399.5,-70 399.5,-20 399.5,-20 399.5,-14 405.5,-8 411.5,-8"/>
 <text text-anchor="middle" x="463.5" y="-67.6" font-family="Avenir Next" font-size="13.00" fill="#5a4634">Timing Distribution</text>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde -->
 <g id="node1" class="node">
 <title>fd2_vd_tde</title>
+<g id="a_node1"><a xlink:href="../explorer.html#object=fd2_vd_tde" xlink:title="Open FD2&#45;VD Top Vertical Drift CRP Electronics in the interactive explorer" target="_top">
 <path fill="#183247" stroke="#183247" stroke-width="1.5" d="M318,-210C318,-210 12,-210 12,-210 6,-210 0,-204 0,-198 0,-198 0,-180 0,-180 0,-174 6,-168 12,-168 12,-168 318,-168 318,-168 324,-168 330,-174 330,-180 330,-180 330,-198 330,-198 330,-204 324,-210 318,-210"/>
 <text text-anchor="middle" x="165" y="-185.2" font-family="Avenir Next" font-size="16.00" fill="#ffffff">FD2&#45;VD Top Vertical Drift CRP Electronics</text>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_utca_crate -->
 <g id="node5" class="node">
 <title>fd2_vd_tde_utca_crate</title>
+<g id="a_node5"><a xlink:href="../explorer.html#object=fd2_vd_tde.utca_crate" xlink:title="Open uTCA Crate in the interactive explorer" target="_top">
 <path fill="#dfe9f2" stroke="#53718a" stroke-width="1.3" d="M707,-399C707,-399 641,-399 641,-399 635,-399 629,-393 629,-387 629,-387 629,-375 629,-375 629,-369 635,-363 641,-363 641,-363 707,-363 707,-363 713,-363 719,-369 719,-375 719,-375 719,-387 719,-387 719,-393 713,-399 707,-399"/>
 <text text-anchor="middle" x="674" y="-377.9" font-family="Avenir Next" font-size="12.00" fill="#173140">uTCA Crate</text>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde&#45;&gt;fd2_vd_tde_utca_crate -->
 <g id="edge2" class="edge">
 <title>fd2_vd_tde&#45;&gt;fd2_vd_tde_utca_crate</title>
+<g id="a_edge2"><a xlink:href="../explorer.html#object=relation%3A48" xlink:title="Open contains relation in the interactive explorer" target="_top">
 <path fill="none" stroke="#274c67" stroke-width="1.4" d="M197.41,-210.34C238.11,-237.12 312.07,-282.82 381,-310 461.23,-341.63 559.59,-362.02 619.22,-372.49"/>
 <polygon fill="#274c67" stroke="#274c67" stroke-width="1.4" points="618.45,-375.54 626.81,-374.15 619.4,-370.03 618.45,-375.54"/>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_sgft_chimney_assembly -->
 <g id="node9" class="node">
 <title>fd2_vd_tde_sgft_chimney_assembly</title>
+<g id="a_node9"><a xlink:href="../explorer.html#object=fd2_vd_tde.sgft_chimney_assembly" xlink:title="Open SGFT Chimney in the interactive explorer" target="_top">
 <path fill="#dfe9f2" stroke="#53718a" stroke-width="1.3" d="M716,-190C716,-190 632,-190 632,-190 626,-190 620,-184 620,-178 620,-178 620,-166 620,-166 620,-160 626,-154 632,-154 632,-154 716,-154 716,-154 722,-154 728,-160 728,-166 728,-166 728,-178 728,-178 728,-184 722,-190 716,-190"/>
 <text text-anchor="middle" x="674" y="-168.9" font-family="Avenir Next" font-size="12.00" fill="#173140">SGFT Chimney</text>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde&#45;&gt;fd2_vd_tde_sgft_chimney_assembly -->
 <g id="edge1" class="edge">
 <title>fd2_vd_tde&#45;&gt;fd2_vd_tde_sgft_chimney_assembly</title>
+<g id="a_edge1"><a xlink:href="../explorer.html#object=relation%3A47" xlink:title="Open contains relation in the interactive explorer" target="_top">
 <path fill="none" stroke="#274c67" stroke-width="1.4" d="M330.26,-183.49C425.5,-180.3 540.01,-176.46 609.61,-174.13"/>
 <polygon fill="#274c67" stroke="#274c67" stroke-width="1.4" points="609.64,-176.86 617.54,-173.79 609.45,-171.26 609.64,-176.86"/>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_shipping_container -->
 <g id="node11" class="node">
 <title>fd2_vd_tde_shipping_container</title>
+<g id="a_node11"><a xlink:href="../explorer.html#object=fd2_vd_tde.shipping_container" xlink:title="Open Shipping Container in the interactive explorer" target="_top">
 <path fill="#dfe9f2" stroke="#53718a" stroke-width="1.3" d="M529,-274C529,-274 421,-274 421,-274 415,-274 409,-268 409,-262 409,-262 409,-250 409,-250 409,-244 415,-238 421,-238 421,-238 529,-238 529,-238 535,-238 541,-244 541,-250 541,-250 541,-262 541,-262 541,-268 535,-274 529,-274"/>
 <text text-anchor="middle" x="475" y="-252.9" font-family="Avenir Next" font-size="12.00" fill="#173140">Shipping Container</text>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde&#45;&gt;fd2_vd_tde_shipping_container -->
 <g id="edge5" class="edge">
 <title>fd2_vd_tde&#45;&gt;fd2_vd_tde_shipping_container</title>
+<g id="a_edge5"><a xlink:href="../explorer.html#object=relation%3A51" xlink:title="Open contains relation in the interactive explorer" target="_top">
 <path fill="none" stroke="#274c67" stroke-width="1.4" d="M264.72,-210.48C308.38,-219.97 358.87,-230.96 399.32,-239.75"/>
 <polygon fill="#274c67" stroke="#274c67" stroke-width="1.4" points="398.43,-242.86 406.84,-241.83 399.62,-237.39 398.43,-242.86"/>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_lv_ps -->
 <g id="node12" class="node">
 <title>fd2_vd_tde_lv_ps</title>
+<g id="a_node12"><a xlink:href="../explorer.html#object=fd2_vd_tde.lv_ps" xlink:title="Open Low&#45;Voltage Power Supply in the interactive explorer" target="_top">
 <path fill="#e4efe0" stroke="#5d7f48" stroke-width="1.3" d="M549,-134C549,-134 401,-134 401,-134 395,-134 389,-128 389,-122 389,-122 389,-110 389,-110 389,-104 395,-98 401,-98 401,-98 549,-98 549,-98 555,-98 561,-104 561,-110 561,-110 561,-122 561,-122 561,-128 555,-134 549,-134"/>
 <text text-anchor="middle" x="475" y="-112.9" font-family="Avenir Next" font-size="12.00" fill="#18311a">Low&#45;Voltage Power Supply</text>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde&#45;&gt;fd2_vd_tde_lv_ps -->
 <g id="edge4" class="edge">
 <title>fd2_vd_tde&#45;&gt;fd2_vd_tde_lv_ps</title>
+<g id="a_edge4"><a xlink:href="../explorer.html#object=relation%3A50" xlink:title="Open contains relation in the interactive explorer" target="_top">
 <path fill="none" stroke="#274c67" stroke-width="1.4" d="M256.33,-167.59C297.41,-157.85 345.83,-146.38 386.56,-136.72"/>
 <polygon fill="#274c67" stroke="#274c67" stroke-width="1.4" points="387.06,-139.01 394.2,-134.44 385.77,-133.56 387.06,-139.01"/>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_wr_switch -->
 <g id="node13" class="node">
 <title>fd2_vd_tde_wr_switch</title>
+<g id="a_node13"><a xlink:href="../explorer.html#object=fd2_vd_tde.wr_switch" xlink:title="Open White Rabbit Switch in the interactive explorer" target="_top">
 <path fill="#e4efe0" stroke="#5d7f48" stroke-width="1.3" d="M530.5,-52C530.5,-52 419.5,-52 419.5,-52 413.5,-52 407.5,-46 407.5,-40 407.5,-40 407.5,-28 407.5,-28 407.5,-22 413.5,-16 419.5,-16 419.5,-16 530.5,-16 530.5,-16 536.5,-16 542.5,-22 542.5,-28 542.5,-28 542.5,-40 542.5,-40 542.5,-46 536.5,-52 530.5,-52"/>
 <text text-anchor="middle" x="475" y="-30.9" font-family="Avenir Next" font-size="12.00" fill="#18311a">White Rabbit Switch</text>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde&#45;&gt;fd2_vd_tde_wr_switch -->
 <g id="edge3" class="edge">
 <title>fd2_vd_tde&#45;&gt;fd2_vd_tde_wr_switch</title>
+<g id="a_edge3"><a xlink:href="../explorer.html#object=relation%3A49" xlink:title="Open contains relation in the interactive explorer" target="_top">
 <path fill="none" stroke="#274c67" stroke-width="1.4" d="M208.5,-167.61C266.42,-138.46 369.7,-86.49 428.93,-56.68"/>
 <polygon fill="#274c67" stroke="#274c67" stroke-width="1.4" points="430.8,-58.37 436.69,-52.27 428.28,-53.37 430.8,-58.37"/>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_feb_analog_card -->
 <g id="node2" class="node">
 <title>fd2_vd_tde_feb_analog_card</title>
+<g id="a_node2"><a xlink:href="../explorer.html#object=fd2_vd_tde.feb_analog_card" xlink:title="Open FEB Analog Card in the interactive explorer" target="_top">
 <path fill="#e4efe0" stroke="#5d7f48" stroke-width="1.3" d="M1107.68,-272C1107.68,-272 1011.68,-272 1011.68,-272 1005.68,-272 999.68,-266 999.68,-260 999.68,-260 999.68,-248 999.68,-248 999.68,-242 1005.68,-236 1011.68,-236 1011.68,-236 1107.68,-236 1107.68,-236 1113.68,-236 1119.68,-242 1119.68,-248 1119.68,-248 1119.68,-260 1119.68,-260 1119.68,-266 1113.68,-272 1107.68,-272"/>
 <text text-anchor="middle" x="1059.68" y="-250.9" font-family="Avenir Next" font-size="12.00" fill="#18311a">FEB Analog Card</text>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_amc_digitization_card -->
 <g id="node3" class="node">
 <title>fd2_vd_tde_amc_digitization_card</title>
+<g id="a_node3"><a xlink:href="../explorer.html#object=fd2_vd_tde.amc_digitization_card" xlink:title="Open AMC Digitization Card in the interactive explorer" target="_top">
 <path fill="#e4efe0" stroke="#5d7f48" stroke-width="1.3" d="M1121.68,-354C1121.68,-354 997.68,-354 997.68,-354 991.68,-354 985.68,-348 985.68,-342 985.68,-342 985.68,-330 985.68,-330 985.68,-324 991.68,-318 997.68,-318 997.68,-318 1121.68,-318 1121.68,-318 1127.68,-318 1133.68,-324 1133.68,-330 1133.68,-330 1133.68,-342 1133.68,-342 1133.68,-348 1127.68,-354 1121.68,-354"/>
 <text text-anchor="middle" x="1059.68" y="-332.9" font-family="Avenir Next" font-size="12.00" fill="#18311a">AMC Digitization Card</text>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_wr_mch_timing_end_node -->
 <g id="node4" class="node">
 <title>fd2_vd_tde_wr_mch_timing_end_node</title>
+<g id="a_node4"><a xlink:href="../explorer.html#object=fd2_vd_tde.wr_mch_timing_end_node" xlink:title="Open WR&#45;MCH Timing End&#45;Node in the interactive explorer" target="_top">
 <path fill="#e4efe0" stroke="#5d7f48" stroke-width="1.3" d="M1136.18,-422C1136.18,-422 983.18,-422 983.18,-422 977.18,-422 971.18,-416 971.18,-410 971.18,-410 971.18,-398 971.18,-398 971.18,-392 977.18,-386 983.18,-386 983.18,-386 1136.18,-386 1136.18,-386 1142.18,-386 1148.18,-392 1148.18,-398 1148.18,-398 1148.18,-410 1148.18,-410 1148.18,-416 1142.18,-422 1136.18,-422"/>
 <text text-anchor="middle" x="1059.68" y="-400.9" font-family="Avenir Next" font-size="12.00" fill="#18311a">WR&#45;MCH Timing End&#45;Node</text>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_utca_crate&#45;&gt;fd2_vd_tde_amc_digitization_card -->
 <g id="edge9" class="edge">
 <title>fd2_vd_tde_utca_crate&#45;&gt;fd2_vd_tde_amc_digitization_card</title>
+<g id="a_edge9"><a xlink:href="../explorer.html#object=relation%3A55" xlink:title="Open contains relation in the interactive explorer" target="_top">
 <path fill="none" stroke="#274c67" stroke-width="1.4" d="M719.2,-373.57C731.42,-371.63 744.71,-369.62 757,-368 830.7,-358.26 914.83,-349.53 975.49,-343.66"/>
 <polygon fill="#274c67" stroke="#274c67" stroke-width="1.4" points="975.7,-346.26 983.4,-342.71 975.17,-340.69 975.7,-346.26"/>
+</a>
+</g>
+<g id="a_edge9&#45;label"><a xlink:href="../explorer.html#object=relation%3A55" xlink:title="24 or 48 channels worth of AMC slots" target="_top">
 <text text-anchor="middle" x="842" y="-371" font-family="Avenir Next" font-size="10.00" fill="#274c67">24 or 48 channels worth of AMC slots</text>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_utca_crate&#45;&gt;fd2_vd_tde_wr_mch_timing_end_node -->
 <g id="edge12" class="edge">
 <title>fd2_vd_tde_utca_crate&#45;&gt;fd2_vd_tde_wr_mch_timing_end_node</title>
+<g id="a_edge12"><a xlink:href="../explorer.html#object=relation%3A58" xlink:title="Open contains relation in the interactive explorer" target="_top">
 <path fill="none" stroke="#274c67" stroke-width="1.4" d="M719.25,-384.37C731.48,-385.27 744.75,-386.21 757,-387 825.18,-391.42 902.08,-395.74 961.17,-398.92"/>
 <polygon fill="#274c67" stroke="#274c67" stroke-width="1.4" points="960.73,-401.81 968.87,-399.44 961.03,-396.22 960.73,-401.81"/>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_utca_mch -->
 <g id="node6" class="node">
 <title>fd2_vd_tde_utca_mch</title>
+<g id="a_node6"><a xlink:href="../explorer.html#object=fd2_vd_tde.utca_mch" xlink:title="Open uTCA MCH in the interactive explorer" target="_top">
 <path fill="#e4efe0" stroke="#5d7f48" stroke-width="1.3" d="M1091.18,-490C1091.18,-490 1028.18,-490 1028.18,-490 1022.18,-490 1016.18,-484 1016.18,-478 1016.18,-478 1016.18,-466 1016.18,-466 1016.18,-460 1022.18,-454 1028.18,-454 1028.18,-454 1091.18,-454 1091.18,-454 1097.18,-454 1103.18,-460 1103.18,-466 1103.18,-466 1103.18,-478 1103.18,-478 1103.18,-484 1097.18,-490 1091.18,-490"/>
 <text text-anchor="middle" x="1059.68" y="-468.9" font-family="Avenir Next" font-size="12.00" fill="#18311a">uTCA MCH</text>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_utca_crate&#45;&gt;fd2_vd_tde_utca_mch -->
 <g id="edge10" class="edge">
 <title>fd2_vd_tde_utca_crate&#45;&gt;fd2_vd_tde_utca_mch</title>
+<g id="a_edge10"><a xlink:href="../explorer.html#object=relation%3A56" xlink:title="Open contains relation in the interactive explorer" target="_top">
 <path fill="none" stroke="#274c67" stroke-width="1.4" d="M719.39,-391.53C790.7,-408.44 930.48,-441.59 1006.47,-459.62"/>
 <polygon fill="#274c67" stroke="#274c67" stroke-width="1.4" points="1005.43,-462.72 1013.86,-461.85 1006.72,-457.27 1005.43,-462.72"/>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_utca_pu -->
 <g id="node7" class="node">
 <title>fd2_vd_tde_utca_pu</title>
+<g id="a_node7"><a xlink:href="../explorer.html#object=fd2_vd_tde.utca_pu" xlink:title="Open uTCA Power Unit in the interactive explorer" target="_top">
 <path fill="#e4efe0" stroke="#5d7f48" stroke-width="1.3" d="M1106.68,-558C1106.68,-558 1012.68,-558 1012.68,-558 1006.68,-558 1000.68,-552 1000.68,-546 1000.68,-546 1000.68,-534 1000.68,-534 1000.68,-528 1006.68,-522 1012.68,-522 1012.68,-522 1106.68,-522 1106.68,-522 1112.68,-522 1118.68,-528 1118.68,-534 1118.68,-534 1118.68,-546 1118.68,-546 1118.68,-552 1112.68,-558 1106.68,-558"/>
 <text text-anchor="middle" x="1059.68" y="-536.9" font-family="Avenir Next" font-size="12.00" fill="#18311a">uTCA Power Unit</text>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_utca_crate&#45;&gt;fd2_vd_tde_utca_pu -->
 <g id="edge11" class="edge">
 <title>fd2_vd_tde_utca_crate&#45;&gt;fd2_vd_tde_utca_pu</title>
+<g id="a_edge11"><a xlink:href="../explorer.html#object=relation%3A57" xlink:title="Open contains relation in the interactive explorer" target="_top">
 <path fill="none" stroke="#274c67" stroke-width="1.4" d="M703.6,-399.27C719.08,-408.76 738.72,-420.19 757,-429 834.81,-466.53 928.83,-499.26 991,-519.27"/>
 <polygon fill="#274c67" stroke="#274c67" stroke-width="1.4" points="989.84,-522.48 998.32,-522.25 991.55,-517.15 989.84,-522.48"/>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_cold_flange -->
 <g id="node8" class="node">
 <title>fd2_vd_tde_cold_flange</title>
+<g id="a_node8"><a xlink:href="../explorer.html#object=fd2_vd_tde.cold_flange" xlink:title="Open Cold Flange in the interactive explorer" target="_top">
 <polygon fill="#f3e5cc" stroke="#9d6a14" stroke-width="1.3" points="1156.01,-96 1002.76,-96 963.34,-34 1116.59,-34 1156.01,-96"/>
 <text text-anchor="middle" x="1059.68" y="-61.9" font-family="Avenir Next" font-size="12.00" fill="#52360a">Cold Flange</text>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_sgft_chimney_assembly&#45;&gt;fd2_vd_tde_feb_analog_card -->
 <g id="edge8" class="edge">
 <title>fd2_vd_tde_sgft_chimney_assembly&#45;&gt;fd2_vd_tde_feb_analog_card</title>
+<g id="a_edge8"><a xlink:href="../explorer.html#object=relation%3A54" xlink:title="Open contains relation in the interactive explorer" target="_top">
 <path fill="none" stroke="#274c67" stroke-width="1.4" d="M728.35,-183.4C796.67,-198 915.17,-223.33 990.12,-239.35"/>
 <polygon fill="#274c67" stroke="#274c67" stroke-width="1.4" points="989.08,-242.42 997.49,-241.35 990.25,-236.94 989.08,-242.42"/>
+</a>
+</g>
+<g id="a_edge8&#45;label"><a xlink:href="../explorer.html#object=relation%3A54" xlink:title="24 or 48" target="_top">
 <text text-anchor="middle" x="842" y="-228" font-family="Avenir Next" font-size="10.00" fill="#274c67">24 or 48</text>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_sgft_chimney_assembly&#45;&gt;fd2_vd_tde_cold_flange -->
 <g id="edge6" class="edge">
 <title>fd2_vd_tde_sgft_chimney_assembly&#45;&gt;fd2_vd_tde_cold_flange</title>
+<g id="a_edge6"><a xlink:href="../explorer.html#object=relation%3A52" xlink:title="Open contains relation in the interactive explorer" target="_top">
 <path fill="none" stroke="#274c67" stroke-width="1.4" d="M728.35,-157.12C795.09,-138.51 909.72,-106.54 984.85,-85.59"/>
 <polygon fill="#274c67" stroke="#274c67" stroke-width="1.4" points="985.31,-87.81 992.27,-82.96 983.81,-82.41 985.31,-87.81"/>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_warm_flange -->
 <g id="node10" class="node">
 <title>fd2_vd_tde_warm_flange</title>
+<g id="a_node10"><a xlink:href="../explorer.html#object=fd2_vd_tde.warm_flange" xlink:title="Open Warm Flange in the interactive explorer" target="_top">
 <polygon fill="#f3e5cc" stroke="#9d6a14" stroke-width="1.3" points="1163.53,-190 998.32,-190 955.82,-128 1121.03,-128 1163.53,-190"/>
 <text text-anchor="middle" x="1059.68" y="-155.9" font-family="Avenir Next" font-size="12.00" fill="#52360a">Warm Flange</text>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_sgft_chimney_assembly&#45;&gt;fd2_vd_tde_warm_flange -->
 <g id="edge7" class="edge">
 <title>fd2_vd_tde_sgft_chimney_assembly&#45;&gt;fd2_vd_tde_warm_flange</title>
+<g id="a_edge7"><a xlink:href="../explorer.html#object=relation%3A53" xlink:title="Open contains relation in the interactive explorer" target="_top">
 <path fill="none" stroke="#274c67" stroke-width="1.4" d="M728.35,-170.19C790.42,-168.09 893.92,-164.58 968.54,-162.05"/>
 <polygon fill="#274c67" stroke="#274c67" stroke-width="1.4" points="968.5,-164.79 976.41,-161.72 968.31,-159.19 968.5,-164.79"/>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_shipping_container&#45;&gt;fd2_vd_tde_utca_crate -->
 <g id="edge13" class="edge">
 <title>fd2_vd_tde_shipping_container&#45;&gt;fd2_vd_tde_utca_crate</title>
+<g id="a_edge13"><a xlink:href="../explorer.html#object=relation%3A59" xlink:title="Open contains relation in the interactive explorer" target="_top">
 <path fill="none" stroke="#274c67" stroke-width="1.4" d="M526.74,-274.43C547.44,-282.97 571.12,-294.1 591,-307 612.48,-320.94 633.86,-340.48 649.41,-355.97"/>
 <polygon fill="#274c67" stroke="#274c67" stroke-width="1.4" points="647.51,-358.05 655.12,-361.78 651.49,-354.11 647.51,-358.05"/>
+</a>
+</g>
 </g>
 <!-- fd2_vd_tde_shipping_container&#45;&gt;fd2_vd_tde_sgft_chimney_assembly -->
 <g id="edge14" class="edge">
 <title>fd2_vd_tde_shipping_container&#45;&gt;fd2_vd_tde_sgft_chimney_assembly</title>
+<g id="a_edge14"><a xlink:href="../explorer.html#object=relation%3A60" xlink:title="Open contains relation in the interactive explorer" target="_top">
 <path fill="none" stroke="#274c67" stroke-width="1.4" d="M530.66,-237.59C549.93,-230.69 571.62,-222.46 591,-214 604.22,-208.23 618.3,-201.31 631,-194.77"/>
 <polygon fill="#274c67" stroke="#274c67" stroke-width="1.4" points="632.74,-196.5 638.54,-190.32 630.15,-191.53 632.74,-196.5"/>
+</a>
+</g>
 </g>
 </g>
 </svg>
