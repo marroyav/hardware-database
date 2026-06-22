@@ -77,8 +77,18 @@ make site
 This also writes the interactive database explorer:
 
 - `docs/explorer.html`
+- `docs/systems/*.html`
+- `docs/views/*.html`
+- `docs/data/hwdb-index.json`
+- `docs/data/systems/*.json`
+- `docs/data/hwdb-index.js`
+- `docs/data/systems/*.js`
+- `docs/assets/explorer.css`
+- `docs/assets/explorer.js`
+- `docs/assets/viewer.js`
+- `docs/assets/diagram-dialog.js`
 
-The generated SVG diagrams are clickable: system, subsystem, component, and relation objects link into `docs/explorer.html` with stable `#object=...` deep links.
+The generated pages use static HTML5, CSS, and vanilla JavaScript. The explorer loads the system index first and then loads per-system data chunks on demand, so it can grow without embedding the whole database in one HTML file. Hosted pages use JSON fetches; direct `file://` previews fall back to generated JavaScript data chunks. The index page provides overview previews, `docs/systems/*.html` pages step from simple overview diagrams into hierarchy, dependency, and cabling trees, and `docs/views/*.html` pages give each diagram a full-page viewport with fit/width/zoom controls. Clicking system, subsystem, component, or relation objects in the publication diagrams opens an in-page database dialog backed by the same generated data chunks; `docs/explorer.html` remains available for full table-style querying and stable `#object=...` deep links.
 
 ### 2. Day-to-day edit loop
 
@@ -153,7 +163,17 @@ This writes:
 
 - `docs/index.html`
 - `docs/explorer.html`
+- `docs/systems/*.html`
+- `docs/views/*.html`
 - `docs/assets/report.css`
+- `docs/assets/explorer.css`
+- `docs/assets/explorer.js`
+- `docs/assets/viewer.js`
+- `docs/assets/diagram-dialog.js`
+- `docs/data/hwdb-index.json`
+- `docs/data/systems/*.json`
+- `docs/data/hwdb-index.js`
+- `docs/data/systems/*.js`
 - `docs/diagrams/*.svg`
 - `docs/pdf/*.pdf`
 - `docs/dot/*.dot`
