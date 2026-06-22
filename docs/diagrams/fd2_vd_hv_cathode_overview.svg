@@ -5,16 +5,16 @@
  -->
 <!-- Title: HardwareModel Pages: 1 -->
 <svg preserveAspectRatio="xMidYMid meet" width="100%" height="100%"
- viewBox="0.00 0.00 439.40 177.40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ viewBox="0.00 0.00 442.40 177.40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(25.2 152.2)">
 <title>HardwareModel</title>
-<polygon fill="#f6f1e8" stroke="none" points="-25.2,25.2 -25.2,-152.2 414.2,-152.2 414.2,25.2 -25.2,25.2"/>
-<text text-anchor="middle" x="194.5" y="-102.2" font-family="Iowan Old Style" font-size="26.00" fill="#183247">FD2&#45;VD HV Cathode · Overview</text>
+<polygon fill="#071421" stroke="none" points="-25.2,25.2 -25.2,-152.2 417.2,-152.2 417.2,25.2 -25.2,25.2"/>
+<text text-anchor="middle" x="196" y="-102.2" font-family="Avenir Next" font-size="26.00" fill="#edf8ff">FD2&#45;VD HV Cathode · Overview</text>
 <g id="clust1" class="cluster">
 <title>cluster_fd2_vd_hv_cathode_cathode_plane</title>
 <g id="a_clust1"><a xlink:href="../explorer.html#object=fd2_vd_hv_cathode.cathode_plane" xlink:title="Open Cathode Plane in the interactive explorer" target="_top">
-<path fill="#fbf7f0" stroke="#c7b8a1" stroke-width="1.1" d="M257.5,-8C257.5,-8 355.5,-8 355.5,-8 361.5,-8 367.5,-14 367.5,-20 367.5,-20 367.5,-70 367.5,-70 367.5,-76 361.5,-82 355.5,-82 355.5,-82 257.5,-82 257.5,-82 251.5,-82 245.5,-76 245.5,-70 245.5,-70 245.5,-20 245.5,-20 245.5,-14 251.5,-8 257.5,-8"/>
-<text text-anchor="middle" x="297" y="-67.6" font-family="Avenir Next" font-size="13.00" fill="#5a4634">Cathode Plane</text>
+<path fill="#0f2434" stroke="#456174" stroke-width="1.1" d="M259,-8C259,-8 357,-8 357,-8 363,-8 369,-14 369,-20 369,-20 369,-70 369,-70 369,-76 363,-82 357,-82 357,-82 259,-82 259,-82 253,-82 247,-76 247,-70 247,-70 247,-20 247,-20 247,-14 253,-8 259,-8"/>
+<text text-anchor="middle" x="298.5" y="-67.6" font-family="Avenir Next" font-size="13.00" fill="#e8f7ff">Cathode Plane</text>
 </a>
 </g>
 </g>
@@ -22,8 +22,8 @@
 <g id="node1" class="node">
 <title>fd2_vd_hv_cathode</title>
 <g id="a_node1"><a xlink:href="../explorer.html#object=fd2_vd_hv_cathode" xlink:title="Open FD2&#45;VD HV Cathode in the interactive explorer" target="_top">
-<path fill="#183247" stroke="#183247" stroke-width="1.5" d="M183.5,-55C183.5,-55 25.5,-55 25.5,-55 19.5,-55 13.5,-49 13.5,-43 13.5,-43 13.5,-25 13.5,-25 13.5,-19 19.5,-13 25.5,-13 25.5,-13 183.5,-13 183.5,-13 189.5,-13 195.5,-19 195.5,-25 195.5,-25 195.5,-43 195.5,-43 195.5,-49 189.5,-55 183.5,-55"/>
-<text text-anchor="middle" x="104.5" y="-30.2" font-family="Avenir Next" font-size="16.00" fill="#ffffff">FD2&#45;VD HV Cathode</text>
+<path fill="#08243a" stroke="#58c7e8" stroke-width="2" d="M185,-55C185,-55 27,-55 27,-55 21,-55 15,-49 15,-43 15,-43 15,-25 15,-25 15,-19 21,-13 27,-13 27,-13 185,-13 185,-13 191,-13 197,-19 197,-25 197,-25 197,-43 197,-43 197,-49 191,-55 185,-55"/>
+<text text-anchor="middle" x="106" y="-30.2" font-family="Avenir Next" font-size="16.00" fill="#ffffff">FD2&#45;VD HV Cathode</text>
 </a>
 </g>
 </g>
@@ -31,8 +31,8 @@
 <g id="node2" class="node">
 <title>fd2_vd_hv_cathode_cathode_plane_assembly</title>
 <g id="a_node2"><a xlink:href="../explorer.html#object=fd2_vd_hv_cathode.cathode_plane_assembly" xlink:title="Open Cathode Plane in the interactive explorer" target="_top">
-<path fill="#dfe9f2" stroke="#53718a" stroke-width="1.3" d="M347.5,-52C347.5,-52 265.5,-52 265.5,-52 259.5,-52 253.5,-46 253.5,-40 253.5,-40 253.5,-28 253.5,-28 253.5,-22 259.5,-16 265.5,-16 265.5,-16 347.5,-16 347.5,-16 353.5,-16 359.5,-22 359.5,-28 359.5,-28 359.5,-40 359.5,-40 359.5,-46 353.5,-52 347.5,-52"/>
-<text text-anchor="middle" x="306.5" y="-30.9" font-family="Avenir Next" font-size="12.00" fill="#173140">Cathode Plane</text>
+<path fill="#d9edf7" stroke="#4c8fb0" stroke-width="1.3" d="M349,-52C349,-52 267,-52 267,-52 261,-52 255,-46 255,-40 255,-40 255,-28 255,-28 255,-22 261,-16 267,-16 267,-16 349,-16 349,-16 355,-16 361,-22 361,-28 361,-28 361,-40 361,-40 361,-46 355,-52 349,-52"/>
+<text text-anchor="middle" x="308" y="-30.9" font-family="Avenir Next" font-size="12.00" fill="#0d2b3d">Cathode Plane</text>
 </a>
 </g>
 </g>
@@ -40,8 +40,8 @@
 <g id="edge1" class="edge">
 <title>fd2_vd_hv_cathode&#45;&gt;fd2_vd_hv_cathode_cathode_plane_assembly</title>
 <g id="a_edge1"><a xlink:href="../explorer.html#object=relation%3A16" xlink:title="Open contains relation in the interactive explorer" target="_top">
-<path fill="none" stroke="#274c67" stroke-width="1.4" d="M195.85,-34C211.98,-34 228.45,-34 243.56,-34"/>
-<polygon fill="#274c67" stroke="#274c67" stroke-width="1.4" points="243.28,-36.8 251.28,-34 243.28,-31.2 243.28,-36.8"/>
+<path fill="none" stroke="#6ecbe8" stroke-width="1.4" d="M197.93,-34C213.84,-34 230.07,-34 244.97,-34"/>
+<polygon fill="#6ecbe8" stroke="#6ecbe8" stroke-width="1.4" points="244.55,-36.8 252.55,-34 244.55,-31.2 244.55,-36.8"/>
 </a>
 </g>
 </g>

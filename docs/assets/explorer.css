@@ -393,12 +393,31 @@ code {
   color: var(--ink-soft);
 }
 
-/* Match the publication issue framing while keeping the explorer dense. */
+/* DUNE/SURF operations-console theme for the dense explorer. */
+:root {
+  --dune-space: #071421;
+  --dune-cavern: #0d2233;
+  --dune-panel: rgba(9, 26, 40, 0.86);
+  --dune-panel-strong: rgba(12, 34, 51, 0.96);
+  --dune-line: rgba(126, 211, 236, 0.32);
+  --dune-beam: #43c6f0;
+  --dune-beam-soft: #a5edff;
+  --dune-gold: #f1b744;
+  --dune-copper: #bd6f33;
+  --dune-ink: #edf8ff;
+  --dune-muted: #a9c4d1;
+}
+
 body {
+  color: var(--dune-ink);
   background:
-    linear-gradient(90deg, rgba(24,50,71,0.045) 1px, transparent 1px),
-    linear-gradient(180deg, #fbf7ef 0%, #efe7d9 56%, #f7f3ec 100%);
-  background-size: 32px 32px, auto;
+    linear-gradient(112deg, transparent 0 46%, rgba(67,198,240,0.18) 46.2%, rgba(67,198,240,0.05) 47.5%, transparent 48.2%),
+    repeating-linear-gradient(180deg, rgba(241,183,68,0.055) 0 1px, transparent 1px 48px),
+    linear-gradient(180deg, #050c15 0%, var(--dune-space) 44%, #1c1712 100%);
+}
+
+a {
+  text-underline-offset: 0.16em;
 }
 
 .app-shell {
@@ -409,31 +428,68 @@ body {
 }
 
 .app-header {
-  border: 0;
-  border-top: 4px solid var(--ink);
-  border-bottom: 1px solid rgba(24,50,71,0.72);
-  border-radius: 0;
-  background: transparent;
-  color: var(--ink);
-  box-shadow: none;
-  padding: 1rem 0 1.35rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--dune-line);
+  border-top: 4px solid var(--dune-gold);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(7,20,33,0.98), rgba(12,37,56,0.92) 58%, rgba(54,35,19,0.86)),
+    linear-gradient(90deg, rgba(67,198,240,0.2), transparent 42%);
+  color: var(--dune-ink);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.26);
+  padding: 1rem 1.15rem;
+}
+
+.app-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--dune-gold), var(--dune-beam), transparent);
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.brand-lockup img {
+  width: clamp(4.25rem, 9vw, 7.5rem);
+  height: auto;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 0 16px rgba(67,198,240,0.24));
+}
+
+.eyebrow {
+  margin: 0 0 0.3rem;
+  color: var(--dune-gold);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
 h1 {
-  color: var(--ink);
-  font-size: clamp(2.2rem, 5vw, 5.6rem);
+  color: var(--dune-ink);
+  font-family: "Avenir Next Condensed", "Avenir Next", "Helvetica Neue", sans-serif;
+  font-size: clamp(2rem, 4vw, 4.6rem);
+  font-weight: 800;
   letter-spacing: 0;
 }
 
 .top-actions {
-  color: var(--ink-soft);
-  font-weight: 600;
+  color: var(--dune-muted);
+  font-weight: 700;
 }
 
 .top-actions a {
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 0.16em;
+  color: var(--dune-beam-soft);
+  text-decoration-color: rgba(165,237,255,0.55);
 }
 
 .system-sidebar,
@@ -445,43 +501,128 @@ input[type="search"],
 .dialog-actions button,
 dialog,
 .detail-item {
-  border-radius: 0;
+  border-radius: 6px;
   box-shadow: none;
 }
 
 .system-sidebar {
-  border: 0;
-  border-left: 2px solid var(--ink);
-  background: transparent;
-  padding: 0.2rem 0 0.2rem 1rem;
+  border: 1px solid var(--dune-line);
+  border-left: 3px solid var(--dune-gold);
+  background: var(--dune-panel);
+  padding: 1rem;
+}
+
+.systems-title,
+.panel-title,
+.detail-item span,
+.dialog-section h3 {
+  color: var(--dune-gold);
 }
 
 .system-button {
-  background: rgba(255,255,255,0.24);
+  border-color: rgba(126,211,236,0.24);
+  background: rgba(255,255,255,0.045);
+  color: var(--dune-ink);
 }
 
 .system-button.active {
-  border-color: var(--ink);
-  background: var(--ink);
+  border-color: var(--dune-beam);
+  background: linear-gradient(135deg, rgba(67,198,240,0.24), rgba(241,183,68,0.16));
+  color: var(--dune-ink);
 }
 
-.query-panel {
-  border-color: rgba(24,50,71,0.38);
-  background: rgba(255,255,255,0.34);
+.system-meta,
+.summary-line,
+.object-key,
+.dialog-section p {
+  color: var(--dune-muted);
 }
 
+.query-panel,
 .result-panel {
-  border-color: rgba(24,50,71,0.38);
-  background: rgba(255,255,255,0.48);
+  border-color: var(--dune-line);
+  background: var(--dune-panel);
 }
 
-.kind-filter button {
-  background: rgba(255,255,255,0.22);
+input[type="search"],
+.kind-filter button,
+.dialog-actions button {
+  border-color: rgba(126,211,236,0.28);
+  background: rgba(255,255,255,0.06);
+  color: var(--dune-ink);
 }
 
-.kind-filter button.active {
-  border-color: var(--ink);
-  background: var(--ink);
+input[type="search"]::placeholder {
+  color: rgba(169,196,209,0.72);
+}
+
+.kind-filter button.active,
+.dialog-actions button:hover {
+  border-color: var(--dune-beam);
+  background: var(--dune-beam);
+  color: #06111b;
+}
+
+th {
+  background: rgba(67,198,240,0.11);
+  color: var(--dune-beam-soft);
+  border-bottom-color: rgba(126,211,236,0.28);
+}
+
+td {
+  border-bottom-color: rgba(126,211,236,0.18);
+}
+
+tbody tr:hover {
+  background: rgba(67,198,240,0.075);
+}
+
+.object-link,
+.detail-item .object-link,
+.mini-table .object-link {
+  color: var(--dune-beam-soft);
+}
+
+.badge.system { background: #0b4568; }
+.badge.subsystem { background: #247b76; }
+.badge.component { background: #3b865f; }
+.badge.relation { background: #a86f18; }
+.badge.batch { background: #765aa8; }
+.badge.sensor { background: #a94a62; }
+
+dialog {
+  border-color: var(--dune-line);
+  color: var(--dune-ink);
+  background: var(--dune-panel-strong);
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.46);
+}
+
+dialog::backdrop {
+  background: rgba(2, 8, 14, 0.72);
+}
+
+.dialog-head,
+.dialog-actions {
+  border-color: rgba(126,211,236,0.22);
+  background: rgba(7,20,33,0.9);
+}
+
+.dialog-title {
+  color: var(--dune-ink);
+}
+
+.detail-item {
+  border-color: rgba(126,211,236,0.24);
+  background: rgba(255,255,255,0.045);
+}
+
+.mini-table th,
+.mini-table td {
+  border-bottom-color: rgba(126,211,236,0.18);
+}
+
+.empty-state {
+  color: var(--dune-muted);
 }
 
 @media (max-width: 860px) {
@@ -491,6 +632,11 @@ dialog,
   }
 
   .app-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .brand-lockup {
     align-items: flex-start;
     flex-direction: column;
   }

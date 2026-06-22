@@ -5,102 +5,102 @@ digraph HardwareModel {
     overlap=false,
     newrank=true,
     compound=true,
-    bgcolor="#f6f1e8",
+    bgcolor="#071421",
     pad="0.35",
     nodesep="0.45",
     ranksep="0.8",
     label="FD2-VD Top Charge Readout Planes · Dependencies",
     labelloc="t",
     labeljust="l",
-    fontname="Iowan Old Style",
+    fontname="Avenir Next",
     fontsize=26,
-    fontcolor="#183247"
+    fontcolor="#edf8ff"
   ];
   node [fontname="Avenir Next", fontsize=12, margin="0.18,0.12", penwidth=1.3];
-  edge [fontname="Avenir Next", fontsize=10, arrowsize=0.8, penwidth=1.2, color="#33536a", fontcolor="#33536a"];
+  edge [fontname="Avenir Next", fontsize=10, arrowsize=0.8, penwidth=1.2, color="#6ecbe8", fontcolor="#bdefff"];
 
-  fd2_vd_top_crp [label="FD2-VD Top Charge Readout Planes", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp", target="_top", tooltip="Open FD2-VD Top Charge Readout Planes in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#183247", color="#183247", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="1.5"];
+  fd2_vd_top_crp [label="FD2-VD Top Charge Readout Planes", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp", target="_top", tooltip="Open FD2-VD Top Charge Readout Planes in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#08243a", color="#58c7e8", fontcolor="#ffffff", fontsize="16", margin="0.24,0.16", penwidth="2.0"];
 
   subgraph cluster_fd2_vd_top_crp_adapter_boards {
     label="Adapter Boards";
     style="rounded,filled";
-    color="#c7b8a1";
-    fillcolor="#fbf7f0";
+    color="#456174";
+    fillcolor="#0f2434";
     penwidth=1.1;
     fontname="Avenir Next";
     fontsize=13;
-    fontcolor="#5a4634";
+    fontcolor="#e8f7ff";
     URL="../explorer.html#object=fd2_vd_top_crp.adapter_boards";
     target="_top";
     tooltip="Open Adapter Boards in the interactive explorer";
-    fd2_vd_top_crp_adapter_board [label="Adapter Board", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.adapter_board", target="_top", tooltip="Open Adapter Board in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+    fd2_vd_top_crp_adapter_board [label="Adapter Board", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.adapter_board", target="_top", tooltip="Open Adapter Board in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#d9f0e5", color="#3a8a68", fontcolor="#0b2f25"];
   }
 
   subgraph cluster_fd2_vd_top_crp_bias_filtering {
     label="Cold Bias Filter Boards";
     style="rounded,filled";
-    color="#c7b8a1";
-    fillcolor="#fbf7f0";
+    color="#456174";
+    fillcolor="#0f2434";
     penwidth=1.1;
     fontname="Avenir Next";
     fontsize=13;
-    fontcolor="#5a4634";
+    fontcolor="#e8f7ff";
     URL="../explorer.html#object=fd2_vd_top_crp.bias_filtering";
     target="_top";
     tooltip="Open Cold Bias Filter Boards in the interactive explorer";
-    fd2_vd_top_crp_cold_bias_filter_board [label="Cold Bias Filter Board", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.cold_bias_filter_board", target="_top", tooltip="Open Cold Bias Filter Board in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+    fd2_vd_top_crp_cold_bias_filter_board [label="Cold Bias Filter Board", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.cold_bias_filter_board", target="_top", tooltip="Open Cold Bias Filter Board in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#d9f0e5", color="#3a8a68", fontcolor="#0b2f25"];
   }
 
   subgraph cluster_fd2_vd_top_crp_bias_cabling {
     label="Cold Bias HV Cables";
     style="rounded,filled";
-    color="#c7b8a1";
-    fillcolor="#fbf7f0";
+    color="#456174";
+    fillcolor="#0f2434";
     penwidth=1.1;
     fontname="Avenir Next";
     fontsize=13;
-    fontcolor="#5a4634";
+    fontcolor="#e8f7ff";
     URL="../explorer.html#object=fd2_vd_top_crp.bias_cabling";
     target="_top";
     tooltip="Open Cold Bias HV Cables in the interactive explorer";
-    fd2_vd_top_crp_cold_bias_hv_cable [label="Cold Bias HV Cable Bundle Jumper", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.cold_bias_hv_cable", target="_top", tooltip="Open Cold Bias HV Cable Bundle Jumper in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    fd2_vd_top_crp_cold_bias_hv_cable [label="Cold Bias HV Cable Bundle Jumper", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.cold_bias_hv_cable", target="_top", tooltip="Open Cold Bias HV Cable Bundle Jumper in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0bf", color="#d69a2d", fontcolor="#3f2a08"];
   }
 
   subgraph cluster_fd2_vd_top_crp_level_meter {
     label="Level Meters";
     style="rounded,filled";
-    color="#c7b8a1";
-    fillcolor="#fbf7f0";
+    color="#456174";
+    fillcolor="#0f2434";
     penwidth=1.1;
     fontname="Avenir Next";
     fontsize=13;
-    fontcolor="#5a4634";
+    fontcolor="#e8f7ff";
     URL="../explorer.html#object=fd2_vd_top_crp.level_meter";
     target="_top";
     tooltip="Open Level Meters in the interactive explorer";
-    fd2_vd_top_crp_level_meter_active_board [label="Level Meter Active Board", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.level_meter_active_board", target="_top", tooltip="Open Level Meter Active Board in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
-    fd2_vd_top_crp_level_meter_external_bundle [label="Level Meter External Cable Bundle", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.level_meter_external_bundle", target="_top", tooltip="Open Level Meter External Cable Bundle in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
-    fd2_vd_top_crp_level_meter_internal_bundle [label="Level Meter Internal Cable Bundle", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.level_meter_internal_bundle", target="_top", tooltip="Open Level Meter Internal Cable Bundle in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
-    fd2_vd_top_crp_level_meter_passive_board [label="Level Meter Passive Board", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.level_meter_passive_board", target="_top", tooltip="Open Level Meter Passive Board in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#e4efe0", color="#5d7f48", fontcolor="#18311a"];
+    fd2_vd_top_crp_level_meter_active_board [label="Level Meter Active Board", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.level_meter_active_board", target="_top", tooltip="Open Level Meter Active Board in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#d9f0e5", color="#3a8a68", fontcolor="#0b2f25"];
+    fd2_vd_top_crp_level_meter_external_bundle [label="Level Meter External Cable Bundle", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.level_meter_external_bundle", target="_top", tooltip="Open Level Meter External Cable Bundle in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0bf", color="#d69a2d", fontcolor="#3f2a08"];
+    fd2_vd_top_crp_level_meter_internal_bundle [label="Level Meter Internal Cable Bundle", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.level_meter_internal_bundle", target="_top", tooltip="Open Level Meter Internal Cable Bundle in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0bf", color="#d69a2d", fontcolor="#3f2a08"];
+    fd2_vd_top_crp_level_meter_passive_board [label="Level Meter Passive Board", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.level_meter_passive_board", target="_top", tooltip="Open Level Meter Passive Board in the interactive explorer", shape="box", style="rounded,filled", fillcolor="#d9f0e5", color="#3a8a68", fontcolor="#0b2f25"];
   }
 
   subgraph cluster_fd2_vd_top_crp_signal_cabling {
     label="Signal Cable";
     style="rounded,filled";
-    color="#c7b8a1";
-    fillcolor="#fbf7f0";
+    color="#456174";
+    fillcolor="#0f2434";
     penwidth=1.1;
     fontname="Avenir Next";
     fontsize=13;
-    fontcolor="#5a4634";
+    fontcolor="#e8f7ff";
     URL="../explorer.html#object=fd2_vd_top_crp.signal_cabling";
     target="_top";
     tooltip="Open Signal Cable in the interactive explorer";
-    fd2_vd_top_crp_signal_cable [label="CRP Signal Cable", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.signal_cable", target="_top", tooltip="Open CRP Signal Cable in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0cc", color="#a56b17", fontcolor="#4f370c"];
+    fd2_vd_top_crp_signal_cable [label="CRP Signal Cable", fontname="Avenir Next", URL="../explorer.html#object=fd2_vd_top_crp.signal_cable", target="_top", tooltip="Open CRP Signal Cable in the interactive explorer", shape="hexagon", style="filled", fillcolor="#fff0bf", color="#d69a2d", fontcolor="#3f2a08"];
   }
 
-  fd2_vd_top_crp_level_meter_internal_bundle -> fd2_vd_top_crp_level_meter_external_bundle [URL="../explorer.html#object=relation%3A94", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_top_crp_level_meter_active_board -> fd2_vd_top_crp_level_meter_passive_board [URL="../explorer.html#object=relation%3A95", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_top_crp_signal_cable -> fd2_vd_top_crp_adapter_board [URL="../explorer.html#object=relation%3A99", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
-  fd2_vd_top_crp_cold_bias_hv_cable -> fd2_vd_top_crp_cold_bias_filter_board [URL="../explorer.html#object=relation%3A100", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#b36a00", fontcolor="#8f5600", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_top_crp_level_meter_internal_bundle -> fd2_vd_top_crp_level_meter_external_bundle [URL="../explorer.html#object=relation%3A94", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#e3a63b", fontcolor="#f4c86f", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_top_crp_level_meter_active_board -> fd2_vd_top_crp_level_meter_passive_board [URL="../explorer.html#object=relation%3A95", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#e3a63b", fontcolor="#f4c86f", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_top_crp_signal_cable -> fd2_vd_top_crp_adapter_board [URL="../explorer.html#object=relation%3A99", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#e3a63b", fontcolor="#f4c86f", style="dashed", penwidth="1.2", label="connects"];
+  fd2_vd_top_crp_cold_bias_hv_cable -> fd2_vd_top_crp_cold_bias_filter_board [URL="../explorer.html#object=relation%3A100", target="_top", tooltip="Open connects to relation in the interactive explorer", color="#e3a63b", fontcolor="#f4c86f", style="dashed", penwidth="1.2", label="connects"];
 }

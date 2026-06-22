@@ -792,19 +792,19 @@ def to_graphviz(
         '    overlap=false,',
         '    newrank=true,',
         '    compound=true,',
-        '    bgcolor="#f6f1e8",',
+        '    bgcolor="#071421",',
         '    pad="0.35",',
         '    nodesep="0.45",',
         '    ranksep="0.8",',
         f'    label="{dot_escape(title)}",',
         '    labelloc="t",',
         '    labeljust="l",',
-        '    fontname="Iowan Old Style",',
+        '    fontname="Avenir Next",',
         '    fontsize=26,',
-        '    fontcolor="#183247"',
+        '    fontcolor="#edf8ff"',
         "  ];",
         '  node [fontname="Avenir Next", fontsize=12, margin="0.18,0.12", penwidth=1.3];',
-        '  edge [fontname="Avenir Next", fontsize=10, arrowsize=0.8, penwidth=1.2, color="#33536a", fontcolor="#33536a"];',
+        '  edge [fontname="Avenir Next", fontsize=10, arrowsize=0.8, penwidth=1.2, color="#6ecbe8", fontcolor="#bdefff"];',
         "",
     ]
 
@@ -821,12 +821,12 @@ def to_graphviz(
                 f"  subgraph cluster_{cluster_id} {{",
                 f'    label="{dot_escape(subsystem_node["label"])}";',
                 '    style="rounded,filled";',
-                '    color="#c7b8a1";',
-                '    fillcolor="#fbf7f0";',
+                '    color="#456174";',
+                '    fillcolor="#0f2434";',
                 '    penwidth=1.1;',
                 '    fontname="Avenir Next";',
                 '    fontsize=13;',
-                '    fontcolor="#5a4634";',
+                '    fontcolor="#e8f7ff";',
                 *dot_cluster_click_lines(subsystem_key, subsystem_node["label"]),
             ]
         )
@@ -899,12 +899,12 @@ def dot_node_attrs(node: dict[str, Any], system_root: bool = False) -> str:
             {
                 "shape": "box",
                 "style": "rounded,filled",
-                "fillcolor": "#183247",
-                "color": "#183247",
+                "fillcolor": "#08243a",
+                "color": "#58c7e8",
                 "fontcolor": "#ffffff",
                 "fontsize": "16",
                 "margin": "0.24,0.16",
-                "penwidth": "1.5",
+                "penwidth": "2.0",
             }
         )
         return format_dot_attrs(attrs)
@@ -915,9 +915,9 @@ def dot_node_attrs(node: dict[str, Any], system_root: bool = False) -> str:
             {
                 "shape": "note",
                 "style": "filled",
-                "fillcolor": "#f0e6fa",
-                "color": "#7d5bb6",
-                "fontcolor": "#382451",
+                "fillcolor": "#f2e9ff",
+                "color": "#7b5bb4",
+                "fontcolor": "#2b2445",
             }
         )
     elif category == "electronics":
@@ -925,9 +925,9 @@ def dot_node_attrs(node: dict[str, Any], system_root: bool = False) -> str:
             {
                 "shape": "box",
                 "style": "rounded,filled",
-                "fillcolor": "#e4efe0",
-                "color": "#5d7f48",
-                "fontcolor": "#18311a",
+                "fillcolor": "#d9f0e5",
+                "color": "#3a8a68",
+                "fontcolor": "#0b2f25",
             }
         )
     elif category == "cable":
@@ -935,9 +935,9 @@ def dot_node_attrs(node: dict[str, Any], system_root: bool = False) -> str:
             {
                 "shape": "hexagon",
                 "style": "filled",
-                "fillcolor": "#fff0cc",
-                "color": "#a56b17",
-                "fontcolor": "#4f370c",
+                "fillcolor": "#fff0bf",
+                "color": "#d69a2d",
+                "fontcolor": "#3f2a08",
             }
         )
     elif category == "fiber":
@@ -945,9 +945,9 @@ def dot_node_attrs(node: dict[str, Any], system_root: bool = False) -> str:
             {
                 "shape": "octagon",
                 "style": "filled",
-                "fillcolor": "#fde7c8",
-                "color": "#b7671e",
-                "fontcolor": "#5a320a",
+                "fillcolor": "#ffe3bf",
+                "color": "#c56c2f",
+                "fontcolor": "#4a260b",
             }
         )
     elif category == "sensor":
@@ -955,9 +955,9 @@ def dot_node_attrs(node: dict[str, Any], system_root: bool = False) -> str:
             {
                 "shape": "ellipse",
                 "style": "filled",
-                "fillcolor": "#f7dde0",
-                "color": "#a14656",
-                "fontcolor": "#4a1823",
+                "fillcolor": "#ffe0e4",
+                "color": "#bf5267",
+                "fontcolor": "#4b1622",
             }
         )
     elif category == "interface":
@@ -965,9 +965,9 @@ def dot_node_attrs(node: dict[str, Any], system_root: bool = False) -> str:
             {
                 "shape": "parallelogram",
                 "style": "filled",
-                "fillcolor": "#f3e5cc",
-                "color": "#9d6a14",
-                "fontcolor": "#52360a",
+                "fillcolor": "#f4e5c4",
+                "color": "#b48225",
+                "fontcolor": "#4b3307",
             }
         )
     else:
@@ -975,9 +975,9 @@ def dot_node_attrs(node: dict[str, Any], system_root: bool = False) -> str:
             {
                 "shape": "box",
                 "style": "rounded,filled",
-                "fillcolor": "#dfe9f2",
-                "color": "#53718a",
-                "fontcolor": "#173140",
+                "fillcolor": "#d9edf7",
+                "color": "#4c8fb0",
+                "fontcolor": "#0d2b3d",
             }
         )
     return format_dot_attrs(attrs)
@@ -991,16 +991,16 @@ def dot_edge_attrs(relation: sqlite3.Row) -> str:
     if relation_type == "contains":
         attrs.update(
             {
-                "color": "#274c67",
-                "fontcolor": "#274c67",
+                "color": "#6ecbe8",
+                "fontcolor": "#bdefff",
                 "penwidth": "1.4",
             }
         )
     elif relation_type == "connects_to":
         attrs.update(
             {
-                "color": "#b36a00",
-                "fontcolor": "#8f5600",
+                "color": "#e3a63b",
+                "fontcolor": "#f4c86f",
                 "style": "dashed",
                 "penwidth": "1.2",
                 "label": "connects",
@@ -1009,8 +1009,8 @@ def dot_edge_attrs(relation: sqlite3.Row) -> str:
     elif relation_type == "interfaces_with":
         attrs.update(
             {
-                "color": "#1f6f8b",
-                "fontcolor": "#1f6f8b",
+                "color": "#40c7f0",
+                "fontcolor": "#9ee8ff",
                 "style": "dashed",
                 "penwidth": "1.2",
                 "label": "interface",
@@ -1019,8 +1019,8 @@ def dot_edge_attrs(relation: sqlite3.Row) -> str:
     elif relation_type == "reads_out":
         attrs.update(
             {
-                "color": "#356c53",
-                "fontcolor": "#356c53",
+                "color": "#5eb98c",
+                "fontcolor": "#a7e3c3",
                 "style": "dashed",
                 "penwidth": "1.2",
                 "label": "readout",
@@ -1029,8 +1029,8 @@ def dot_edge_attrs(relation: sqlite3.Row) -> str:
     elif relation_type == "powers":
         attrs.update(
             {
-                "color": "#b54b32",
-                "fontcolor": "#9e412b",
+                "color": "#df704e",
+                "fontcolor": "#ffb39e",
                 "style": "dashed",
                 "penwidth": "1.2",
                 "label": "power",
@@ -1039,8 +1039,8 @@ def dot_edge_attrs(relation: sqlite3.Row) -> str:
     elif relation_type == "timed_by":
         attrs.update(
             {
-                "color": "#4f7c7a",
-                "fontcolor": "#4f7c7a",
+                "color": "#62c7bc",
+                "fontcolor": "#a9eee8",
                 "style": "dashed",
                 "penwidth": "1.2",
                 "label": "timing",
@@ -1049,8 +1049,8 @@ def dot_edge_attrs(relation: sqlite3.Row) -> str:
     elif relation_type == "depends_on":
         attrs.update(
             {
-                "color": "#7d5b2d",
-                "fontcolor": "#7d5b2d",
+                "color": "#c99748",
+                "fontcolor": "#f0c77d",
                 "style": "dashed",
                 "penwidth": "1.2",
                 "label": "depends on",
@@ -1166,7 +1166,7 @@ def publish_report(db_path: Path, output_dir: Path, views: list[str]) -> None:
             {
                 "detector": detector,
                 "title": f"{detector} Full Dense Plate",
-                "copy": "Detector-wide dense composition grouped by modeled systems and bridged with top-level context from the hierarchy deck.",
+                "copy": "Detector-wide dense composition for the SURF far-site hardware model, grouped by modeled systems and bridged with top-level detector context.",
                 "svg": f"diagrams/{svg_path.name}",
                 "dot": f"dot/{dot_path.name}",
                 "pdf": f"pdf/{pdf_path.name}",
@@ -1201,6 +1201,9 @@ def publish_report(db_path: Path, output_dir: Path, views: list[str]) -> None:
     )
 
     generated = datetime.now().strftime("%Y-%m-%d %H:%M")
+    logo_asset = Path(__file__).resolve().parents[1] / "assets" / "dune-logo-white.png"
+    if logo_asset.exists():
+        (assets_dir / "dune-logo-white.png").write_bytes(logo_asset.read_bytes())
     (assets_dir / "report.css").write_text(publication_css(), encoding="utf-8")
     (assets_dir / "explorer.css").write_text(explorer_css(), encoding="utf-8")
     (assets_dir / "explorer.js").write_text(explorer_js(), encoding="utf-8")
@@ -2219,7 +2222,13 @@ def explorer_html(generated: str) -> str:
 <body>
   <div class="app-shell">
     <header class="app-header">
-      <h1>Hardware Database Explorer</h1>
+      <div class="brand-lockup">
+        <img src="assets/dune-logo-white.png" alt="DUNE">
+        <div>
+          <p class="eyebrow">DUNE at SURF</p>
+          <h1>Hardware Database Explorer</h1>
+        </div>
+      </div>
       <div class="top-actions">
         <a href="index.html">Portfolio</a>
         <span>Generated {html.escape(generated)}</span>
@@ -2663,12 +2672,31 @@ code {
   color: var(--ink-soft);
 }
 
-/* Match the publication issue framing while keeping the explorer dense. */
+/* DUNE/SURF operations-console theme for the dense explorer. */
+:root {
+  --dune-space: #071421;
+  --dune-cavern: #0d2233;
+  --dune-panel: rgba(9, 26, 40, 0.86);
+  --dune-panel-strong: rgba(12, 34, 51, 0.96);
+  --dune-line: rgba(126, 211, 236, 0.32);
+  --dune-beam: #43c6f0;
+  --dune-beam-soft: #a5edff;
+  --dune-gold: #f1b744;
+  --dune-copper: #bd6f33;
+  --dune-ink: #edf8ff;
+  --dune-muted: #a9c4d1;
+}
+
 body {
+  color: var(--dune-ink);
   background:
-    linear-gradient(90deg, rgba(24,50,71,0.045) 1px, transparent 1px),
-    linear-gradient(180deg, #fbf7ef 0%, #efe7d9 56%, #f7f3ec 100%);
-  background-size: 32px 32px, auto;
+    linear-gradient(112deg, transparent 0 46%, rgba(67,198,240,0.18) 46.2%, rgba(67,198,240,0.05) 47.5%, transparent 48.2%),
+    repeating-linear-gradient(180deg, rgba(241,183,68,0.055) 0 1px, transparent 1px 48px),
+    linear-gradient(180deg, #050c15 0%, var(--dune-space) 44%, #1c1712 100%);
+}
+
+a {
+  text-underline-offset: 0.16em;
 }
 
 .app-shell {
@@ -2679,31 +2707,68 @@ body {
 }
 
 .app-header {
-  border: 0;
-  border-top: 4px solid var(--ink);
-  border-bottom: 1px solid rgba(24,50,71,0.72);
-  border-radius: 0;
-  background: transparent;
-  color: var(--ink);
-  box-shadow: none;
-  padding: 1rem 0 1.35rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--dune-line);
+  border-top: 4px solid var(--dune-gold);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(7,20,33,0.98), rgba(12,37,56,0.92) 58%, rgba(54,35,19,0.86)),
+    linear-gradient(90deg, rgba(67,198,240,0.2), transparent 42%);
+  color: var(--dune-ink);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.26);
+  padding: 1rem 1.15rem;
+}
+
+.app-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--dune-gold), var(--dune-beam), transparent);
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.brand-lockup img {
+  width: clamp(4.25rem, 9vw, 7.5rem);
+  height: auto;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 0 16px rgba(67,198,240,0.24));
+}
+
+.eyebrow {
+  margin: 0 0 0.3rem;
+  color: var(--dune-gold);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
 h1 {
-  color: var(--ink);
-  font-size: clamp(2.2rem, 5vw, 5.6rem);
+  color: var(--dune-ink);
+  font-family: "Avenir Next Condensed", "Avenir Next", "Helvetica Neue", sans-serif;
+  font-size: clamp(2rem, 4vw, 4.6rem);
+  font-weight: 800;
   letter-spacing: 0;
 }
 
 .top-actions {
-  color: var(--ink-soft);
-  font-weight: 600;
+  color: var(--dune-muted);
+  font-weight: 700;
 }
 
 .top-actions a {
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 0.16em;
+  color: var(--dune-beam-soft);
+  text-decoration-color: rgba(165,237,255,0.55);
 }
 
 .system-sidebar,
@@ -2715,43 +2780,128 @@ input[type="search"],
 .dialog-actions button,
 dialog,
 .detail-item {
-  border-radius: 0;
+  border-radius: 6px;
   box-shadow: none;
 }
 
 .system-sidebar {
-  border: 0;
-  border-left: 2px solid var(--ink);
-  background: transparent;
-  padding: 0.2rem 0 0.2rem 1rem;
+  border: 1px solid var(--dune-line);
+  border-left: 3px solid var(--dune-gold);
+  background: var(--dune-panel);
+  padding: 1rem;
+}
+
+.systems-title,
+.panel-title,
+.detail-item span,
+.dialog-section h3 {
+  color: var(--dune-gold);
 }
 
 .system-button {
-  background: rgba(255,255,255,0.24);
+  border-color: rgba(126,211,236,0.24);
+  background: rgba(255,255,255,0.045);
+  color: var(--dune-ink);
 }
 
 .system-button.active {
-  border-color: var(--ink);
-  background: var(--ink);
+  border-color: var(--dune-beam);
+  background: linear-gradient(135deg, rgba(67,198,240,0.24), rgba(241,183,68,0.16));
+  color: var(--dune-ink);
 }
 
-.query-panel {
-  border-color: rgba(24,50,71,0.38);
-  background: rgba(255,255,255,0.34);
+.system-meta,
+.summary-line,
+.object-key,
+.dialog-section p {
+  color: var(--dune-muted);
 }
 
+.query-panel,
 .result-panel {
-  border-color: rgba(24,50,71,0.38);
-  background: rgba(255,255,255,0.48);
+  border-color: var(--dune-line);
+  background: var(--dune-panel);
 }
 
-.kind-filter button {
-  background: rgba(255,255,255,0.22);
+input[type="search"],
+.kind-filter button,
+.dialog-actions button {
+  border-color: rgba(126,211,236,0.28);
+  background: rgba(255,255,255,0.06);
+  color: var(--dune-ink);
 }
 
-.kind-filter button.active {
-  border-color: var(--ink);
-  background: var(--ink);
+input[type="search"]::placeholder {
+  color: rgba(169,196,209,0.72);
+}
+
+.kind-filter button.active,
+.dialog-actions button:hover {
+  border-color: var(--dune-beam);
+  background: var(--dune-beam);
+  color: #06111b;
+}
+
+th {
+  background: rgba(67,198,240,0.11);
+  color: var(--dune-beam-soft);
+  border-bottom-color: rgba(126,211,236,0.28);
+}
+
+td {
+  border-bottom-color: rgba(126,211,236,0.18);
+}
+
+tbody tr:hover {
+  background: rgba(67,198,240,0.075);
+}
+
+.object-link,
+.detail-item .object-link,
+.mini-table .object-link {
+  color: var(--dune-beam-soft);
+}
+
+.badge.system { background: #0b4568; }
+.badge.subsystem { background: #247b76; }
+.badge.component { background: #3b865f; }
+.badge.relation { background: #a86f18; }
+.badge.batch { background: #765aa8; }
+.badge.sensor { background: #a94a62; }
+
+dialog {
+  border-color: var(--dune-line);
+  color: var(--dune-ink);
+  background: var(--dune-panel-strong);
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.46);
+}
+
+dialog::backdrop {
+  background: rgba(2, 8, 14, 0.72);
+}
+
+.dialog-head,
+.dialog-actions {
+  border-color: rgba(126,211,236,0.22);
+  background: rgba(7,20,33,0.9);
+}
+
+.dialog-title {
+  color: var(--dune-ink);
+}
+
+.detail-item {
+  border-color: rgba(126,211,236,0.24);
+  background: rgba(255,255,255,0.045);
+}
+
+.mini-table th,
+.mini-table td {
+  border-bottom-color: rgba(126,211,236,0.18);
+}
+
+.empty-state {
+  color: var(--dune-muted);
 }
 
 @media (max-width: 860px) {
@@ -2761,6 +2911,11 @@ dialog,
   }
 
   .app-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .brand-lockup {
     align-items: flex-start;
     flex-direction: column;
   }
@@ -4111,9 +4266,9 @@ def publication_html(
             """
             <a class="toc-entry" href="#detector-plates">
               <span class="toc-number">00</span>
-              <span class="toc-kicker">Master Plate</span>
-              <span class="toc-title">Dense Detector Plate</span>
-              <span class="toc-meta">Detector-wide composition and system grouping</span>
+              <span class="toc-kicker">Far Site Plate</span>
+              <span class="toc-title">FD2-VD Dense Plate</span>
+              <span class="toc-meta">Detector-wide composition and underground system grouping</span>
             </a>
             """
         )
@@ -4158,7 +4313,7 @@ def publication_html(
             <article class="system-card" id="{html.escape(system_key)}">
               <div class="system-card-number">{system_number}</div>
               <div class="system-card-copy">
-                <p class="eyebrow">System Sheet</p>
+                <p class="eyebrow">Far Detector System</p>
                 <h3>{html.escape(system_name)}</h3>
                 <p>{html.escape(preview['view_description'])}</p>
                 <div class="card-actions">
@@ -4184,7 +4339,7 @@ def publication_html(
                 f"""
                 <article class="diagram-card detector-plate-card">
                   <div class="diagram-head">
-                    <p class="eyebrow">Dense Detector Plate</p>
+                    <p class="eyebrow">SURF Far Site Plate</p>
                     <h3>{html.escape(plate["title"])}</h3>
                     <p class="diagram-copy">{html.escape(plate["copy"])}</p>
                     <p class="downloads">
@@ -4203,8 +4358,8 @@ def publication_html(
         detector_plate_section = f"""
         <section class="system-section" id="detector-plates">
           <div class="section-head">
-            <p class="eyebrow">Master Diagram</p>
-            <h2>Dense Detector Plate</h2>
+            <p class="eyebrow">Underground System Map</p>
+            <h2>FD2-VD Dense Plate</h2>
           </div>
           <div class="diagram-grid detector-plate-grid">
             {''.join(cards)}
@@ -4216,7 +4371,7 @@ def publication_html(
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hardware Database Diagram Portfolio</title>
+  <title>DUNE at SURF Hardware Atlas</title>
   <link rel="stylesheet" href="assets/report.css">
   <script defer src="assets/diagram-dialog.js"></script>
 </head>
@@ -4224,15 +4379,15 @@ def publication_html(
   <div class="page-shell">
     <header class="hero">
       <div class="masthead-line">
-        <span>Hardware Database</span>
-        <span>FD2-VD Issue</span>
+        <span class="masthead-brand"><img src="assets/dune-logo-white.png" alt="DUNE"><span>DUNE at SURF</span></span>
+        <span>FD2-VD Hardware Atlas</span>
         <span>Generated {html.escape(generated)}</span>
       </div>
       <div class="hero-grid">
         <div>
-          <p class="eyebrow">Curated Hardware Model</p>
-          <h1>FD2-VD Diagram Portfolio</h1>
-          <p class="hero-copy">A publication-style atlas of detector systems, generated from the TOML hardware model and organized as dense plates, reading guides, and progressive system views.</p>
+          <p class="eyebrow">Far Detector Hardware Model</p>
+          <h1>FD2-VD Hardware Atlas</h1>
+          <p class="hero-copy">A browsable hardware atlas for the DUNE far detector at the Sanford Underground Research Facility, generated from the TOML model and organized around detector systems, cryogenic infrastructure, and object-level relationships.</p>
         </div>
         <div class="stat-strip" aria-label="Database summary">
           <div><span>{stats['systems']}</span><small>Systems</small></div>
@@ -4255,8 +4410,8 @@ def publication_html(
       <section class="toc-section" id="contents">
         <div class="section-head">
           <p class="eyebrow">Table of Contents</p>
-          <h2>Issue Map</h2>
-          <p class="section-copy">Start with the master plate, then use the numbered system sheets to move from overview diagrams into hierarchy, dependency, and cabling views.</p>
+          <h2>Detector Map</h2>
+          <p class="section-copy">Start with the far-detector plate, then use the numbered system records to move from overview diagrams into hierarchy, dependency, and cabling views.</p>
         </div>
         <div class="toc-grid">
           {''.join(toc_entries)}
@@ -4369,16 +4524,19 @@ def system_page_html(system_key: str, system_name: str, items: list[dict[str, st
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{html.escape(system_name)} Diagrams</title>
+  <title>{html.escape(system_name)} · DUNE at SURF Hardware Atlas</title>
   <link rel="stylesheet" href="../assets/report.css">
   <script defer src="../assets/diagram-dialog.js"></script>
 </head>
 <body>
   <div class="page-shell system-page">
     <header class="hero compact-hero">
-      <p class="eyebrow">Hardware Database System</p>
+      <div class="system-hero-kicker">
+        <img src="../assets/dune-logo-white.png" alt="DUNE">
+        <p class="eyebrow">DUNE at SURF System</p>
+      </div>
       <h1>{html.escape(system_name)}</h1>
-      <p class="hero-copy">Progressive views from overview through detailed dependency and cabling trees.</p>
+      <p class="hero-copy">Progressive FD2-VD views from overview through detailed dependency and cabling trees.</p>
     </header>
     <aside class="side-nav">
       <div class="side-nav-inner">
@@ -4403,7 +4561,7 @@ def diagram_page_html(item: dict[str, str], generated: str, is_plate: bool = Fal
     copy = item["copy"] if is_plate else item["view_description"]
     back_href = "../index.html#detector-plates" if is_plate else f"../systems/{item['system_key']}.html#{item['view']}"
     explorer_href = "../explorer.html" if is_plate else f"../explorer.html#system={quote(item['system_key'], safe='')}"
-    stage = "Master Diagram" if is_plate else view_stage(item["view"])
+    stage = "SURF Far Detector Plate" if is_plate else view_stage(item["view"])
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -5277,15 +5435,35 @@ body {
   letter-spacing: 0.08em;
 }
 
-/* Editorial issue treatment inspired by Parametric Press. */
+/* DUNE/SURF far-site atlas treatment. */
+:root {
+  --dune-space: #071421;
+  --dune-cavern: #0d2233;
+  --dune-rock: #241910;
+  --dune-panel: rgba(9, 26, 40, 0.86);
+  --dune-panel-soft: rgba(13, 34, 51, 0.68);
+  --dune-panel-strong: rgba(8, 22, 35, 0.96);
+  --dune-line: rgba(126, 211, 236, 0.32);
+  --dune-beam: #43c6f0;
+  --dune-beam-soft: #a5edff;
+  --dune-gold: #f1b744;
+  --dune-copper: #bd6f33;
+  --dune-green: #5eb98c;
+  --dune-rose: #bf5267;
+  --dune-ink: #edf8ff;
+  --dune-muted: #a9c4d1;
+}
+
 body {
+  color: var(--dune-ink);
   background:
-    linear-gradient(90deg, rgba(24,50,71,0.045) 1px, transparent 1px),
-    linear-gradient(180deg, #fbf7ef 0%, #efe7d9 56%, #f7f3ec 100%);
-  background-size: 32px 32px, auto;
+    linear-gradient(112deg, transparent 0 45%, rgba(67,198,240,0.22) 45.2%, rgba(67,198,240,0.07) 46.3%, transparent 47%),
+    repeating-linear-gradient(180deg, rgba(241,183,68,0.055) 0 1px, transparent 1px 50px),
+    linear-gradient(180deg, #050c15 0%, var(--dune-space) 42%, var(--dune-rock) 100%);
 }
 
 a {
+  color: var(--dune-beam-soft);
   text-underline-offset: 0.16em;
 }
 
@@ -5297,34 +5475,62 @@ a {
 }
 
 .hero {
-  border: 0;
-  border-top: 4px solid var(--ink);
-  border-bottom: 1px solid rgba(24,50,71,0.72);
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  color: var(--ink);
-  padding: 1rem 0 1.45rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--dune-line);
+  border-top: 4px solid var(--dune-gold);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(7,20,33,0.98), rgba(13,40,61,0.94) 58%, rgba(61,39,21,0.88)),
+    linear-gradient(90deg, rgba(67,198,240,0.2), transparent 40%);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.28);
+  color: var(--dune-ink);
+  padding: 1rem 1.2rem 1.45rem;
+}
+
+.hero::after,
+.viewer-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--dune-gold), var(--dune-beam), transparent);
 }
 
 .masthead-line {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
+  align-items: center;
   padding-bottom: 0.8rem;
-  border-bottom: 1px solid rgba(24,50,71,0.44);
-  color: var(--ink-soft);
+  border-bottom: 1px solid rgba(126,211,236,0.28);
+  color: var(--dune-muted);
   font-size: 0.74rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
-.masthead-line span:nth-child(2) {
+.masthead-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.masthead-brand img,
+.system-hero-kicker img {
+  width: clamp(4rem, 8vw, 7rem);
+  height: auto;
+  filter: drop-shadow(0 0 16px rgba(67,198,240,0.24));
+}
+
+.masthead-line > span:nth-child(2) {
   text-align: center;
 }
 
-.masthead-line span:nth-child(3) {
+.masthead-line > span:nth-child(3) {
   text-align: right;
 }
 
@@ -5336,48 +5542,84 @@ a {
   padding-top: 1.45rem;
 }
 
-.hero h1 {
-  max-width: 12ch;
-  font-size: clamp(3rem, 8vw, 8.4rem);
-  line-height: 0.87;
+.hero h1,
+.section-head h2 {
+  font-family: "Avenir Next Condensed", "Avenir Next", "Helvetica Neue", sans-serif;
+  font-weight: 800;
   letter-spacing: 0;
 }
 
+.legend-card h2,
+.diagram-head h3,
+.system-card h3,
+.viewer-header h1,
+.hwdb-dialog-head h2 {
+  font-family: "Avenir Next", "Helvetica Neue", sans-serif;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+.hero h1 {
+  max-width: 12ch;
+  color: var(--dune-ink);
+  font-size: clamp(3rem, 8vw, 8.4rem);
+  line-height: 0.87;
+}
+
 .hero-copy {
-  max-width: 54rem;
-  color: var(--ink-soft);
+  max-width: 56rem;
+  color: var(--dune-muted);
   font-size: clamp(1rem, 1.25vw, 1.24rem);
+}
+
+.eyebrow,
+.toc-kicker,
+.stage-link span,
+.hwdb-dialog-kicker {
+  color: var(--dune-gold);
+  opacity: 1;
+}
+
+.system-hero-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.9rem;
+}
+
+.system-hero-kicker .eyebrow {
+  margin: 0;
 }
 
 .stat-strip {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0;
   margin-top: 0;
-  border-top: 1px solid rgba(24,50,71,0.46);
-  border-left: 1px solid rgba(24,50,71,0.46);
+  border-top: 1px solid var(--dune-line);
+  border-left: 1px solid var(--dune-line);
 }
 
 .stat-strip div {
   min-height: 6rem;
   padding: 0.85rem;
   border: 0;
-  border-right: 1px solid rgba(24,50,71,0.46);
-  border-bottom: 1px solid rgba(24,50,71,0.46);
+  border-right: 1px solid var(--dune-line);
+  border-bottom: 1px solid var(--dune-line);
   border-radius: 0;
-  background: rgba(255,255,255,0.26);
+  background: rgba(255,255,255,0.045);
 }
 
 .stat-strip span {
-  color: var(--rose);
-  font-family: "Iowan Old Style", "Palatino Linotype", serif;
+  color: var(--dune-beam-soft);
+  font-family: "Avenir Next Condensed", "Avenir Next", "Helvetica Neue", sans-serif;
   font-size: clamp(2rem, 4vw, 3.6rem);
   line-height: 0.9;
 }
 
 .stat-strip small {
-  color: var(--ink-soft);
+  color: var(--dune-muted);
   font-size: 0.68rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .side-nav-inner,
@@ -5386,23 +5628,47 @@ a {
 .diagram-card,
 .system-card,
 .viewer-header,
-.viewer-frame {
-  border-radius: 0;
+.viewer-frame,
+.hwdb-object-dialog,
+.hwdb-detail-item,
+.hwdb-neighborhood-section {
+  border-radius: 6px;
   box-shadow: none;
   backdrop-filter: none;
 }
 
 .side-nav-inner {
-  border: 0;
-  border-left: 2px solid var(--ink);
-  background: transparent;
-  padding: 0.2rem 0 0.2rem 1rem;
+  border: 1px solid var(--dune-line);
+  border-left: 3px solid var(--dune-gold);
+  background: var(--dune-panel);
+  padding: 1rem;
 }
 
 .side-nav a {
   padding: 0.65rem 0;
-  border-top: 1px solid rgba(24,50,71,0.22);
+  border-top: 1px solid rgba(126,211,236,0.18);
+  color: var(--dune-ink);
   font-size: 0.9rem;
+}
+
+.side-nav a:hover {
+  color: var(--dune-beam-soft);
+}
+
+.build-stamp,
+.section-copy,
+.legend-copy,
+.guide-item p,
+.diagram-copy,
+.system-card-copy p:not(.eyebrow),
+.toc-meta,
+.viewer-header p:not(.eyebrow),
+.hwdb-dialog-section p,
+.hwdb-neighborhood-summary,
+.hwdb-neighborhood-note,
+.hwdb-neighborhood-empty,
+.hwdb-graph-node-kind {
+  color: var(--dune-muted);
 }
 
 .toc-section {
@@ -5410,8 +5676,9 @@ a {
 }
 
 .toc-grid {
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
+  border-top: 1px solid var(--dune-line);
+  border-bottom: 1px solid var(--dune-line);
+  background: rgba(9,26,40,0.28);
 }
 
 .toc-entry {
@@ -5419,9 +5686,9 @@ a {
   grid-template-columns: 4rem minmax(7rem, 0.25fr) minmax(13rem, 0.45fr) minmax(12rem, 1fr);
   gap: 1rem;
   align-items: baseline;
-  padding: 0.9rem 0;
-  border-top: 1px solid rgba(24,50,71,0.22);
-  color: var(--ink);
+  padding: 0.9rem 0.8rem;
+  border-top: 1px solid rgba(126,211,236,0.18);
+  color: var(--dune-ink);
   text-decoration: none;
 }
 
@@ -5429,56 +5696,68 @@ a {
   border-top: 0;
 }
 
+.toc-entry:hover {
+  background: rgba(67,198,240,0.08);
+}
+
 .toc-number,
 .system-card-number {
-  color: var(--rose);
-  font-family: "Iowan Old Style", "Palatino Linotype", serif;
+  color: var(--dune-beam);
+  font-family: "Avenir Next Condensed", "Avenir Next", "Helvetica Neue", sans-serif;
   font-size: 2rem;
+  font-weight: 800;
   line-height: 1;
 }
 
 .toc-entry:nth-child(3n+2) .toc-number,
 .system-card:nth-child(3n+2) .system-card-number {
-  color: var(--green);
+  color: var(--dune-green);
 }
 
 .toc-entry:nth-child(3n+3) .toc-number,
 .system-card:nth-child(3n+3) .system-card-number {
-  color: var(--amber);
-}
-
-.toc-kicker {
-  color: var(--ink-soft);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  color: var(--dune-gold);
 }
 
 .toc-title {
-  font-family: "Iowan Old Style", "Palatino Linotype", serif;
+  color: var(--dune-ink);
+  font-family: "Avenir Next", "Helvetica Neue", sans-serif;
   font-size: clamp(1.18rem, 1.6vw, 1.65rem);
+  font-weight: 750;
   line-height: 1.08;
 }
 
-.toc-meta {
-  color: var(--ink-soft);
-  line-height: 1.4;
+.legend-card,
+.guide-card,
+.diagram-card,
+.system-card {
+  border-color: var(--dune-line);
+  background: var(--dune-panel);
 }
 
 .legend-card,
 .guide-card {
-  border: 0;
-  border-top: 1px solid rgba(24,50,71,0.7);
-  border-bottom: 1px solid rgba(24,50,71,0.28);
-  background: rgba(255,255,255,0.22);
-  padding: 1.25rem 0;
+  padding: 1.25rem 1.35rem;
 }
 
 .guide-item {
-  border-radius: 0;
-  background: rgba(255,255,255,0.22);
+  border-color: rgba(126,211,236,0.24);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.045);
 }
+
+.legend-chip {
+  border-radius: 999px;
+  color: #06111b;
+}
+
+.legend-chip.hardware { background: #d9edf7; border-color: #4c8fb0; }
+.legend-chip.electronics { background: #d9f0e5; border-color: #3a8a68; }
+.legend-chip.cable { background: #fff0bf; border-color: #d69a2d; }
+.legend-chip.fiber { background: #ffe3bf; border-color: #c56c2f; }
+.legend-chip.sensor { background: #ffe0e4; border-color: #bf5267; }
+.legend-chip.interface { background: #f4e5c4; border-color: #b48225; }
+.legend-chip.batch { background: #f2e9ff; border-color: #7b5bb4; }
 
 .section-head {
   margin-bottom: 1.1rem;
@@ -5486,19 +5765,14 @@ a {
 }
 
 .section-head h2 {
+  color: var(--dune-ink);
   font-size: clamp(2rem, 4.5vw, 4.8rem);
   line-height: 0.92;
-  letter-spacing: 0;
-}
-
-.diagram-card {
-  border-color: rgba(24,50,71,0.38);
-  background: rgba(255,255,255,0.42);
 }
 
 .diagram-head,
 .system-card-copy {
-  border-bottom-color: rgba(24,50,71,0.22);
+  border-bottom-color: rgba(126,211,236,0.2);
 }
 
 .downloads a,
@@ -5506,14 +5780,24 @@ a {
 .viewer-actions a,
 .viewer-actions button,
 .stage-link {
-  border-radius: 0;
+  color: var(--dune-beam-soft);
+  border-radius: 6px;
 }
 
 .card-actions a,
 .viewer-actions a,
 .viewer-actions button {
-  background: transparent;
-  border-color: rgba(24,50,71,0.36);
+  border-color: rgba(126,211,236,0.3);
+  background: rgba(255,255,255,0.045);
+}
+
+.card-actions a:hover,
+.viewer-actions a:hover,
+.viewer-actions button:hover,
+.viewer-actions button.active {
+  border-color: var(--dune-beam);
+  background: var(--dune-beam);
+  color: #06111b;
 }
 
 .system-card-grid {
@@ -5524,8 +5808,6 @@ a {
   display: grid;
   grid-template-columns: 4rem minmax(18rem, 0.42fr) minmax(0, 1fr);
   grid-template-rows: none;
-  border-color: rgba(24,50,71,0.38);
-  background: rgba(255,255,255,0.34);
 }
 
 .system-card-number {
@@ -5534,11 +5816,12 @@ a {
 }
 
 .system-card-copy {
-  border-right: 1px solid rgba(24,50,71,0.22);
+  border-right: 1px solid rgba(126,211,236,0.2);
   border-bottom: 0;
 }
 
 .system-card h3 {
+  color: var(--dune-ink);
   font-size: clamp(1.45rem, 2.2vw, 2.2rem);
   line-height: 1.05;
 }
@@ -5548,27 +5831,171 @@ a {
 }
 
 .stage-link {
-  background: rgba(255,255,255,0.18);
+  border-color: rgba(126,211,236,0.22);
+  background: rgba(255,255,255,0.035);
 }
 
 .diagram-frame {
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.56), rgba(255,255,255,0.26)),
-    linear-gradient(90deg, rgba(24,50,71,0.08) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(24,50,71,0.08) 1px, transparent 1px);
-  background-size: auto, 24px 24px, 24px 24px;
+    linear-gradient(90deg, rgba(126,211,236,0.08) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(126,211,236,0.08) 1px, transparent 1px),
+    rgba(4,13,22,0.72);
+  background-size: 24px 24px, 24px 24px, auto;
 }
 
 .diagram-object,
 .viewer-object {
-  border-radius: 0;
+  border-radius: 6px;
+  border-color: rgba(126,211,236,0.38);
+  background: #071421;
+}
+
+.compact-hero h1 {
+  color: var(--dune-ink);
+}
+
+.viewer-body {
+  background:
+    linear-gradient(112deg, transparent 0 48%, rgba(67,198,240,0.16) 48.2%, transparent 49.1%),
+    linear-gradient(180deg, #050c15 0%, #071421 62%, #1c1712 100%);
 }
 
 .viewer-header {
-  border: 0;
-  border-top: 3px solid var(--ink);
-  border-bottom: 1px solid rgba(24,50,71,0.48);
-  background: transparent;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--dune-line);
+  border-top: 3px solid var(--dune-gold);
+  background: var(--dune-panel-strong);
+}
+
+.viewer-header h1 {
+  color: var(--dune-ink);
+}
+
+.viewer-frame {
+  border-color: var(--dune-line);
+}
+
+.hwdb-object-link {
+  color: var(--dune-beam-soft);
+}
+
+.hwdb-object-dialog {
+  border-color: var(--dune-line);
+  color: var(--dune-ink);
+  background: var(--dune-panel-strong);
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.48);
+}
+
+.hwdb-object-dialog::backdrop {
+  background: rgba(2, 8, 14, 0.74);
+}
+
+.hwdb-dialog-head,
+.hwdb-dialog-actions {
+  border-color: rgba(126,211,236,0.22);
+  background: rgba(7,20,33,0.92);
+}
+
+.hwdb-dialog-head h2,
+.hwdb-dialog-section h3,
+.hwdb-detail-item span,
+.hwdb-neighborhood-head h3 {
+  color: var(--dune-ink);
+}
+
+.hwdb-dialog-actions button,
+.hwdb-graph-toolbar button {
+  border-color: rgba(126,211,236,0.3);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.055);
+  color: var(--dune-beam-soft);
+}
+
+.hwdb-dialog-actions button:hover,
+.hwdb-graph-toolbar button.active {
+  border-color: var(--dune-beam);
+  background: var(--dune-beam);
+  color: #06111b;
+}
+
+.hwdb-dialog-badge.system { background: #0b4568; }
+.hwdb-dialog-badge.subsystem { background: #247b76; }
+.hwdb-dialog-badge.component { background: #3b865f; }
+.hwdb-dialog-badge.relation { background: #a86f18; }
+.hwdb-dialog-badge.batch { background: #765aa8; }
+.hwdb-dialog-badge.sensor { background: #a94a62; }
+
+.hwdb-detail-item {
+  border-color: rgba(126,211,236,0.24);
+  background: rgba(255,255,255,0.045);
+}
+
+.hwdb-neighborhood-section {
+  border-color: var(--dune-line);
+  background: rgba(255,255,255,0.035);
+}
+
+.hwdb-neighborhood-head {
+  border-bottom-color: rgba(126,211,236,0.2);
+}
+
+.hwdb-neighborhood-frame {
+  background:
+    linear-gradient(90deg, rgba(126,211,236,0.09) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(126,211,236,0.09) 1px, transparent 1px),
+    #081521;
+  background-size: 24px 24px, 24px 24px, auto;
+}
+
+.hwdb-graph-edge,
+.hwdb-graph-edge.hierarchy {
+  stroke: #6ecbe8;
+}
+
+.hwdb-graph-edge.dependency {
+  stroke: #e3a63b;
+}
+
+.hwdb-graph-arrow {
+  fill: #6ecbe8;
+}
+
+.hwdb-graph-edge-label {
+  fill: var(--dune-beam-soft);
+  stroke: #081521;
+}
+
+.hwdb-graph-node rect {
+  fill: #d9edf7;
+  stroke: #4c8fb0;
+}
+
+.hwdb-graph-node.system rect { fill: #bdefff; }
+.hwdb-graph-node.subsystem rect { fill: #d3f5f0; }
+.hwdb-graph-node.component rect { fill: #d9f0e5; }
+.hwdb-graph-node.batch rect { fill: #f2e9ff; }
+.hwdb-graph-node.sensor rect { fill: #ffe0e4; }
+.hwdb-graph-node.relation rect { fill: #fff0bf; }
+
+.hwdb-graph-node.focus rect {
+  fill: #fff3cf;
+  stroke: var(--dune-gold);
+}
+
+.hwdb-graph-node-label,
+.hwdb-graph-node-kind {
+  fill: #06111b;
+}
+
+.hwdb-mini-table th,
+.hwdb-mini-table td {
+  border-bottom-color: rgba(126,211,236,0.18);
+}
+
+.hwdb-mini-table th {
+  background: rgba(67,198,240,0.11);
+  color: var(--dune-beam-soft);
 }
 
 @media (max-width: 980px) {
@@ -5583,8 +6010,14 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .masthead-line span:nth-child(2),
-  .masthead-line span:nth-child(3) {
+  .masthead-brand,
+  .system-hero-kicker {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .masthead-line > span:nth-child(2),
+  .masthead-line > span:nth-child(3) {
     text-align: left;
   }
 
@@ -5607,7 +6040,7 @@ a {
 
   .system-card-copy {
     border-right: 0;
-    border-bottom: 1px solid rgba(24,50,71,0.22);
+    border-bottom: 1px solid rgba(126,211,236,0.2);
   }
 
   .viewer-actions {
@@ -5728,29 +6161,29 @@ def to_detector_graphviz(conn: sqlite3.Connection, detector: str) -> str:
         '    overlap=false,',
         '    newrank=true,',
         '    compound=true,',
-        '    bgcolor="#f4efe6",',
+        '    bgcolor="#071421",',
         '    pad="0.45",',
         '    nodesep="0.42",',
         '    ranksep="0.78",',
         f'    label="{dot_escape(title)}",',
         '    labelloc="t",',
         '    labeljust="l",',
-        '    fontname="Iowan Old Style",',
+        '    fontname="Avenir Next",',
         '    fontsize=30,',
-        '    fontcolor="#183247"',
+        '    fontcolor="#edf8ff"',
         "  ];",
         '  node [fontname="Avenir Next", fontsize=11, margin="0.16,0.11", penwidth=1.2];',
-        '  edge [fontname="Avenir Next", fontsize=9, arrowsize=0.74, penwidth=1.1, color="#33536a", fontcolor="#33536a"];',
+        '  edge [fontname="Avenir Next", fontsize=9, arrowsize=0.74, penwidth=1.1, color="#6ecbe8", fontcolor="#bdefff"];',
         "",
         "  subgraph cluster_context {",
         f'    label="{dot_escape(detector + " Context")}";',
         '    style="rounded,filled";',
-        '    color="#b79d7c";',
-        '    fillcolor="#fbf7f0";',
+        '    color="#c89a45";',
+        '    fillcolor="#171f23";',
         '    penwidth=1.1;',
         '    fontname="Avenir Next";',
         '    fontsize=14;',
-        '    fontcolor="#5a4634";',
+        '    fontcolor="#ffe3aa";',
     ]
 
     for key in sorted(context_nodes):
@@ -5774,12 +6207,12 @@ def to_detector_graphviz(conn: sqlite3.Connection, detector: str) -> str:
                 f"  subgraph cluster_{dot_id(system_row['key'])} {{",
                 f'    label="{dot_escape(system_row["name"])}";',
                 '    style="rounded,filled";',
-                '    color="#b59f86";',
-                '    fillcolor="#fffaf2";',
+                '    color="#456174";',
+                '    fillcolor="#0f2434";',
                 '    penwidth=1.2;',
                 '    fontname="Avenir Next";',
                 '    fontsize=15;',
-                '    fontcolor="#4f3f31";',
+                '    fontcolor="#e8f7ff";',
                 *dot_cluster_click_lines(system_row["key"], system_row["name"]),
                 f'    {dot_id(system_row["key"])} [{dot_node_attrs(all_nodes[system_row["key"]], system_root=True)}];',
             ]
@@ -5792,12 +6225,12 @@ def to_detector_graphviz(conn: sqlite3.Connection, detector: str) -> str:
                     f"    subgraph cluster_{dot_id(subsystem_key)} {{",
                     f'      label="{dot_escape(all_nodes[subsystem_key]["label"])}";',
                     '      style="rounded,filled";',
-                    '      color="#d4c6b4";',
-                    '      fillcolor="#fffdf9";',
+                    '      color="#2f4c61";',
+                    '      fillcolor="#112c3d";',
                     '      penwidth=1.0;',
                     '      fontname="Avenir Next";',
                     '      fontsize=12;',
-                    '      fontcolor="#6a5640";',
+                    '      fontcolor="#cfefff";',
                     *dot_cluster_click_lines(subsystem_key, all_nodes[subsystem_key]["label"]),
                 ]
             )
@@ -5887,20 +6320,20 @@ def detector_bridge_relations(detector: str) -> list[dict[str, Any]]:
     if detector != "FD2-VD":
         return []
     return [
-        {"source": "context.fd2_vd.detector", "target": "context.fd2_vd.superstructure", "attrs": {"color": "#274c67", "penwidth": "1.4"}},
-        {"source": "context.fd2_vd.detector", "target": "fd2_vd_hv_cathode", "attrs": {"color": "#274c67", "penwidth": "1.4"}},
-        {"source": "context.fd2_vd.detector", "target": "context.fd2_vd.field_cage", "attrs": {"color": "#274c67", "penwidth": "1.4"}},
-        {"source": "context.fd2_vd.detector", "target": "context.fd2_vd.daq", "attrs": {"color": "#274c67", "penwidth": "1.4"}},
-        {"source": "context.fd2_vd.superstructure", "target": "fd2_vd_top_crp", "attrs": {"color": "#274c67", "penwidth": "1.4"}},
-        {"source": "context.fd2_vd.superstructure", "target": "fd2_vd_ci", "attrs": {"color": "#274c67", "penwidth": "1.4"}},
-        {"source": "fd2_vd_top_crp", "target": "fd2_vd_tde", "attrs": {"color": "#1f6f8b", "fontcolor": "#1f6f8b", "style": "dashed", "label": "interface"}},
-        {"source": "fd2_vd_top_crp", "target": "context.fd2_vd.bde", "attrs": {"color": "#1f6f8b", "fontcolor": "#1f6f8b", "style": "dashed", "label": "interface"}},
-        {"source": "fd2_vd_tde", "target": "context.fd2_vd.daq", "attrs": {"color": "#356c53", "fontcolor": "#356c53", "style": "dashed", "label": "readout"}},
-        {"source": "fd2_vd_hv_cathode", "target": "context.fd2_vd.pds_cathode", "attrs": {"color": "#274c67", "penwidth": "1.4"}},
-        {"source": "context.fd2_vd.field_cage", "target": "context.fd2_vd.pds_membrane", "attrs": {"color": "#274c67", "penwidth": "1.4"}},
-        {"source": "context.fd2_vd.pds_cathode", "target": "context.fd2_vd.bde", "attrs": {"color": "#1f6f8b", "fontcolor": "#1f6f8b", "style": "dashed", "label": "interface"}},
-        {"source": "context.fd2_vd.pds_membrane", "target": "context.fd2_vd.bde", "attrs": {"color": "#1f6f8b", "fontcolor": "#1f6f8b", "style": "dashed", "label": "interface"}},
-        {"source": "fd2_vd_hv_cathode", "target": "context.fd2_vd.field_cage", "attrs": {"color": "#1f6f8b", "fontcolor": "#1f6f8b", "style": "dashed", "label": "interface"}},
+        {"source": "context.fd2_vd.detector", "target": "context.fd2_vd.superstructure", "attrs": {"color": "#6ecbe8", "penwidth": "1.4"}},
+        {"source": "context.fd2_vd.detector", "target": "fd2_vd_hv_cathode", "attrs": {"color": "#6ecbe8", "penwidth": "1.4"}},
+        {"source": "context.fd2_vd.detector", "target": "context.fd2_vd.field_cage", "attrs": {"color": "#6ecbe8", "penwidth": "1.4"}},
+        {"source": "context.fd2_vd.detector", "target": "context.fd2_vd.daq", "attrs": {"color": "#6ecbe8", "penwidth": "1.4"}},
+        {"source": "context.fd2_vd.superstructure", "target": "fd2_vd_top_crp", "attrs": {"color": "#6ecbe8", "penwidth": "1.4"}},
+        {"source": "context.fd2_vd.superstructure", "target": "fd2_vd_ci", "attrs": {"color": "#6ecbe8", "penwidth": "1.4"}},
+        {"source": "fd2_vd_top_crp", "target": "fd2_vd_tde", "attrs": {"color": "#40c7f0", "fontcolor": "#9ee8ff", "style": "dashed", "label": "interface"}},
+        {"source": "fd2_vd_top_crp", "target": "context.fd2_vd.bde", "attrs": {"color": "#40c7f0", "fontcolor": "#9ee8ff", "style": "dashed", "label": "interface"}},
+        {"source": "fd2_vd_tde", "target": "context.fd2_vd.daq", "attrs": {"color": "#5eb98c", "fontcolor": "#a7e3c3", "style": "dashed", "label": "readout"}},
+        {"source": "fd2_vd_hv_cathode", "target": "context.fd2_vd.pds_cathode", "attrs": {"color": "#6ecbe8", "penwidth": "1.4"}},
+        {"source": "context.fd2_vd.field_cage", "target": "context.fd2_vd.pds_membrane", "attrs": {"color": "#6ecbe8", "penwidth": "1.4"}},
+        {"source": "context.fd2_vd.pds_cathode", "target": "context.fd2_vd.bde", "attrs": {"color": "#40c7f0", "fontcolor": "#9ee8ff", "style": "dashed", "label": "interface"}},
+        {"source": "context.fd2_vd.pds_membrane", "target": "context.fd2_vd.bde", "attrs": {"color": "#40c7f0", "fontcolor": "#9ee8ff", "style": "dashed", "label": "interface"}},
+        {"source": "fd2_vd_hv_cathode", "target": "context.fd2_vd.field_cage", "attrs": {"color": "#40c7f0", "fontcolor": "#9ee8ff", "style": "dashed", "label": "interface"}},
     ]
 
 
@@ -5939,14 +6372,14 @@ def class_name_for_node(node: dict[str, Any]) -> str:
 
 def style_lines() -> list[str]:
     return [
-        "  classDef system fill:#1f4b6e,stroke:#1f4b6e,color:#ffffff;",
-        "  classDef hardware fill:#dceaf7,stroke:#4f6d7a,color:#111111;",
-        "  classDef electronics fill:#e7f4e4,stroke:#4f772d,color:#111111;",
-        "  classDef cable fill:#fff3cd,stroke:#8a6d3b,color:#111111;",
-        "  classDef fiber fill:#fde2b7,stroke:#b35c00,color:#111111;",
-        "  classDef sensor fill:#f8d7da,stroke:#8c2f39,color:#111111;",
-        "  classDef batch fill:#efe3f7,stroke:#6f42c1,color:#111111;",
-        "  classDef interface fill:#f4e1c1,stroke:#9a6700,color:#111111;",
+        "  classDef system fill:#08243a,stroke:#58c7e8,color:#ffffff;",
+        "  classDef hardware fill:#d9edf7,stroke:#4c8fb0,color:#0d2b3d;",
+        "  classDef electronics fill:#d9f0e5,stroke:#3a8a68,color:#0b2f25;",
+        "  classDef cable fill:#fff0bf,stroke:#d69a2d,color:#3f2a08;",
+        "  classDef fiber fill:#ffe3bf,stroke:#c56c2f,color:#4a260b;",
+        "  classDef sensor fill:#ffe0e4,stroke:#bf5267,color:#4b1622;",
+        "  classDef batch fill:#f2e9ff,stroke:#7b5bb4,color:#2b2445;",
+        "  classDef interface fill:#f4e5c4,stroke:#b48225,color:#4b3307;",
     ]
 
 
