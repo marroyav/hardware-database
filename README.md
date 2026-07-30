@@ -53,6 +53,43 @@ That folder is intentionally ignored by git, so the original `.docx`, `.pptx`, a
 
 ## Operating Workflow
 
+### DAPHNE enrollment staging database
+
+The repository also contains a small instance-level staging database for
+DAPHNE carrier assets, replaceable Kria K26 SOMs, network assignments, and
+enrollment QA/QC records. It follows the DUNE HWDB concepts of component
+types, item specifications, test types, and functional-position connectors,
+but it does not contact the live HWDB or invent DUNE PIDs.
+
+```bash
+make daphne-staging
+make daphne-validate
+make daphne-export
+```
+
+The generated review package is written to
+`build/daphne-hwdb-export/`. See
+[`docs/daphne-staging-database.md`](docs/daphne-staging-database.md) for the
+data model, enrollment procedure, and HWDB handoff boundary.
+
+### DAPHNE production enrollment
+
+The database-neutral production workflow is separate from the provisional
+HWDB adapter. It provides versioned JSON contracts, ordered SQLite/PostgreSQL
+migrations, immutable assignment records, append-only evidence, resumable
+lifecycle operations, and a released QA recipe:
+
+```bash
+make production-migrate
+make production-test
+make production-validate
+python3 tools/daphne_production_cli.py --help
+```
+
+Use [`docs/daphne-production-workflow.md`](docs/daphne-production-workflow.md)
+for the state machine, command sequence, database selection, and 200-board
+campaign boundary.
+
 ### 1. Normal build from the TOML model
 
 ```bash

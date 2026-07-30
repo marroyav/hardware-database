@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dunedaq.org/schemas/daphne-production/v1/inventory-record.schema.json",
+  "title": "DAPHNE production inventory record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "version", "asset_id", "carrier_revision", "lifecycle_state", "record_revision"],
+  "properties": {
+    "contract": {"const": "daphne.inventory-record"},
+    "version": {"const": 1},
+    "asset_id": {"type": "string", "minLength": 1},
+    "carrier_serial": {"type": ["string", "null"]},
+    "carrier_revision": {"type": "string", "minLength": 1},
+    "lifecycle_state": {
+      "enum": ["received", "discovered", "allocated", "provisioned", "qa_running", "qa_passed", "released", "quarantined", "service", "retired"]
+    },
+    "record_revision": {"type": "integer", "minimum": 1},
+    "active_som_uuid": {"type": ["string", "null"], "format": "uuid"},
+    "resume_state": {"type": ["string", "null"]},
+    "assignment": {
+      "anyOf": [
+        {"type": "null"},
+        {"$ref": "assignment.schema.json"}
+      ]
+    },
+    "updated_at": {"type": "string", "format": "date-time"}
+  }
+}

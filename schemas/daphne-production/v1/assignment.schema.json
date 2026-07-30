@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dunedaq.org/schemas/daphne-production/v1/assignment.schema.json",
+  "title": "DAPHNE production assignment v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "version", "asset_id", "assignment_revision", "mac_source", "production_mac", "ipv4_address", "hostname", "timing_endpoint", "firmware_release", "network_authorized"],
+  "properties": {
+    "contract": {"const": "daphne.assignment"},
+    "version": {"const": 1},
+    "asset_id": {"type": "string", "minLength": 1},
+    "assignment_revision": {"type": "integer", "minimum": 1},
+    "mac_source": {"enum": ["som_eeprom", "daphne_pool", "legacy_override"]},
+    "production_mac": {"type": "string", "pattern": "^(?:[0-9a-f]{2}:){5}[0-9a-f]{2}$"},
+    "ipv4_address": {"type": "string", "format": "ipv4"},
+    "hostname": {"type": "string", "minLength": 1},
+    "vlan": {"type": ["integer", "null"], "minimum": 1, "maximum": 4094},
+    "timing_endpoint": {"type": "string", "minLength": 1},
+    "firmware_release": {"type": "string", "minLength": 1},
+    "network_authorized": {"type": "boolean"}
+  }
+}

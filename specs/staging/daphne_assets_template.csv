@@ -1,0 +1,2 @@
+asset_id,carrier_serial_number,carrier_hardware_revision,schematic_reference,country_code,institution_id,location,state,comments
+NP04-DAPHNE-015,,DAPHNE V2,DAPHNE_Mezz_V2_Schematic.pdf,US,0,NP04,pending,Example row; replace with the authoritative carrier asset list

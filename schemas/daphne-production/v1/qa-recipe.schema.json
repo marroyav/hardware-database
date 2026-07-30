@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dunedaq.org/schemas/daphne-production/v1/qa-recipe.schema.json",
+  "title": "DAPHNE QA recipe v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "version", "recipe_id", "recipe_version", "release_pattern", "tests"],
+  "properties": {
+    "contract": {"const": "daphne.qa-recipe"},
+    "version": {"const": 1},
+    "recipe_id": {"type": "string", "minLength": 1},
+    "recipe_version": {"type": "integer", "minimum": 1},
+    "release_pattern": {"type": "string", "minLength": 1},
+    "tests": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["test_id", "required", "description"],
+        "properties": {
+          "test_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+          "required": {"type": "boolean"},
+          "description": {"type": "string", "minLength": 1},
+          "minimum_passes": {"type": "integer", "minimum": 1, "default": 1}
+        }
+      }
+    }
+  }
+}

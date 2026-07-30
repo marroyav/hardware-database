@@ -1,0 +1,50 @@
+{
+  "contract": "daphne.qa-recipe",
+  "version": 1,
+  "recipe_id": "daphne-production-qa",
+  "recipe_version": 1,
+  "release_pattern": "^daphne-[A-Za-z0-9._-]+$",
+  "tests": [
+    {
+      "test_id": "identity_chain",
+      "required": true,
+      "description": "EEPROM, U-Boot, working device tree, and Linux report the assigned identity."
+    },
+    {
+      "test_id": "artifact_integrity",
+      "required": true,
+      "description": "Installed FPGA, boot, overlay, and runtime artifacts match the release manifest."
+    },
+    {
+      "test_id": "cold_boot",
+      "required": true,
+      "minimum_passes": 3,
+      "description": "The board completes three independent cold boots with persistent identity."
+    },
+    {
+      "test_id": "fpga_register_access",
+      "required": true,
+      "description": "The production application can identify and access the programmed FPGA design."
+    },
+    {
+      "test_id": "timing_lock",
+      "required": true,
+      "description": "Timing locks with the assigned endpoint and remains stable for the recipe interval."
+    },
+    {
+      "test_id": "management_network",
+      "required": true,
+      "description": "The isolated QA network observes the assigned MAC, IP, and hostname."
+    },
+    {
+      "test_id": "frontend_connectivity",
+      "required": true,
+      "description": "Configured front-end and data links pass the released functional test."
+    },
+    {
+      "test_id": "stability_soak",
+      "required": true,
+      "description": "Temperatures, current, timing, and links remain within released limits during soak."
+    }
+  ]
+}

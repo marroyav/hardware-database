@@ -1,0 +1,68 @@
+[[assets]]
+asset_id = "NP04-DAPHNE-015"
+carrier_serial_number = ""
+carrier_hardware_revision = "DAPHNE V2"
+schematic_reference = "DAPHNE_Mezz_V2_Schematic.pdf"
+country_code = "US"
+institution_id = 0
+location = "NP04"
+state = "observed"
+comments = "Read-only field observation; not yet a production-qualified HWDB record."
+
+[[soms]]
+som_uuid = "70c5439d-de29-4263-8066-99627ad4ae5e"
+som_serial_number = "XFL1YQLNWT4C"
+som_product_name = "SM-K26-XCL2GC-ED"
+som_hardware_revision = "5057-02ED"
+factory_mac_id_0 = "00:0a:35:0e:9b:63"
+fru_checksum_valid = true
+eeprom_sha256 = ""
+comments = "Decoded directly from the K26 EEPROM at 0x50."
+
+[[installations]]
+asset_id = "NP04-DAPHNE-015"
+som_uuid = "70c5439d-de29-4263-8066-99627ad4ae5e"
+installed_at = "2026-07-14T18:30:00Z"
+station_id = "np04-onl-004"
+comments = "Observed installed SOM; physical installation time is not known."
+
+[[deployments]]
+asset_id = "NP04-DAPHNE-015"
+mac_source = "legacy_override"
+production_mac = "ba:be:ba:d1:cc:ff"
+ipv4_address = "10.73.137.16"
+hostname = "NP04-DAPHNE-015.CERN.CH"
+timing_endpoint = "0x15"
+firmware_release = "legacy-observed-image"
+uboot_ethaddr = "ba:be:ba:d1:cc:ff"
+fdt_mac = "02:00:00:00:00:20"
+linux_active_mac = "ba:be:ba:d1:cc:ff"
+network_admission_approved = false
+boot_chain_passed = false
+station_id = "np04-onl-004"
+observed_at = "2026-07-14T18:30:00Z"
+comments = "Observed configuration. FDT does not yet match U-Boot, so this is deliberately not marked production-qualified."
+
+[[qa_events]]
+asset_id = "NP04-DAPHNE-015"
+som_uuid = "70c5439d-de29-4263-8066-99627ad4ae5e"
+event_type = "eeprom_identity_inspection"
+passed = true
+station_id = "np04-onl-004"
+operator = "marroyav"
+observed_at = "2026-07-14T18:30:00Z"
+evidence_uri = ""
+data_json = '{"fru_checksum_valid":true,"identity_matches_item":true,"factory_mac_id_0":"00:0a:35:0e:9b:63"}'
+comments = "Direct read from /sys/bus/nvmem/devices/1-005018/nvmem after the Keithley power cycle."
+
+[[qa_events]]
+asset_id = "NP04-DAPHNE-015"
+som_uuid = "70c5439d-de29-4263-8066-99627ad4ae5e"
+event_type = "production_network_enrollment"
+passed = false
+station_id = "np04-onl-004"
+operator = "marroyav"
+observed_at = "2026-07-14T18:30:00Z"
+evidence_uri = ""
+data_json = '{"network_admission_approved":false,"boot_chain_passed":false,"reason":"U-Boot, working FDT, and Linux do not yet carry one authoritative MAC"}'
+comments = "Observation only. This deliberately records a failed production invariant rather than approving the legacy configuration."

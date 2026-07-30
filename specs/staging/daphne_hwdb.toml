@@ -1,0 +1,215 @@
+[hwdb]
+project_id = "D"
+system_id = "TBD_HWDB"
+system_name = "Photon Detection System"
+subsystem_id = "TBD_HWDB"
+subsystem_name = "DAPHNE Readout"
+country_code = "US"
+institution_id = 0
+notes = "The HWDB architect must confirm the system, subsystem, institution, manufacturer, role, and component-type IDs. This staging model never allocates a DUNE PID."
+
+[[component_types]]
+key = "daphne_board"
+name = "DAPHNE Board Assembly"
+category = "electronics"
+comments = "Physical DAPHNE carrier/board asset. The installed Kria SOM is a replaceable subcomponent."
+
+  [[component_types.fields]]
+  key = "daphne_asset_id"
+  hwdb_name = "DAPHNE Asset ID"
+  data_type = "string"
+  required = true
+  description = "Consortium asset label scanned by the enrollment station."
+
+  [[component_types.fields]]
+  key = "carrier_serial_number"
+  hwdb_name = "Carrier Serial Number"
+  data_type = "string"
+  required = false
+  description = "DAPHNE carrier serial number, when present on the physical label."
+
+  [[component_types.fields]]
+  key = "carrier_hardware_revision"
+  hwdb_name = "Carrier Hardware Revision"
+  data_type = "string"
+  required = true
+  description = "Controlled DAPHNE carrier revision, verified against the physical board and released schematic."
+
+  [[component_types.fields]]
+  key = "schematic_reference"
+  hwdb_name = "Schematic Reference"
+  data_type = "string"
+  required = false
+  description = "Released drawing or EDMS reference for the carrier revision."
+
+  [[component_types.connectors]]
+  functional_position = "Kria SOM"
+  target_type_key = "kria_k26_som"
+  description = "Currently installed and replaceable K26 SOM."
+
+[[component_types]]
+key = "kria_k26_som"
+name = "Kria K26 SOM"
+category = "electronics"
+comments = "AMD/Xilinx K26 SOM identified from its factory-programmed FRU EEPROM at I2C address 0x50."
+
+  [[component_types.fields]]
+  key = "som_uuid"
+  hwdb_name = "SOM UUID"
+  data_type = "string"
+  required = true
+  description = "Factory UUID decoded from the K26 FRU EEPROM."
+
+  [[component_types.fields]]
+  key = "som_serial_number"
+  hwdb_name = "SOM Serial Number"
+  data_type = "string"
+  required = true
+  description = "Factory SOM serial decoded from the K26 FRU EEPROM."
+
+  [[component_types.fields]]
+  key = "som_product_name"
+  hwdb_name = "SOM Product Name"
+  data_type = "string"
+  required = true
+  description = "Factory product name decoded from the K26 FRU EEPROM."
+
+  [[component_types.fields]]
+  key = "som_hardware_revision"
+  hwdb_name = "SOM Hardware Revision"
+  data_type = "string"
+  required = false
+  description = "Factory SOM revision decoded from the FRU record."
+
+  [[component_types.fields]]
+  key = "factory_mac_id_0"
+  hwdb_name = "Factory MAC ID 0"
+  data_type = "string"
+  required = true
+  description = "Valid primary PS Ethernet MAC from the AMD/Xilinx EEPROM OEM record."
+
+[[test_types]]
+key = "eeprom_identity_inspection"
+component_type_key = "kria_k26_som"
+name = "K26 EEPROM Identity Inspection"
+comments = "One-time or repeated read-only validation of the factory FRU identity."
+
+  [[test_types.fields]]
+  key = "fru_checksum_valid"
+  hwdb_name = "FRU Checksum Valid"
+  data_type = "boolean"
+  required = true
+
+  [[test_types.fields]]
+  key = "identity_matches_item"
+  hwdb_name = "Identity Matches Item"
+  data_type = "boolean"
+  required = true
+
+  [[test_types.fields]]
+  key = "eeprom_sha256"
+  hwdb_name = "EEPROM Dump SHA256"
+  data_type = "string"
+  required = false
+
+  [[test_types.fields]]
+  key = "station_id"
+  hwdb_name = "Enrollment Station ID"
+  data_type = "string"
+  required = true
+
+  [[test_types.fields]]
+  key = "observed_at"
+  hwdb_name = "Observed At UTC"
+  data_type = "datetime"
+  required = true
+[[test_types]]
+key = "production_network_enrollment"
+component_type_key = "daphne_board"
+name = "DAPHNE Production Network Enrollment"
+comments = "Approved network identity and end-to-end boot-chain verification for one DAPHNE asset."
+
+  [[test_types.fields]]
+  key = "mac_source"
+  hwdb_name = "MAC Source"
+  data_type = "string"
+  required = true
+  description = "som_eeprom, daphne_pool, or a documented legacy override during migration."
+
+  [[test_types.fields]]
+  key = "production_mac"
+  hwdb_name = "Production MAC"
+  data_type = "string"
+  required = true
+
+  [[test_types.fields]]
+  key = "ipv4_address"
+  hwdb_name = "IPv4 Address"
+  data_type = "string"
+  required = true
+
+  [[test_types.fields]]
+  key = "hostname"
+  hwdb_name = "Hostname"
+  data_type = "string"
+  required = true
+
+  [[test_types.fields]]
+  key = "vlan"
+  hwdb_name = "VLAN"
+  data_type = "integer"
+  required = false
+
+  [[test_types.fields]]
+  key = "timing_endpoint"
+  hwdb_name = "Timing Endpoint"
+  data_type = "string"
+  required = true
+
+  [[test_types.fields]]
+  key = "firmware_release"
+  hwdb_name = "Firmware Release"
+  data_type = "string"
+  required = true
+
+  [[test_types.fields]]
+  key = "uboot_ethaddr"
+  hwdb_name = "U-Boot ethaddr"
+  data_type = "string"
+  required = true
+
+  [[test_types.fields]]
+  key = "fdt_mac"
+  hwdb_name = "Working FDT MAC"
+  data_type = "string"
+  required = true
+
+  [[test_types.fields]]
+  key = "linux_active_mac"
+  hwdb_name = "Linux Active MAC"
+  data_type = "string"
+  required = true
+
+  [[test_types.fields]]
+  key = "network_admission_approved"
+  hwdb_name = "Network Admission Approved"
+  data_type = "boolean"
+  required = true
+
+  [[test_types.fields]]
+  key = "boot_chain_passed"
+  hwdb_name = "Boot Chain Passed"
+  data_type = "boolean"
+  required = true
+
+  [[test_types.fields]]
+  key = "station_id"
+  hwdb_name = "Enrollment Station ID"
+  data_type = "string"
+  required = true
+
+  [[test_types.fields]]
+  key = "observed_at"
+  hwdb_name = "Observed At UTC"
+  data_type = "datetime"
+  required = true

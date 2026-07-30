@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dunedaq.org/schemas/daphne-production/v1/board-config.schema.json",
+  "title": "DAPHNE board configuration snapshot v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "version", "asset", "som", "network", "runtime", "source"],
+  "properties": {
+    "contract": {"const": "daphne.board-config"},
+    "version": {"const": 1},
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["asset_id", "carrier_revision"],
+      "properties": {
+        "asset_id": {"type": "string", "minLength": 1},
+        "carrier_revision": {"type": "string", "minLength": 1}
+      }
+    },
+    "som": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["uuid", "serial", "product", "factory_mac_id_0"],
+      "properties": {
+        "uuid": {"type": "string", "format": "uuid"},
+        "serial": {"type": "string", "minLength": 1},
+        "product": {"type": "string", "minLength": 1},
+        "factory_mac_id_0": {"type": "string", "pattern": "^(?:[0-9a-f]{2}:){5}[0-9a-f]{2}$"}
+      }
+    },
+    "network": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mac_source", "production_mac", "ipv4_address", "hostname", "vlan", "authorized"],
+      "properties": {
+        "mac_source": {"enum": ["som_eeprom", "daphne_pool", "legacy_override"]},
+        "production_mac": {"type": "string"},
+        "ipv4_address": {"type": "string", "format": "ipv4"},
+        "hostname": {"type": "string"},
+        "vlan": {"type": ["integer", "null"]},
+        "authorized": {"type": "boolean"}
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["timing_endpoint", "firmware_release"],
+      "properties": {
+        "timing_endpoint": {"type": "string"},
+        "firmware_release": {"type": "string"}
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assignment_revision", "asset_record_revision"],
+      "properties": {
+        "assignment_revision": {"type": "integer", "minimum": 1},
+        "asset_record_revision": {"type": "integer", "minimum": 1}
+      }
+    }
+  }
+}
