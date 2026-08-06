@@ -92,6 +92,38 @@ The CSV columns are `asset_id`, `carrier_serial`, and `carrier_revision`.
 
 ### 2. Discover and bind the K26 SOM
 
+The station must read the SOM EEPROM directly instead of transcribing identity
+fields. On Linux, the K26 SOM EEPROM is exposed at I2C address `0x50`; with the
+standard at24 sysfs binding this is usually
+`/sys/bus/i2c/devices/<bus>-0050/eeprom`.
+
+Decode a saved dump:
+
+```bash
+python3 tools/daphne_production_cli.py eeprom-decode \
+  --input /evidence/RUN/som-eeprom.bin \
+  --asset-id DAPHNE-ASSET \
+  --operation-id RUN:discover --station-id station-01 --operator OPERATOR \
+  --discover-command
+```
+
+Or read from the station bus and copy the raw 8192-byte dump to evidence
+storage:
+
+```bash
+python3 tools/daphne_production_cli.py eeprom-decode \
+  --i2c-bus 1 \
+  --dump-output /evidence/RUN/som-eeprom.bin \
+  --asset-id DAPHNE-ASSET \
+  --operation-id RUN:discover --station-id station-01 --operator OPERATOR \
+  --discover-command
+```
+
+The decoder validates the IPMI FRU checksums, extracts the SOM UUID, serial,
+product, revision, and MAC ID 0, and renders the exact `discover` arguments.
+Do not run `discover` from a dump with invalid checksums. Use
+`--allow-invalid-checksums` only to produce quarantine diagnostics.
+
 ```bash
 python3 tools/daphne_production_cli.py discover \
   --asset-id DAPHNE-ASSET \

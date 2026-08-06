@@ -6,11 +6,19 @@ import argparse
 import json
 import sqlite3
 import sys
+import shlex
 from pathlib import Path
 from typing import Any
 
 from .database import DEFAULT_DATABASE_URL, Database
 from .errors import ProductionError
+from .k26_eeprom import (
+    DEFAULT_I2C_ADDRESS,
+    build_discover_args,
+    decode_k26_som_eeprom,
+    read_eeprom_bytes,
+    sysfs_eeprom_path,
+)
 from .service import ProductionService
 from .values import canonical_json
 
@@ -59,6 +67,38 @@ def build_parser() -> argparse.ArgumentParser:
     commands = parser.add_subparsers(dest="command", required=True)
 
     commands.add_parser("migrate", help="Apply ordered production database migrations")
+
+    eeprom = commands.add_parser(
+        "eeprom-decode",
+        help="Decode a Kria K26 SOM EEPROM dump for discover",
+    )
+    eeprom_source = eeprom.add_mutually_exclusive_group(required=True)
+    eeprom_source.add_argument("--input", type=Path, help="Raw 8192-byte EEPROM dump")
+    eeprom_source.add_argument(
+        "--sysfs-eeprom",
+        type=Path,
+        help="Linux at24 sysfs EEPROM file, for example /sys/bus/i2c/devices/1-0050/eeprom",
+    )
+    eeprom_source.add_argument("--i2c-bus", type=int, help="Linux I2C bus exposing address 0x50")
+    eeprom.add_argument("--i2c-address", type=lambda value: int(value, 0), default=DEFAULT_I2C_ADDRESS)
+    eeprom.add_argument("--dump-output", type=Path, help="Copy the raw EEPROM bytes to evidence storage")
+    eeprom.add_argument(
+        "--allow-invalid-checksums",
+        action="store_true",
+        help="Decode for quarantine diagnostics instead of failing closed",
+    )
+    eeprom.add_argument("--asset-id", help="Include the scanned carrier asset in rendered discover args")
+    eeprom.add_argument("--observed-at")
+    eeprom.add_argument("--operation-id")
+    eeprom.add_argument("--station-id")
+    eeprom.add_argument("--operator")
+    eeprom.add_argument("--evidence-uri")
+    eeprom.add_argument("--evidence-sha256")
+    eeprom.add_argument(
+        "--discover-command",
+        action="store_true",
+        help="Also emit a shell-quoted daphne_production_cli.py discover command",
+    )
 
     asset = commands.add_parser("asset-add", help="Create one authoritative carrier asset")
     asset.add_argument("--asset-id", required=True)
@@ -189,11 +229,16 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
-    service = ProductionService(Database(args.database_url))
     try:
         if args.command == "migrate":
+            service = ProductionService(Database(args.database_url))
             print(json.dumps({"applied_migrations": service.migrate()}, indent=2))
             return 0
+        if args.command == "eeprom-decode":
+            result = _decode_eeprom_command(args)
+            print(json.dumps(result, indent=2, sort_keys=True))
+            return 0
+        service = ProductionService(Database(args.database_url))
         service.database.require_ready()
         actor = {
             "operation_id": getattr(args, "operation_id", None),
@@ -328,3 +373,59 @@ def main(argv: list[str] | None = None) -> int:
     except (ProductionError, sqlite3.Error, OSError, ValueError, KeyError, json.JSONDecodeError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2
+
+
+def _decode_eeprom_command(args: argparse.Namespace) -> dict[str, Any]:
+    source_path = args.input or args.sysfs_eeprom
+    source: dict[str, Any]
+    if args.i2c_bus is not None:
+        source_path = sysfs_eeprom_path(args.i2c_bus, args.i2c_address)
+        source = {
+            "kind": "linux-sysfs-i2c",
+            "i2c_bus": args.i2c_bus,
+            "i2c_address": f"0x{args.i2c_address:02x}",
+            "path": str(source_path),
+        }
+    elif args.sysfs_eeprom is not None:
+        source = {"kind": "linux-sysfs-eeprom", "path": str(source_path)}
+    else:
+        source = {"kind": "file", "path": str(source_path)}
+
+    assert source_path is not None
+    data = read_eeprom_bytes(source_path)
+    decoded = decode_k26_som_eeprom(
+        data,
+        allow_invalid_checksums=args.allow_invalid_checksums,
+    )
+
+    if args.dump_output:
+        args.dump_output.parent.mkdir(parents=True, exist_ok=True)
+        args.dump_output.write_bytes(data)
+        source["dump_output"] = str(args.dump_output)
+        decoded.setdefault("evidence", {})["dump_uri"] = str(args.dump_output)
+        decoded["evidence"]["dump_sha256"] = decoded["eeprom"]["sha256"]
+
+    rendered_evidence_sha = args.evidence_sha256
+    if not rendered_evidence_sha and args.dump_output:
+        rendered_evidence_sha = decoded["eeprom"]["sha256"]
+
+    if decoded["eeprom"]["fru_checksum_valid"]:
+        discover_args = build_discover_args(
+            decoded,
+            asset_id=args.asset_id,
+            observed_at=args.observed_at,
+            operation_id=args.operation_id,
+            station_id=args.station_id,
+            operator=args.operator,
+            evidence_uri=args.evidence_uri or (str(args.dump_output) if args.dump_output else None),
+            evidence_sha256=rendered_evidence_sha,
+        )
+        decoded["discover_args"] = discover_args
+        if args.discover_command:
+            decoded["discover_command"] = " ".join(
+                ["python3", "tools/daphne_production_cli.py", "discover"]
+                + [shlex.quote(part) for part in discover_args]
+            )
+
+    decoded["source"] = source
+    return decoded
